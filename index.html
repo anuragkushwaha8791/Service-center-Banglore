@@ -1,82 +1,94 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Service center Banglore</title>
+<title>Service Center Bangalore</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
-:root{--bg:#081229;--side:#050d1f;--card:#152544;--inp:#213355;--acc:#38bdf8;--line:#2e4266;--mut:#94a3b8}
-html,body{background:var(--bg);color:#fff;min-height:100%}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent}
+:root{--bg:#f4f7fb;--card:#fff;--ink:#16324f;--mut:#64748b;--line:#e2e8f0;--acc:#1e4e79;--acc2:#2f6fb0;--soft:#eef3f9}
+html,body{background:var(--bg);color:var(--ink);min-height:100%}
 .hide{display:none!important}
-input,select,textarea{width:100%;padding:12px;margin:4px 0 10px;background:var(--inp);border:1px solid transparent;border-radius:8px;color:#fff;font-size:15px}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--acc)}textarea{height:80px;resize:vertical}
-label{font-size:13px;color:var(--mut)}
-button{padding:10px 14px;border:none;border-radius:8px;background:var(--acc);color:#04121f;font-weight:600;cursor:pointer;font-size:14px}
-button:active{transform:scale(.97)}button:disabled{opacity:.5}
-.red{background:#ef4444;color:#fff}.grn{background:#22c55e;color:#fff}.gry{background:#334155;color:#fff}
-.lnk{background:none;color:var(--acc);padding:6px;font-weight:500;font-size:13px}
+input,select,textarea{width:100%;padding:10px 12px;margin:4px 0 10px;background:#fff;border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:14px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--acc2);box-shadow:0 0 0 3px rgba(47,111,176,.15)}textarea{height:80px;resize:vertical}
+input:disabled,select:disabled{background:var(--soft);color:var(--mut)}
+label{font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+button{padding:9px 14px;border:none;border-radius:8px;background:var(--acc);color:#fff;font-weight:600;cursor:pointer;font-size:13px}
+button:hover{filter:brightness(1.1)}button:active{transform:scale(.97)}button:disabled{opacity:.5}
+.red{background:#dc2626}.grn{background:#16a34a}.gry{background:#e8eef5;color:var(--ink)}.lnk{background:none;color:var(--acc2);padding:6px;font-weight:500}
 #login{display:flex;min-height:100vh}
-.art{flex:1.3;background:radial-gradient(circle at 30% 20%,#12336b,#050d1f);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center}
+.art{flex:1.3;background:radial-gradient(circle at 30% 20%,#2f6fb0,#0f2a4a);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;color:#fff}
 .wheel{position:relative;width:min(460px,88%);aspect-ratio:1;margin-bottom:8px}
 .wheel svg{position:absolute;inset:0;width:100%;height:100%}
-.wtrack{stroke:#1e3a6b;stroke-width:.6;fill:none}.wdot{fill:#f59e0b;filter:drop-shadow(0 0 2px #f59e0b)}
-.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;aspect-ratio:1;border-radius:50%;background:#0b1c3d;border:2px solid #38bdf8;display:flex;align-items:center;justify-content:center;text-align:center;padding:6%}
-.wcenter b{color:#38bdf8;font-size:clamp(13px,2.2vw,18px);line-height:1.25}
+.wtrack{stroke:rgba(255,255,255,.25);stroke-width:.5;fill:none}.wdot{fill:#f59e0b;filter:drop-shadow(0 0 2px #f59e0b)}
+.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid #fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:6%}
+.wcenter b{font-size:clamp(13px,2.2vw,18px);line-height:1.25}
 .wnode{position:absolute;width:30%;text-align:center;transform:translate(-50%,-50%)}
 .wnode .dot{width:14px;height:14px;border-radius:50%;margin:0 auto 6px;box-shadow:0 0 10px currentColor}
-.wnode b{display:block;color:#e2e8f0;font-size:clamp(11px,1.6vw,14px)}
-.wnode span{display:block;color:#93a5c4;font-size:clamp(9px,1.3vw,11.5px);margin-top:2px;line-height:1.3}
+.wnode b{display:block;font-size:clamp(11px,1.6vw,14px)}.wnode span{display:block;opacity:.75;font-size:clamp(9px,1.3vw,11.5px);margin-top:2px;line-height:1.3}
 .wnode.active .dot{animation:pu 1.6s ease-in-out infinite}
 @keyframes pu{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
-#thought{font-size:18px;color:#bae6fd;min-height:56px;max-width:420px;transition:opacity .5s;margin-top:10px}
+#thought{font-size:18px;min-height:56px;max-width:420px;transition:opacity .5s;margin-top:10px;opacity:.9}
 .lw{flex:1;display:flex;justify-content:center;align-items:center;padding:20px}
-.box{background:var(--card);padding:30px;width:390px;max-width:94vw;border-radius:14px}
+.box{background:var(--card);padding:30px;width:390px;max-width:94vw;border-radius:14px;box-shadow:0 10px 30px rgba(15,42,74,.12)}
 .box h1{color:var(--acc);text-align:center;margin-bottom:6px;font-size:22px}.sub{text-align:center;color:var(--mut);font-size:13px;margin-bottom:18px}
 @media(max-width:800px){.art{display:none}}
 #app{display:flex;min-height:100vh}
-.side{width:220px;background:var(--side);padding:18px;flex-shrink:0}
-.logo{font-size:22px;font-weight:700;color:var(--acc);margin-bottom:20px;word-break:break-word}
-.side a{display:block;padding:12px;margin-bottom:7px;border-radius:8px;background:#101d38;cursor:pointer;font-size:14px}.side a:hover,.side a.on{background:#2563eb}
-.main{flex:1;padding:16px;min-width:0}
+.side{width:230px;background:#0f2a4a;padding:18px;flex-shrink:0;color:#fff}
+.logo{font-size:19px;font-weight:700;margin-bottom:22px;word-break:break-word}
+.side a{display:block;padding:11px 12px;margin-bottom:6px;border-radius:8px;cursor:pointer;font-size:14px;color:#cbd5e1}.side a:hover{background:#17406b}.side a.on{background:var(--acc2);color:#fff}
+.main{flex:1;padding:18px;min-width:0}
 .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px}
-.hb{display:none;background:var(--card);border:1px solid var(--line);width:42px;height:42px;font-size:20px;color:#fff}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-bottom:14px}
-.c{background:var(--card);padding:12px;border-radius:12px}.c h3{font-size:12px;color:var(--mut);font-weight:500}.c h2{color:var(--acc);font-size:22px;margin-top:4px}
-.sec{background:var(--card);padding:14px;border-radius:12px;margin-bottom:14px}.sec h2{margin-bottom:10px;font-size:16px}
+.top h1{font-size:22px;color:var(--acc)}
+.hb{display:none;background:#fff;border:1px solid var(--line);width:42px;height:42px;font-size:20px;color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.c{background:var(--card);padding:16px;border-radius:12px;border:1px solid var(--line)}.c h3{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.05em}.c h2{font-size:28px;margin-top:8px;color:var(--acc)}
+.c.g2 h2{color:#16a34a}.c.r2 h2{color:#dc2626}.c.o2 h2{color:#d97706}
+.sec{background:var(--card);padding:16px;border-radius:12px;margin-bottom:16px;border:1px solid var(--line)}.sec h2{margin-bottom:12px;font-size:16px;color:var(--acc)}
 .tw{overflow-x:auto;border-radius:10px;-webkit-overflow-scrolling:touch}table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;white-space:nowrap}th{background:var(--acc);color:#04121f;text-transform:uppercase;font-size:11px}
-td.w{white-space:normal;min-width:180px;max-width:240px}
-.act{position:sticky;right:0;background:#0f1d3a;box-shadow:-6px 0 8px rgba(0,0,0,.35)}th.act{background:var(--acc)}
-.act button{padding:8px 10px;margin-right:3px;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;white-space:nowrap}th{background:var(--soft);color:var(--ink);text-transform:uppercase;font-size:11px;letter-spacing:.03em}
+td.w{white-space:normal;min-width:180px;max-width:260px}
+.act{position:sticky;right:0;background:#fff;box-shadow:-6px 0 8px rgba(15,42,74,.08)}th.act{background:var(--soft)}
+.act button{padding:7px 9px;margin-right:3px;font-size:14px}
 .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 14px}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.row input,.row select{width:auto;margin:0;flex:1;min-width:120px}
-.bar{height:9px;border-radius:5px;background:var(--inp);margin:4px 0 12px}.bar i{display:block;height:100%;border-radius:5px;background:var(--acc)}
-.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;background:#334155;margin-left:4px}
-.badge.owner{background:#7c3aed}.badge.admin{background:#2563eb}
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;justify-content:center;align-items:flex-start;overflow:auto;padding:24px 12px;z-index:30}
-#modal .box{width:860px;max-width:100%}
-#toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:360px;margin:0 auto;background:#0f172a;border:1px solid var(--acc);padding:12px 18px;border-radius:8px;z-index:99;text-align:center}
-#warn{background:#7f1d1d;color:#fecaca;padding:12px;border-radius:10px;margin-bottom:12px;font-size:13px}
-.who{background:#0f1d3a;border:1px dashed var(--acc);color:#bae6fd;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px}
+.g2c{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.row input,.row select{width:auto;margin:0;flex:1;min-width:130px}
+.bar{height:10px;border-radius:5px;background:var(--soft);overflow:hidden;min-width:70px}.bar i{display:block;height:100%;border-radius:5px;background:var(--acc2)}
+.brow{display:grid;grid-template-columns:minmax(90px,1.2fr) 2fr 50px;gap:10px;align-items:center;margin-bottom:9px;font-size:13px}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;background:#e2e8f0;color:#334155;margin-left:4px}
+.badge.owner{background:#ede9fe;color:#6d28d9}.badge.admin{background:#dbeafe;color:#1d4ed8}
+.pf{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:700}.pf.lo{background:#dcfce7;color:#166534}.pf.mid{background:#fef3c7;color:#92400e}.pf.hi{background:#fee2e2;color:#991b1b}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.tabs button{background:#fff;color:var(--ink);border:1px solid var(--line)}.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.donut{width:170px;height:170px;border-radius:50%;position:relative;flex-shrink:0}
+.donut>div{position:absolute;inset:26px;background:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut b{font-size:26px}.donut small{color:var(--mut);font-size:11px}
+.leg{font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:6px}.leg i{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--soft);border-radius:99px;padding:4px 6px 4px 12px;margin:0 6px 6px 0;font-size:13px}
+.chip button{padding:2px 7px;font-size:13px;background:#fff;color:var(--ink);border-radius:99px}.chip button.x{color:#dc2626}
+.note{color:var(--mut);font-size:12px;margin:4px 0 10px}
+#modal{position:fixed;inset:0;background:rgba(15,42,74,.55);display:flex;justify-content:center;align-items:flex-start;overflow:auto;padding:24px 12px;z-index:30}
+#modal .box{width:860px;max-width:100%;text-align:left}
+#toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:380px;margin:0 auto;background:#0f2a4a;color:#fff;padding:12px 18px;border-radius:8px;z-index:99;text-align:center}
+#warn{background:#fee2e2;color:#991b1b;padding:12px;border-radius:10px;margin-bottom:12px;font-size:13px}
+.who{background:var(--soft);border:1px dashed var(--acc2);padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px}
 @media(max-width:800px){.hb{display:block}
- .side{position:fixed;left:0;top:0;bottom:0;z-index:20;margin-left:-260px;box-shadow:8px 0 20px rgba(0,0,0,.5);transition:margin .2s}
+ .side{position:fixed;left:0;top:0;bottom:0;z-index:20;margin-left:-260px;box-shadow:8px 0 20px rgba(0,0,0,.4);transition:margin .2s}
  .side.open{margin-left:0}.box{padding:22px}}
 </style></head><body>
 
 <div id="login">
  <div class="art"><div class="wheel" id="wheel"><svg viewBox="0 0 100 100"><circle class="wtrack" cx="50" cy="50" r="44"/><circle id="wdot" class="wdot" cx="50" cy="6" r="2.6"/></svg>
   <div class="wcenter"><b>Service Center<br>&amp; Repair Cycle</b></div></div><div id="thought"></div></div>
- <div class="lw"><div class="box"><h1 id="ln">Service center Banglore</h1><div class="sub">Battery &amp; Charger Repair Operations</div>
-  <input id="em" type="email" placeholder="Email" autocomplete="username"><input id="pw" type="password" placeholder="Password" autocomplete="current-password">
-  <button style="width:100%" id="lb">Login</button>
+ <div class="lw"><div class="box"><h1>Service Center Bangalore</h1><div class="sub">Battery &amp; Charger Repair Operations</div>
+  <input id="em" type="email" placeholder="Email address" autocomplete="username"><input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+  <button style="width:100%;padding:12px" id="lb">Sign In</button>
   <div style="display:flex;justify-content:space-between;margin-top:8px"><button class="lnk" id="fp">Forgot password?</button><button class="lnk" id="os">Owner first-time setup</button></div>
-  <p id="err" style="color:#f87171;font-size:13px;margin-top:8px;text-align:center"></p></div></div>
+  <p id="err" style="color:#dc2626;font-size:13px;margin-top:8px;text-align:center"></p></div></div>
 </div>
 
 <div id="app" class="hide">
  <div id="ov" class="hide" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:19"></div>
- <div class="side" id="side"><div class="logo">Service center Banglore</div>
-  <a data-v="dash">📊 Dashboard</a><a data-v="battery">🔋 Battery Repair</a><a data-v="charger">⚡ Charger / BSS Repair</a><a data-v="log">📜 Activity Log</a>
-  <a data-v="usr" class="adm">👥 Users</a><a data-v="acc">👤 My Account</a><a id="lo" style="background:#7f1d1d">Logout</a></div>
- <div class="main"><div class="top"><button class="hb" id="hb">☰</button><h1 id="ttl" style="font-size:20px"></h1><div style="text-align:right"><b id="who"></b><br><small id="dt" style="color:var(--mut)"></small></div></div>
+ <div class="side" id="side"><div class="logo">Service Center Bangalore</div>
+  <a data-v="dash">📊 Dashboard</a><a data-v="battery">🔋 Battery Repair</a><a data-v="charger">⚡ Charger / BSS Repair</a><a data-v="log" id="navlog">📜 Activity Log</a>
+  <a data-v="usr" class="adm">👥 Users</a><a data-v="set" class="adm">⚙️ Admin Settings</a><a data-v="acc">👤 My Account</a><a id="lo" style="background:#7f1d1d;color:#fff;margin-top:14px">Sign Out</a></div>
+ <div class="main"><div class="top"><button class="hb" id="hb">☰</button><h1 id="ttl"></h1><div style="text-align:right"><b id="who"></b><br><small id="dt" style="color:var(--mut)"></small></div></div>
   <div id="warn" class="hide"></div><div id="view"></div></div>
 </div>
 <div id="modal" class="hide"></div>
@@ -84,7 +96,7 @@ td.w{white-space:normal;min-width:180px;max-width:240px}
 <script type="module">
 import {initializeApp,deleteApp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged,createUserWithEmailAndPassword,updatePassword,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-import {getFirestore,collection,doc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,limit,startAfter,getCountFromServer,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import {getFirestore,collection,doc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,limit,startAfter,writeBatch,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCKtdot0OTYMzuIlHkkvP2o-8KQ-36-HZQ",
@@ -96,206 +108,265 @@ const firebaseConfig = {
   measurementId: "G-10R8BFR43M"
 };
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
-const OWNER="operations194@mooving.com",PAGE=100;
+const OWNER="operations194@mooving.com",FETCH=1000,LOGMAX=50,PAL=["#2f6fb0","#f59e0b","#16a34a","#dc2626","#7c3aed","#0891b2","#db2777","#64748b"];
+const FAIL=/non[- ]?repairable|scrap|dead|not ok|fail/i,OK=/^ok$|repaired|no issue found/i;
 
-const BI=["Cell Unbalance Protection ON","Latch Protection ON","Charge UTP","Can Data Issue","IOT not working","Fet Failure-BMS","Temp Sens Fault","CAN Wire Damage","Battery Damage / Physical Issue","BUID Mismatch","PCB Over Temp Fault","CAN PIN BACKOUT","Water ingress","Cell dead","Cell Series dead","Led Not Working","Fuse Burnt","Other Issue"];
-const BA=["Balancing done","Relase through Lime app","Fixed Loose connection","CAN pin fixed / IOT Reset","IOT reset / IOT change","Battery pack reset/ change the BMS","Remove the connector and reconnect","Solder the Wire","RTB","Fix through PCAN or BLE app","Check loose connection of harness and fix","Fix the CAN pin throug aligner KEY","Need to balnce two time & CDC 2 time","Check connection/change the LED","Replace the fuse","Other (Text)"];
-const CI=["Charger AC plug burnt","Charger AC plug damage","Charger IC burnt","Charger mosfet burnt","Connector Voltage not showing","Fan Not working","FW Updated ( Mapping )","LED not working","No Power supply available","SB- 75 Connector Damage","Slave card CAN IC burnt","Slave card communication IC burnt","SBS damge","CAN pin wire add.","Other"];
-// [key,label,type,options] - NO field is mandatory
-const MODS={
+const BI=["Cell Unbalance Protection ON","Latch Protection ON","Charge UTP","CAN Data Issue","IoT Not Working","FET Failure - BMS","Temperature Sensor Fault","CAN Wire Damage","Battery Damage / Physical Issue","BUID Mismatch","PCB Over Temperature Fault","CAN Pin Backout","Water Ingress","Cell Dead","Cell Series Dead","LED Not Working","Fuse Burnt","Other Issue"];
+const BA=["Balancing Done","Released Through Lime App","Fixed Loose Connection","CAN Pin Fixed / IoT Reset","IoT Reset / IoT Replaced","Battery Pack Reset / BMS Replaced","Connector Removed and Reconnected","Wire Soldered","RTB","Fixed Through PCAN or BLE App","Checked Harness Connection and Fixed","CAN Pin Fixed Using Aligner Key","Balancing Required Twice & CDC Twice","Connection Checked / LED Replaced","Fuse Replaced","Other (Specify)"];
+const CI=["Charger AC Plug Burnt","Charger AC Plug Damaged","Charger IC Burnt","Charger MOSFET Burnt","Connector Voltage Not Showing","Fan Not Working","FW Updated (Mapping)","LED Not Working","No Power Supply Available","SB-75 Connector Damaged","Slave Card CAN IC Burnt","Slave Card Communication IC Burnt","SBS Damaged","CAN Pin Wire Added","Other"];
+// [key,label,type,default options]; no field is mandatory
+const BASE={
  battery:{title:"Battery Repair",col:"battery_repairs",stat:"repairStatus",fields:[
   ["ticketDate","Date","date"],["batteryMake","Battery Pack Make & Model","sel",["Inverted","Trontek"]],["batterySrNo","Battery Sr. No.","text"],["iotImei","IoT IMEI No.","text"],
-  ["physicalCondition","Physical Condition","sel",["ok","Not OK"]],["canResistance","CAN Resistance","text"],["connectorVoltage","Connector Voltage","text"],["soc","SOC","text"],
+  ["physicalCondition","Physical Condition","sel",["OK","Not OK"]],["canResistance","CAN Resistance","text"],["connectorVoltage","Connector Voltage","text"],["soc","SOC","text"],
   ["iotLastSync","IoT Last Sync","datetime-local"],["gpsTime","GPS Time Stamp","datetime-local"],["iotStatus","IoT Status","sel",["Working","Not Working"]],
-  ["iotFirmware","IoT Firmware","text"],["bmsFirmware","BMS Firmware","text"],["chargerAuth","Charger Auth","sel",["on","off"]],["configVersion","Configuration Version","text"],
-  ["iotNotWorking","IoT Not Working","text"],["reportedIssue","Reported Issues","sel",BI],["actionTaken","Action Taken","sel",BA],
-  ["repairStatus","Repair Status","sel",["OK","Not ok","Non-Repairable","Scrap"]],["pdiStatus","PDI (Pass/Fail)","sel",["Pass","Fail"]]]},
+  ["iotFirmware","IoT Firmware","text"],["bmsFirmware","BMS Firmware","text"],["chargerAuth","Charger Auth","sel",["On","Off"]],["configVersion","Configuration Version","text"],
+  ["iotNotWorking","IoT Not Working (Details)","text"],["reportedIssue","Reported Issue","sel",BI],["actionTaken","Action Taken","sel",BA],
+  ["repairStatus","Repair Status","sel",["OK","Not OK","Non-Repairable","Scrap"]],["pdiStatus","PDI (Pass/Fail)","sel",["Pass","Fail"]]]},
  charger:{title:"Charger / BSS Repair",col:"charger_repairs",stat:"repairStatus",fields:[
-  ["openDate","Ticket Open Date","date"],["closeDate","Ticket Closing Date","date"],["bssType","BSS Type","sel",["V1","V2"]],["repairLocation","Repair Location","sel",["Banglore CSC"]],
-  ["assetType","Type of Asset Repair","sel",["BSS Master Card","BSS Other part","Charger","Slave card"]],["assetSrNo","Sr. No of Asset (Slave or Charger)","text"],
+  ["openDate","Ticket Open Date","date"],["closeDate","Ticket Closing Date","date"],["bssType","BSS Type","sel",["V1","V2"]],["repairLocation","Repair Location","sel",["Bangalore CSC"]],
+  ["assetType","Type of Asset Repaired","sel",["BSS Master Card","BSS Other Part","Charger","Slave Card"]],["assetSrNo","Asset Sr. No. (Slave or Charger)","text"],
   ["reportedIssue","Reported Issue","sel",CI],
-  ["assetModel","Charger or Slave Card Make & Model","sel",["BSS Master card for the repair","Drone power 16A","LGDT Bss charger","Santla BSS charger","Slave card","Cantroller IC","BSS Harness"]],
-  ["repairStatus","Repair Status","sel",["No issue found (ok)","Non repairable ( Dead)","Open-RTB for plant repair","Repaired","Hold for part"]],
-  ["repairedBy","Repaired By","sel",["Balu","Shakti","Other"]],["component1","Component Use 01","text"],["component2","Component Use 02","text"],["remarks","Remark if any...","area"]]}
+  ["assetModel","Charger / Slave Card Make & Model","sel",["BSS Master Card for Repair","Drone Power 16A","LGDT BSS Charger","Santla BSS Charger","Slave Card","Controller IC","BSS Harness"]],
+  ["repairStatus","Repair Status","sel",["No Issue Found (OK)","Non-Repairable (Dead)","Open-RTB for Plant Repair","Repaired","Hold for Part"]],
+  ["repairedBy","Repaired By","sel",["Balu","Shakti","Other"]],["component1","Component Used 01","text"],["component2","Component Used 02","text"],["remarks","Remarks","area"]]}
 };
-const S={battery:{rows:[],cur:null,more:false,total:null,st:{},loaded:false},charger:{rows:[],cur:null,more:false,total:null,st:{},loaded:false}};
-const FL={battery:{q:"",s:"",u:"",from:"",to:""},charger:{q:"",s:"",u:"",from:"",to:""}};
-let me=null,users=[],logs=[],ucount={},view="dash",logShow=30,refT=null;
+const S={battery:{rows:[],cur:null,more:false,loaded:false},charger:{rows:[],cur:null,more:false,loaded:false}};
+const FL={battery:{q:"",u:"",from:"",to:"",col:"",val:""},charger:{q:"",u:"",from:"",to:"",col:"",val:""}};
+const DIM={battery:"reportedIssue",charger:"reportedIssue"},SHOW={battery:25,charger:25},DALL={battery:false,charger:false};
+let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=5,lLog=5,lastLoad=0,refT=null;
 const $=s=>document.querySelector(s);
-const isOwner=()=>me?.role==="owner",isAdmin=()=>me&&(me.role==="owner"||me.role==="admin");
+const isOwner=()=>me?.role==="owner",isAdmin=()=>!!me&&(me.role==="owner"||me.role==="admin"),can=p=>isAdmin()||cfg.perm[p]!==false;
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const toast=m=>{const t=document.createElement("div");t.id="toast";t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),3200)};
 const nid=()=>String(9e12-Date.now()).padStart(13,"0")+Math.random().toString(36).slice(2,8);
 const isOther=v=>/^other/i.test(v||"");
 const tsd=t=>t?.toDate?t.toDate():(t instanceof Date?t:null);
 const tm=t=>{const d=tsd(t);return d?d.toLocaleString():"…"};
-const cell=(p,[k,,t])=>{let v=p[k]??"";if(t==="sel"&&isOther(v)&&p[k+"Other"])v=v+": "+p[k+"Other"];if(t==="datetime-local")v=String(v).replace("T"," ");return v};
-setInterval(()=>{const d=$("#dt");if(d)d.textContent=new Date().toLocaleString()},1000);
+const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const ymd=p=>p.ticketDate||p.openDate||(tsd(p.createdAt)?new Date(tsd(p.createdAt)-tsd(p.createdAt).getTimezoneOffset()*6e4).toISOString().slice(0,10):today());
+const pct=(a,b)=>b?(a/b*100).toFixed(1):"0.0";
+const isFail=p=>FAIL.test(p.repairStatus||"")||FAIL.test(p.pdiStatus||"");
+const isOk=p=>!isFail(p)&&OK.test(p.repairStatus||"");
+const fieldsOf=k=>[...BASE[k].fields,...(cfg.custom[k]||[]).map(c=>[c.key,c.label,c.type==="dropdown"?"sel":c.type,[]])];
+const optsOf=(k,f)=>{const v=cfg.opts[k]?.[f];if(v)return v;return BASE[k].fields.find(x=>x[0]===f)?.[3]||[]};
+const cell=(k,p,[key,,t])=>{let v=p[key]??"";if(t==="sel"&&isOther(v)&&p[key+"Other"])v=v+": "+p[key+"Other"];if(t==="datetime-local")v=String(v).replace("T"," ");return v};
 const roleBadge=r=>r==="user"?"":`<span class="badge ${r}">${r}</span>`;
-function fail(e){console.error(e);if(e.code==="permission-denied"){const w=$("#warn");w.classList.remove("hide");w.innerHTML="⚠ Permission denied: Firestore Rules publish nahi hue ya aapka access nahi hai. Rules wala code Firebase Console → Firestore → Rules me paste karke Publish karo."}toast("Error: "+(e.code||e.message))}
-async function log(action,detail){if(!me)return;const e={uid:me.uid,name:me.name,role:me.role,action,detail:String(detail||"").slice(0,300),ts:new Date()};logs.unshift(e);if(view==="log")render();try{await setDoc(doc(db,"logs",nid()),{...e,ts:serverTimestamp()})}catch(_){}}
+const curMod=()=>BASE[view]?view:dm;
+setInterval(()=>{const d=$("#dt");if(d)d.textContent=new Date().toLocaleString()},1000);
+function fail(e){console.error(e);if(e.code==="permission-denied"){const w=$("#warn");w.classList.remove("hide");w.textContent="Permission denied. Either the Firestore Rules have not been published, or your account does not have permission for this action."}toast("Error: "+(e.code||e.message))}
+
+async function log(action,detail){if(!me)return;const id=nid(),e={id,uid:me.uid,name:me.name,role:me.role,action,detail:String(detail||"").slice(0,300),ts:new Date()};
+ logs.unshift(e);const extra=logs.splice(LOGMAX);if(view==="dash"||view==="log")render();
+ try{const {id:_,...rest}=e;await setDoc(doc(db,"logs",id),{...rest,ts:serverTimestamp()});
+  if(isAdmin()&&extra.length){const b=writeBatch(db);extra.forEach(x=>x.id&&b.delete(doc(db,"logs",x.id)));await b.commit()}}catch(_){}}
 
 /* login animation */
-const ST=[{t:"Ticket Logged",d:"Asset received at Banglore CSC",c:"#f59e0b"},{t:"Diagnosis",d:"Physical & electrical checks",c:"#38bdf8"},{t:"Repairing",d:"Component / BMS / IoT fix",c:"#22c55e"},{t:"PDI Testing",d:"Pass / Fail verification",c:"#a78bfa"},{t:"Dispatched",d:"Repaired asset ready & closed",c:"#fb7185"}];
+const ST=[{t:"Ticket Logged",d:"Asset received at Bangalore CSC",c:"#f59e0b"},{t:"Diagnosis",d:"Physical & electrical checks",c:"#7dd3fc"},{t:"Repairing",d:"Component / BMS / IoT repair",c:"#4ade80"},{t:"PDI Testing",d:"Pass / Fail verification",c:"#c4b5fd"},{t:"Dispatched",d:"Repaired asset ready & closed",c:"#fb7185"}];
 (()=>{const w=$("#wheel");ST.forEach((s,i)=>{const r=(-90+i*72)*Math.PI/180,n=document.createElement("div");n.className="wnode";n.style.left=50+44*Math.cos(r)+"%";n.style.top=50+44*Math.sin(r)+"%";n.innerHTML=`<div class="dot" style="background:${s.c};color:${s.c}"></div><b>${s.t}</b><span>${s.d}</span>`;w.appendChild(n)});
  const nodes=[...w.querySelectorAll(".wnode")],dot=$("#wdot");let si=0;
  const step=()=>{nodes.forEach((n,i)=>n.classList.toggle("active",i===si));const r=(-90+si*72)*Math.PI/180;dot.setAttribute("cx",50+44*Math.cos(r));dot.setAttribute("cy",50+44*Math.sin(r));dot.style.fill=ST[si].c;
-  const th=$("#thought"),k=si;th.style.opacity=0;setTimeout(()=>{th.textContent=ST[k].t+" — "+ST[k].d;th.style.opacity=1},350);si=(si+1)%5};
+  const th=$("#thought"),k=si;th.style.opacity=0;setTimeout(()=>{th.textContent=ST[k].t+" — "+ST[k].d;th.style.opacity=.9},350);si=(si+1)%5};
  step();setInterval(step,2400)})();
-
 $("#hb").onclick=()=>{$("#side").classList.add("open");$("#ov").classList.remove("hide")};
 $("#ov").onclick=()=>{$("#side").classList.remove("open");$("#ov").classList.add("hide")};
 
-const errMsg=e=>({"auth/invalid-credential":"Email ya password galat hai.","auth/wrong-password":"Password galat hai.","auth/user-not-found":"Is email ka account nahi hai.","auth/invalid-email":"Email sahi nahi hai.","auth/too-many-requests":"Bahut attempts hue, thodi der baad try karo.","auth/network-request-failed":"Internet check karo.","auth/operation-not-allowed":"Firebase Console → Authentication → Sign-in method me Email/Password ON karo.","auth/email-already-in-use":"Account pehle se hai — Login karo ya Forgot password use karo."}[e.code]||("Error ["+(e.code||"")+"]: "+e.message));
-$("#lb").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#f87171";
- if(!email||!pw){er.textContent="Email aur password daalo";return}
- try{er.textContent="Logging in...";await signInWithEmailAndPassword(auth,email,pw);er.textContent=""}catch(e){er.textContent=errMsg(e)}};
+const errMsg=e=>({"auth/invalid-credential":"Incorrect email or password.","auth/wrong-password":"Incorrect password.","auth/user-not-found":"No account exists for this email.","auth/invalid-email":"Please enter a valid email address.","auth/too-many-requests":"Too many attempts. Please try again later.","auth/network-request-failed":"Network error. Please check your connection.","auth/operation-not-allowed":"Email/Password sign-in is disabled. Enable it in Firebase Console → Authentication → Sign-in method.","auth/email-already-in-use":"This account already exists. Please sign in or use Forgot password.","auth/requires-recent-login":"Please sign out and sign in again, then retry."}[e.code]||("Error ["+(e.code||"")+"]: "+e.message));
+$("#lb").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#dc2626";
+ if(!email||!pw){er.textContent="Please enter your email and password.";return}
+ try{er.textContent="Signing in...";await signInWithEmailAndPassword(auth,email,pw);er.textContent=""}catch(e){er.textContent=errMsg(e)}};
 $("#pw").onkeydown=e=>{if(e.key==="Enter")$("#lb").click()};
-$("#fp").onclick=async()=>{const email=$("#em").value.trim(),er=$("#err");if(!email){er.textContent="Pehle email daalo";return}
- try{await sendPasswordResetEmail(auth,email);er.style.color="#86efac";er.textContent="Password reset email bhej diya (spam bhi check karo)."}catch(e){er.style.color="#f87171";er.textContent=errMsg(e)}};
-$("#os").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#f87171";
- if(email.toLowerCase()!==OWNER){er.textContent="Setup sirf owner email ("+OWNER+") ke liye hai.";return}
- if(pw.length<6){er.textContent="Naya password daalo (min 6 characters)";return}
+$("#fp").onclick=async()=>{const email=$("#em").value.trim(),er=$("#err");if(!email){er.textContent="Please enter your email first.";return}
+ try{await sendPasswordResetEmail(auth,email);er.style.color="#16a34a";er.textContent="Password reset email sent. Please check your inbox and spam folder."}catch(e){er.style.color="#dc2626";er.textContent=errMsg(e)}};
+$("#os").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#dc2626";
+ if(email.toLowerCase()!==OWNER){er.textContent="First-time setup is available only for the owner email.";return}
+ if(pw.length<6){er.textContent="Enter a new password (minimum 6 characters).";return}
  try{await createUserWithEmailAndPassword(auth,email,pw)}catch(e){er.textContent=errMsg(e)}};
-$("#lo").onclick=async()=>{await log("Logout");clearInterval(refT);signOut(auth)};
+$("#lo").onclick=async()=>{await log("Signed out");clearInterval(refT);signOut(auth)};
 
 onAuthStateChanged(auth,async u=>{
  me=null;users=[];logs=[];clearInterval(refT);
- for(const k in S)Object.assign(S[k],{rows:[],cur:null,more:false,total:null,st:{},loaded:false});
+ for(const k in S)Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false});
  if(!u){$("#app").classList.add("hide");$("#login").classList.remove("hide");return}
  try{
   const ref=doc(db,"users",u.uid),isO=(u.email||"").toLowerCase()===OWNER;
   let p=await getDoc(ref).catch(e=>{if(!isO)throw e;return null});
   if(isO&&(!p||!p.exists()||p.data().role!=="owner")){
    await setDoc(ref,{name:(p&&p.exists()&&p.data().name)||"Owner",email:u.email,role:"owner",disabled:false,createdAt:serverTimestamp()},{merge:true});p=await getDoc(ref)}
-  if(!p||!p.exists()){await signOut(auth);$("#err").textContent="Aapka profile nahi mila. Owner/Admin se user create karwao.";return}
-  if(p.data().disabled){await signOut(auth);$("#err").textContent="Access denied. Account disabled hai.";return}
+  if(!p||!p.exists()){await signOut(auth);$("#err").textContent="Your profile was not found. Please ask the Owner/Admin to create your user account.";return}
+  if(p.data().disabled){await signOut(auth);$("#err").textContent="Access denied. Your account has been disabled.";return}
   me={uid:u.uid,...p.data()};
   $("#login").classList.add("hide");$("#app").classList.remove("hide");$("#pw").value="";
   $("#who").innerHTML=`${esc(me.name)} ${roleBadge(me.role)}`;
   document.querySelectorAll(".adm").forEach(a=>a.classList.toggle("hide",!isAdmin()));
-  await loadBase();log("Login");nav("dash");refT=setInterval(loadBase,5*60*60*1000);
- }catch(err){console.error(err);$("#err").textContent="Database Error: "+(err.code==="permission-denied"?"Firestore Rules publish karo (permission denied)":err.message);signOut(auth)}
+  await loadBase();log("Signed in");nav("dash");refT=setInterval(refreshAll,5*60*60*1000);
+ }catch(err){console.error(err);$("#err").textContent="Database error: "+(err.code==="permission-denied"?"Firestore Rules are not published (permission denied).":err.message);signOut(auth)}
 });
-
 document.querySelectorAll(".side a[data-v]").forEach(a=>a.onclick=()=>{nav(a.dataset.v);$("#side").classList.remove("open");$("#ov").classList.add("hide")});
-function nav(v){if(v==="usr"&&!isAdmin())return;view=v;logShow=30;
+function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=5;lLog=5;
  document.querySelectorAll(".side a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
- $("#ttl").textContent={dash:"Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",log:"Activity Log",usr:"User Management",acc:"My Account"}[v];
- if(MODS[v]&&!S[v].loaded)loadMod(v);render()}
+ $("#navlog").classList.toggle("hide",!can("userLog"));
+ $("#ttl").textContent={dash:"CRM Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",log:"Activity Log",usr:"User Management",set:"Admin Settings",acc:"My Account"}[v];
+ const k=BASE[v]?v:(v==="dash"?dm:null);if(k&&!S[k].loaded)loadMod(k);render()}
 
+async function loadConfig(){for(const [id,key] of [["options","opts"],["fields","custom"],["permissions","perm"]]){try{const s=await getDoc(doc(db,"config",id));cfg[key]=s.exists()?s.data():{}}catch(e){cfg[key]={}}}}
 async function loadBase(){try{
-  const lq=isAdmin()?query(collection(db,"logs"),limit(200)):query(collection(db,"logs"),where("uid","==",me.uid),limit(100));
-  logs=(await getDocs(lq)).docs.map(d=>({id:d.id,...d.data()}));
+  await loadConfig();
+  const lq=isAdmin()?query(collection(db,"logs"),limit(LOGMAX+1)):query(collection(db,"logs"),limit(LOGMAX));
+  let ls=await getDocs(lq);let arr=ls.docs.map(d=>({id:d.id,...d.data()}));
+  if(!isAdmin())arr=arr.filter(x=>x.uid===me.uid);
+  if(isAdmin()&&arr.length>LOGMAX){const old=await getDocs(query(collection(db,"logs"),startAfter(ls.docs[LOGMAX-1]),limit(450)));
+   if(old.docs.length){const b=writeBatch(db);old.docs.forEach(d=>b.delete(d.ref));await b.commit().catch(()=>{})}arr=arr.slice(0,LOGMAX)}
+  logs=arr;
   if(isAdmin())users=(await getDocs(collection(db,"users"))).docs.map(d=>({id:d.id,...d.data()}));
-  for(const k in MODS)await counts(k);
-  await userCounts();render()}catch(e){fail(e)}}
-async function counts(k){const M=MODS[k],s=S[k],opts=M.fields.find(f=>f[0]===M.stat)[3];
- try{s.total=(await getCountFromServer(collection(db,M.col))).data().count;
-  for(const o of opts)s.st[o]=(await getCountFromServer(query(collection(db,M.col),where(M.stat,"==",o)))).data().count}catch(e){}}
-async function userCounts(){const list=isAdmin()?users:[me];ucount={};
- for(const u of list){const id=u.id||u.uid;ucount[id]={};for(const k in MODS){try{ucount[id][k]=(await getCountFromServer(query(collection(db,MODS[k].col),where("createdBy","==",id)))).data().count}catch(e){ucount[id][k]="–"}}}}
-async function loadMod(k,more){const M=MODS[k],s=S[k];
- try{const qs=await getDocs(query(collection(db,M.col),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(PAGE)));
-  const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===PAGE;s.loaded=true;$("#warn").classList.add("hide")}catch(e){fail(e)}
+  lastLoad=Date.now();
+ }catch(e){fail(e)}}
+async function loadMod(k,more){const s=S[k];
+ try{const qs=await getDocs(query(collection(db,BASE[k].col),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(FETCH)));
+  const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===FETCH;s.loaded=true;lastLoad=Date.now();$("#warn").classList.add("hide")}catch(e){fail(e)}
  render()}
+async function refreshAll(){if(!me)return;await loadBase();const ks=Object.keys(S).filter(k=>S[k].loaded);for(const k of ks)await loadMod(k);render()}
 
-const actTable=l=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity</td></tr>"}</tbody></table></div>`;
-const bars=(items,tot)=>items.map(([l,v])=>`<div>${esc(l)} — ${v??"…"}</div><div class="bar"><i style="width:${tot&&v?v/tot*100:0}%"></i></div>`).join("");
-function dash(){const b=S.battery,c=S.charger;
- const ul=isAdmin()?users:[{id:me.uid,name:me.name,role:me.role}];
- return `<div class="row"><button data-a="ref">↻ Refresh Data</button></div>
- <div class="cards"><div class="c"><h3>🔋 Battery Entries</h3><h2>${b.total??"…"}</h2></div><div class="c"><h3>⚡ Charger Entries</h3><h2>${c.total??"…"}</h2></div>${isAdmin()?`<div class="c"><h3>Users</h3><h2>${users.length}</h2></div>`:""}</div>
- <div class="g"><div class="sec"><h2>Battery — Repair Status</h2>${bars(Object.entries(b.st),b.total)}</div><div class="sec"><h2>Charger — Repair Status</h2>${bars(Object.entries(c.st),c.total)}</div></div>
- <div class="sec"><h2>${isAdmin()?"Entries by User":"My Entries"}</h2><div class="tw"><table><thead><tr><th>User</th><th>Role</th><th>Battery added</th><th>Charger added</th></tr></thead><tbody>${ul.map(u=>{const id=u.id,x=ucount[id]||{};return `<tr><td>${esc(u.name)}</td><td>${esc(u.role)}</td><td>${x.battery??"…"}</td><td>${x.charger??"…"}</td></tr>`}).join("")}</tbody></table></div></div>
- <div class="sec"><h2>Recent Activity</h2>${actTable(logs.slice(0,8))}</div>`}
+/* analytics helpers */
+function applyF(k,rows,withQ){const f=FL[k],ql=f.q.toLowerCase();
+ return rows.filter(p=>{if(withQ&&ql&&!JSON.stringify(p).toLowerCase().includes(ql))return false;if(f.u&&p.createdBy!==f.u)return false;
+  const d=ymd(p);if(f.from&&d<f.from)return false;if(f.to&&d>f.to)return false;if(f.col&&f.val&&p[f.col]!==f.val)return false;return true})}
+function group(rows,fn){const m=new Map();rows.forEach(p=>{const key=fn(p)||"(blank)";let g=m.get(key);if(!g){g={n:0,f:0,o:0,last:""};m.set(key,g)}g.n++;if(isFail(p))g.f++;else if(isOk(p))g.o++;const d=ymd(p);if(d>g.last)g.last=d});
+ return [...m].map(([k,g])=>({k,...g})).sort((a,b)=>b.n-a.n)}
+const fcls=v=>v>=30?"hi":v>=10?"mid":"lo";
+function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel");
+ const people=[...new Map(s.rows.filter(p=>p.createdBy).map(p=>[p.createdBy,p.createdByName||"—"]))];
+ const vals=f.col?[...new Set(s.rows.map(p=>p[f.col]).filter(Boolean))].sort():[];
+ return `<div class="row">${withQ?`<input id="fq" placeholder="Search all columns..." value="${esc(f.q)}">`:""}
+ <select data-f="u"><option value="">All people</option>${people.map(([id,n])=>`<option value="${esc(id)}" ${f.u===id?"selected":""}>${esc(n)}</option>`).join("")}</select>
+ <input type="date" data-f="from" value="${f.from}" title="From date"><input type="date" data-f="to" value="${f.to}" title="To date">
+ <select data-f="col"><option value="">Filter by column…</option>${fl.map(x=>`<option value="${x[0]}" ${f.col===x[0]?"selected":""}>${esc(x[1])}</option>`).join("")}</select>
+ <select data-f="val" ${f.col?"":"disabled"}><option value="">All values</option>${vals.map(v=>`<option ${f.val===v?"selected":""}>${esc(v)}</option>`).join("")}</select>
+ <button class="gry" data-a="clr">Clear filters</button></div>`}
+const kpi=(l,v,c="")=>`<div class="c ${c}"><h3>${l}</h3><h2>${v}</h2></div>`;
+const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More</button></div>`:""}`;
 
-function modView(k){const M=MODS[k],s=S[k],f=FL[k],opts=M.fields.find(x=>x[0]===M.stat)[3],ql=f.q.toLowerCase();
- const names=[...new Set(s.rows.map(p=>p.createdByName).filter(Boolean))];
- const l=s.rows.filter(p=>{if(ql&&!JSON.stringify(p).toLowerCase().includes(ql))return false;if(f.s&&p[M.stat]!==f.s)return false;if(f.u&&p.createdByName!==f.u)return false;
-  const d=tsd(p.createdAt)||new Date();if(f.from&&d<new Date(f.from+"T00:00:00"))return false;if(f.to&&d>new Date(f.to+"T23:59:59"))return false;return true});
- return `<div class="cards"><div class="c"><h3>Total</h3><h2>${s.total??"…"}</h2></div>${opts.map(o=>`<div class="c"><h3>${esc(o)}</h3><h2>${s.st[o]??"…"}</h2></div>`).join("")}</div>
- <div class="sec"><div class="row"><button data-a="new">+ New Entry</button><input id="fq" placeholder="Search..." value="${esc(f.q)}"><button class="gry" data-a="ref">↻</button><button class="grn" data-a="ex">Export CSV</button></div>
- <div class="row"><select data-f="s"><option value="">All ${esc(M.fields.find(x=>x[0]===M.stat)[1])}</option>${opts.map(o=>`<option ${f.s===o?"selected":""}>${esc(o)}</option>`).join("")}</select>
- <select data-f="u"><option value="">All Users</option>${names.map(n=>`<option ${f.u===n?"selected":""}>${esc(n)}</option>`).join("")}</select>
- <input type="date" data-f="from" value="${f.from}" title="From"><input type="date" data-f="to" value="${f.to}" title="To"><button class="gry" data-a="clr">Clear</button></div>
- <p style="color:var(--mut);font-size:13px;margin-bottom:10px">Showing ${l.length} entry(s).</p>
- <div class="tw"><table><thead><tr><th>Sr. No.</th>${M.fields.map(x=>`<th>${esc(x[1])}</th>`).join("")}<th>Added By</th><th>Added On</th><th>Last Updated By</th><th class="act">Actions</th></tr></thead><tbody>
- ${l.map((p,i)=>`<tr><td>${i+1}</td>${M.fields.map(x=>`<td class="${["reportedIssue","actionTaken","remarks"].includes(x[0])?"w":""}">${esc(cell(p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
- <td class="act"><button data-a="ed" data-i="${p.id}" title="Edit">✏️</button>${isAdmin()?`<button class="red" data-a="del" data-i="${p.id}" title="Delete">🗑</button>`:""}</td></tr>`).join("")||`<tr><td colspan="${M.fields.length+5}">No data</td></tr>`}</tbody></table></div>
- ${s.more?`<div class="row" style="margin-top:12px"><button data-a="more">Load More</button></div>`:""}</div>`}
+function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.length,fl=all.filter(isFail).length,ok=all.filter(isOk).length,pend=n-fl-ok;
+ const stat=group(all,p=>p[B.stat]),byUser=group(all,p=>p.createdByName||"Unknown"),dimF=[...fieldsOf(k).filter(x=>x[2]==="sel").map(x=>[x[0],x[1]]),["__by","Added By"]];
+ if(!dimF.some(x=>x[0]===DIM[k]))DIM[k]=dimF[0][0];
+ const dg=group(all,p=>DIM[k]==="__by"?p.createdByName:cell(k,p,fieldsOf(k).find(x=>x[0]===DIM[k]))),dshow=DALL[k]?dg:dg.slice(0,10);
+ const pdiP=all.filter(p=>/^pass/i.test(p.pdiStatus||"")).length,pdiF=all.filter(p=>/fail/i.test(p.pdiStatus||"")).length;
+ let acc=0;const seg=stat.map((x,i)=>{const a=acc/n*360;acc+=x.n;return `${PAL[i%8]} ${a}deg ${acc/n*360}deg`}).join(",");
+ return `<div class="row"><div class="tabs" style="margin:0"><button class="${k==="battery"?"on":""}" data-a="dm" data-i="battery">🔋 Battery</button><button class="${k==="charger"?"on":""}" data-a="dm" data-i="charger">⚡ Charger / BSS</button></div>
+  <span style="flex:1"></span><small style="color:var(--mut)">Updated ${lastLoad?new Date(lastLoad).toLocaleTimeString():"…"} · ${s.rows.length} entries loaded</small>
+  <button class="gry" data-a="ref">↻ Refresh</button>${can("userAdd")?`<button data-a="new">+ Add Entry</button>`:""}</div>
+ <div class="sec"><h2>Filters</h2>${fbar(k,false)}<p class="note">Failure = Repair Status of Not OK / Non-Repairable / Scrap / Dead, or PDI Fail. Resolved = Repair Status OK / Repaired / No Issue Found. Filters apply to every chart below.</p></div>
+ ${s.loaded?"":`<div class="sec">Loading data…</div>`}
+ <div class="cards">${kpi("Total Entries",n)}${kpi("Resolved",ok,"g2")}${kpi("Failed",fl,"r2")}${kpi("In Process / On Hold",pend,"o2")}${kpi("Failure Rate",pct(fl,n)+"%","r2")}${kpi("Success Rate",pct(ok,n)+"%","g2")}
+  ${k==="battery"?kpi("PDI Pass",pdiP,"g2")+kpi("PDI Fail",pdiF,"r2"):""}${kpi("Active Contributors",byUser.length)}${isAdmin()?kpi("Total Users",users.filter(u=>u.role==="user").length)+kpi("Total Admins",users.filter(u=>u.role!=="user").length):""}</div>
+ <div class="g2c"><div class="sec"><h2>Repair Status Distribution</h2><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><div class="donut" style="background:conic-gradient(${seg||"#e2e8f0 0deg 360deg"})"><div><b>${n}</b><small>Entries</small></div></div>
+   <div>${stat.map((x,i)=>`<div class="leg"><i style="background:${PAL[i%8]}"></i>${esc(x.k)} <b>${x.n}</b> · ${pct(x.n,n)}%</div>`).join("")||"No data"}</div></div></div>
+  <div class="sec"><h2>Efficiency by User (Success Rate)</h2>${byUser.map(x=>`<div class="brow"><span>${esc(x.k)}</span><div class="bar"><i style="width:${pct(x.o,x.n)}%;background:#16a34a"></i></div><b>${pct(x.o,x.n)}%</b></div>`).join("")||"No data"}</div></div>
+ <div class="sec"><h2>Analyze by Column</h2><div class="row"><label style="margin:0">Group by</label><select data-dim="1">${dimF.map(x=>`<option value="${x[0]}" ${DIM[k]===x[0]?"selected":""}>${esc(x[1])}</option>`).join("")}</select></div>
+  <div class="tw"><table><thead><tr><th>Value</th><th>Entries</th><th>Share</th><th></th><th>Resolved</th><th>Failed</th><th>Failure %</th></tr></thead><tbody>
+  ${dshow.map(x=>`<tr><td>${esc(x.k)}</td><td>${x.n}</td><td>${pct(x.n,n)}%</td><td style="width:140px"><div class="bar"><i style="width:${pct(x.n,n)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td></tr>`).join("")||"<tr><td colspan=7>No data</td></tr>"}</tbody></table></div>
+  ${dg.length>10?`<div class="row" style="margin-top:10px"><button class="gry" data-a="dall">${DALL[k]?"Show Top 10":"Show All ("+dg.length+")"}</button></div>`:""}</div>
+ <div class="sec"><h2>User-wise Activity & Ratio</h2><div class="tw"><table><thead><tr><th>User</th><th>Entries</th><th>Share of Total</th><th></th><th>Resolved</th><th>Failed</th><th>Failure %</th><th>Success %</th><th>Last Entry</th></tr></thead><tbody>
+  ${byUser.map(x=>`<tr><td><b>${esc(x.k)}</b></td><td>${x.n}</td><td>${pct(x.n,n)}%</td><td style="width:120px"><div class="bar"><i style="width:${pct(x.n,n)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td><td>${pct(x.o,x.n)}%</td><td>${esc(x.last)}</td></tr>`).join("")||"<tr><td colspan=9>No data</td></tr>"}</tbody></table></div></div>
+ ${can("userLog")?`<div class="sec"><h2>Recent Activity</h2>${actTable(logs,dLog,"dmore")}</div>`:""}`}
 
-function usrView(){const canAdm=isOwner();
- return `<div class="sec"><h2>Create New User</h2><div class="g"><div><label>Full Name</label><input id="un"></div><div><label>Email</label><input id="ue" type="email"></div><div><label>Password (min 6)</label><input id="up" type="password"></div>
- <div><label>Role</label><select id="ur"><option value="user">User (add/edit entries)</option>${canAdm?`<option value="admin">Admin (user manage + delete)</option>`:""}</select></div></div><button data-a="cu">Create User</button></div>
+function modView(k){const s=S[k],F=fieldsOf(k),l=applyF(k,s.rows,true),n=SHOW[k];
+ return `<div class="sec"><div class="row">${can("userAdd")?`<button data-a="new">+ New Entry</button>`:""}<span style="flex:1"></span><button class="gry" data-a="ref">↻ Refresh</button>${can("userExport")?`<button class="grn" data-a="ex">Export CSV (filtered)</button>`:""}</div>
+ ${fbar(k,true)}<p class="note">Showing ${Math.min(n,l.length)} of ${l.length} matching entries (${s.rows.length} loaded).</p>
+ <div class="tw"><table><thead><tr><th>Sr. No.</th>${F.map(x=>`<th>${esc(x[1])}</th>`).join("")}<th>Added By</th><th>Added On</th><th>Last Updated By</th><th class="act">Actions</th></tr></thead><tbody>
+ ${l.slice(0,n).map((p,i)=>`<tr><td>${i+1}</td>${F.map(x=>`<td class="${["reportedIssue","actionTaken","remarks"].includes(x[0])?"w":""}">${esc(cell(k,p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
+ <td class="act">${can("userEdit")?`<button class="gry" data-a="ed" data-i="${p.id}" title="Edit">✏️</button>`:""}${isAdmin()?`<button class="red" data-a="del" data-i="${p.id}" title="Delete">🗑</button>`:""}</td></tr>`).join("")||`<tr><td colspan="${F.length+5}">No data</td></tr>`}</tbody></table></div>
+ <div class="row" style="margin-top:12px">${l.length>n?`<button class="gry" data-a="lm">Load More</button>`:""}${s.more?`<button class="gry" data-a="older">Load older entries from server</button>`:""}</div></div>`}
+
+function usrView(){return `<div class="sec"><h2>Create New User</h2><div class="g"><div><label>Full Name</label><input id="un"></div><div><label>Email</label><input id="ue" type="email"></div><div><label>Password (min 6)</label><input id="up" type="password"></div>
+ <div><label>Role</label><select id="ur"><option value="user">User</option>${isOwner()?`<option value="admin">Admin</option>`:""}</select></div></div><button data-a="cu">Create User</button></div>
  <div class="sec"><h2>Users</h2><div class="tw"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody>${users.map(u=>{
-  const mine=u.id===me.uid,can=!mine&&u.role!=="owner"&&(isOwner()||u.role==="user");
-  return `<tr><td>${esc(u.name)}</td><td>${esc(u.email)}</td><td>${can&&isOwner()?`<select data-c="ro" data-i="${u.id}" style="margin:0"><option ${u.role==="user"?"selected":""}>user</option><option ${u.role==="admin"?"selected":""}>admin</option></select>`:esc(u.role)}</td>
-  <td>${can?`<button class="${u.disabled?"grn":"red"}" data-a="dx" data-i="${u.id}">${u.disabled?"Enable":"Disable"}</button>`:(u.disabled?"Disabled":"Active")}</td>
-  <td>${can?`<button class="gry" data-a="en" data-i="${u.id}" title="Edit name">✏️</button> <button class="gry" data-a="rpw" data-i="${u.id}">🔑 Reset</button>`:"—"}</td></tr>`}).join("")}</tbody></table></div></div>`}
-function accView(){return `<div class="sec"><h2>My Account</h2><label>Full Name</label><input id="myname" value="${esc(me.name)}"><label>Email</label><input value="${esc(me.email)}" disabled style="opacity:.6"><label>Role</label><input value="${esc(me.role)}" disabled style="opacity:.6"><button data-a="savemyname">Save Name</button></div>
- <div class="sec"><h2>Change Password</h2><label>New Password (min 6)</label><input id="np" type="password"><label>Confirm</label><input id="np2" type="password"><button data-a="chpw">Change Password</button></div>`}
-function render(){if(!me)return;$("#view").innerHTML=({dash,battery:()=>modView("battery"),charger:()=>modView("charger"),log:()=>`<div class="sec"><h2>Activity Log ${isAdmin()?"(all users)":"(mine)"}</h2>${actTable(logs.slice(0,logShow))}${logs.length>logShow?`<div class="row" style="margin-top:10px"><button class="gry" data-a="lmore">Show more</button></div>`:""}</div>`,usr:usrView,acc:accView})[view]()}
+  const mine=u.id===me.uid,cn=!mine&&u.role!=="owner"&&(isOwner()||u.role==="user");
+  return `<tr><td>${esc(u.name)}</td><td>${esc(u.email)}</td><td>${cn&&isOwner()?`<select data-c="ro" data-i="${u.id}" style="margin:0"><option ${u.role==="user"?"selected":""}>user</option><option ${u.role==="admin"?"selected":""}>admin</option></select>`:esc(u.role)}</td>
+  <td>${cn?`<button class="${u.disabled?"grn":"red"}" data-a="dx" data-i="${u.id}">${u.disabled?"Enable":"Disable"}</button>`:(u.disabled?"Disabled":"Active")}</td>
+  <td>${cn?`<button class="gry" data-a="en" data-i="${u.id}">✏️ Rename</button> <button class="gry" data-a="rpw" data-i="${u.id}">🔑 Reset Password</button>`:"—"}</td></tr>`}).join("")}</tbody></table></div></div>`}
 
-function formModal(k,p,title,onSave){const M=MODS[k],m=$("#modal"),v={...(p||{})};
- if(!p){const d=new Date().toISOString().slice(0,10);if(k==="battery")v.ticketDate=d;else{v.openDate=d;v.repairLocation="Banglore CSC"}}
- m.innerHTML=`<div class="box"><h2 style="margin-bottom:10px">${esc(title)}</h2>
- <div class="who">👤 ${p?`Added by <b>${esc(p.createdByName||"—")}</b> · ${tm(p.createdAt)}<br>Edit karne par <b>${esc(me.name)}</b> ka naam "Last Updated By" me save hoga.`:`Ye entry <b>${esc(me.name)}</b> (${esc(me.role)}) ke naam se save hogi.`}<br><small>Koi bhi field mandatory nahi hai — khali ho ya bhara, save ho jayega.</small></div>
- <div class="g">${M.fields.map(([key,l,t,o])=>{
-  if(t==="sel"){const ops=[...o];if(v[key]&&!ops.includes(v[key]))ops.push(v[key]);
-   return `<div><label>${esc(l)}</label><select id="f_${key}" data-sel="${key}"><option value="">— Select —</option>${ops.map(x=>`<option ${v[key]===x?"selected":""}>${esc(x)}</option>`).join("")}</select>${o.some(isOther)?`<input id="f_${key}Other" placeholder="Type details..." value="${esc(v[key+"Other"]||"")}" class="${isOther(v[key])?"":"hide"}">`:""}</div>`}
+function setView(){const m=stm,P=cfg.perm,ck=(id,l)=>`<label style="display:flex;gap:8px;align-items:center;text-transform:none;font-size:14px;color:var(--ink);margin-bottom:8px"><input type="checkbox" id="${id}" style="width:auto;margin:0" ${P[id]!==false?"checked":""}>${l}</label>`;
+ return `<div class="sec"><h2>User Permissions</h2><p class="note">Choose what regular users are allowed to do. Admins and the Owner always have full access. Deleting records is always restricted to Admins.</p>
+  ${ck("userAdd","Users can add new entries")}${ck("userEdit","Users can edit entries")}${ck("userExport","Users can export CSV")}${ck("userLog","Users can view the Activity Log")}<button data-a="sp">Save Permissions</button></div>
+ <div class="tabs"><button class="${m==="battery"?"on":""}" data-a="sm" data-i="battery">🔋 Battery</button><button class="${m==="charger"?"on":""}" data-a="sm" data-i="charger">⚡ Charger / BSS</button></div>
+ <div class="sec"><h2>Dropdown Manager — ${esc(BASE[m].title)}</h2><p class="note">Add, rename or delete options for any dropdown. Existing entries keep their saved value.</p>
+  ${fieldsOf(m).filter(x=>x[2]==="sel").map(x=>`<div style="margin-bottom:16px"><label>${esc(x[1])}</label><div style="margin-top:6px">${optsOf(m,x[0]).map((o,i)=>`<span class="chip">${esc(o)}<button data-a="oe" data-f="${x[0]}" data-i="${i}" title="Rename">✎</button><button class="x" data-a="od" data-f="${x[0]}" data-i="${i}" title="Delete">×</button></span>`).join("")||"<small style='color:var(--mut)'>No options</small>"}</div>
+  <div class="row" style="margin:6px 0 0"><input id="no_${x[0]}" placeholder="New option…"><button data-a="oa" data-i="${x[0]}">Add</button></div></div>`).join("")}</div>
+ <div class="sec"><h2>Custom Columns — ${esc(BASE[m].title)}</h2><p class="note">Add extra columns to the entry form and table. Deleting a column hides it; stored data is not erased.</p>
+  <div>${(cfg.custom[m]||[]).map((c,i)=>`<span class="chip">${esc(c.label)} (${esc(c.type)})<button class="x" data-a="cd" data-i="${i}">×</button></span>`).join("")||"<small style='color:var(--mut)'>No custom columns</small>"}</div>
+  <div class="row" style="margin-top:10px"><input id="cn" placeholder="Column name"><select id="ct"><option value="text">Text</option><option value="date">Date</option><option value="dropdown">Dropdown</option></select><button data-a="ca">Add Column</button></div></div>`}
+function accView(){const pw=`<div class="sec"><h2>Change Password</h2><label>New Password (min 6)</label><input id="np" type="password"><label>Confirm Password</label><input id="np2" type="password"><button data-a="chpw">Change Password</button></div>`;
+ return `<div class="sec"><h2>My Account</h2><label>Full Name</label><input id="myname" value="${esc(me.name)}"><label>Email</label><input value="${esc(me.email)}" disabled><label>Role</label><input value="${esc(me.role)}" disabled><button data-a="savemyname">Save Name</button></div>${pw}`}
+function render(){if(!me)return;$("#view").innerHTML=({dash,battery:()=>modView("battery"),charger:()=>modView("charger"),log:()=>`<div class="sec"><h2>Activity Log ${isAdmin()?"(all users)":"(my activity)"}</h2><p class="note">Only the latest ${LOGMAX} activities are retained; older ones are removed automatically.</p>${actTable(logs,lLog,"lmore")}</div>`,usr:usrView,set:setView,acc:accView})[view]()}
+
+function formModal(k,p,title,onSave){const F=fieldsOf(k),m=$("#modal"),v={...(p||{})};
+ if(!p){const d=today();if(k==="battery")v.ticketDate=d;else{v.openDate=d;v.repairLocation="Bangalore CSC"}}
+ m.innerHTML=`<div class="box"><h2 style="margin-bottom:10px;color:var(--acc)">${esc(title)}</h2>
+ <div class="who">👤 ${p?`Added by <b>${esc(p.createdByName||"—")}</b> on ${tm(p.createdAt)}. Your name (<b>${esc(me.name)}</b>) will be recorded as "Last Updated By".`:`This entry will be saved under <b>${esc(me.name)}</b> (${esc(me.role)}).`}<br><small>All fields are optional. The date defaults to today and can be changed.</small></div>
+ <div class="g">${F.map(([key,l,t])=>{
+  if(t==="sel"){const o=optsOf(k,key),ops=[...o];if(v[key]&&!ops.includes(v[key]))ops.push(v[key]);
+   return `<div><label>${esc(l)}</label><select id="f_${key}" data-sel="${key}"><option value="">— Select —</option>${ops.map(x=>`<option ${v[key]===x?"selected":""}>${esc(x)}</option>`).join("")}</select>${o.some(isOther)?`<input id="f_${key}Other" placeholder="Specify details…" value="${esc(v[key+"Other"]||"")}" class="${isOther(v[key])?"":"hide"}">`:""}</div>`}
   if(t==="area")return `<div style="grid-column:1/-1"><label>${esc(l)}</label><textarea id="f_${key}">${esc(v[key]||"")}</textarea></div>`;
   return `<div><label>${esc(l)}</label><input id="f_${key}" type="${t}" value="${esc(v[key]||"")}"></div>`}).join("")}</div>
- <div class="row" style="margin-top:14px"><button id="ps">Save</button><button class="gry" id="pc">Cancel</button></div></div>`;
+ <div class="row" style="margin-top:14px"><button id="ps">Save Entry</button><button class="gry" id="pc">Cancel</button></div></div>`;
  m.classList.remove("hide");
  m.onchange=e=>{const key=e.target.dataset?.sel,o=key&&$("#f_"+key+"Other");if(o)o.classList.toggle("hide",!isOther(e.target.value))};
  $("#pc").onclick=()=>m.classList.add("hide");
  $("#ps").onclick=async()=>{const d={};
-  M.fields.forEach(([key,,t,o])=>{const el=$("#f_"+key);d[key]=el?el.value.trim():"";
-   if(t==="sel"&&o.some(isOther)){const ot=$("#f_"+key+"Other");d[key+"Other"]=ot&&isOther(d[key])?ot.value.trim():""}});
+  F.forEach(([key,,t])=>{const el=$("#f_"+key);d[key]=el?el.value.trim():"";
+   if(t==="sel"){const ot=$("#f_"+key+"Other");d[key+"Other"]=ot&&isOther(d[key])?ot.value.trim():""}});
   $("#ps").disabled=true;
-  try{await onSave(d);m.classList.add("hide");toast("Saved successfully")}catch(e){fail(e);$("#ps").disabled=false}}}
+  try{await onSave(d);m.classList.add("hide");toast("Entry saved successfully")}catch(e){fail(e);$("#ps").disabled=false}}}
 
-const key0=()=>view;
+const sid=(k,d)=>d.batterySrNo||d.assetSrNo||d.iotImei||"(no serial)";
+async function saveOpts(m,f,arr,msg){try{await setDoc(doc(db,"config","options"),{[m]:{[f]:arr}},{merge:true});cfg.opts[m]={...(cfg.opts[m]||{}),[f]:arr};render();log("Updated dropdown",BASE[m].title+" › "+f+" ("+msg+")")}catch(e){fail(e)}}
+async function saveFields(m,arr,msg){try{await setDoc(doc(db,"config","fields"),{[m]:arr},{merge:true});cfg.custom[m]=arr;render();log("Updated custom columns",BASE[m].title+" ("+msg+")")}catch(e){fail(e)}}
 const H={
- ref:async()=>{if(MODS[view]){await counts(view);await loadMod(view)}else await loadBase();toast("Refreshed")},
- clr:()=>{FL[view]={q:"",s:"",u:"",from:"",to:""};render()},
- more:()=>loadMod(view,true),lmore:()=>{logShow+=30;render()},
- new:()=>{const k=view;formModal(k,null,"New "+MODS[k].title+" Entry",async d=>{
+ ref:async()=>{await refreshAll();toast("Data refreshed")},
+ clr:()=>{FL[curMod()]={q:"",u:"",from:"",to:"",col:"",val:""};render()},
+ dm:i=>{dm=i;if(!S[i].loaded)loadMod(i);render()},dall:()=>{DALL[dm]=!DALL[dm];render()},
+ lm:()=>{SHOW[view]+=25;render()},older:()=>loadMod(view,true),dmore:()=>{dLog+=5;render()},lmore:()=>{lLog+=5;render()},
+ new:()=>{const k=curMod();if(!can("userAdd"))return;formModal(k,null,"New "+BASE[k].title+" Entry",async d=>{
   const id=nid(),extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
-  await setDoc(doc(db,MODS[k].col,id),{...d,...extra,createdAt:serverTimestamp()});
-  S[k].rows.unshift({id,...d,...extra,createdAt:new Date()});render();counts(k).then(render);
-  log("Added "+MODS[k].title+" entry",d.batterySrNo||d.assetSrNo||d.iotImei||"(no serial)")})},
- ed:i=>{const k=view,p=S[k].rows.find(x=>x.id===i);if(!p)return;
-  formModal(k,p,"Edit "+MODS[k].title+" Entry",async d=>{const extra={updatedBy:me.uid,updatedByName:me.name};
-   await updateDoc(doc(db,MODS[k].col,i),{...d,...extra,updatedAt:serverTimestamp()});Object.assign(p,d,extra,{updatedAt:new Date()});render();counts(k).then(render);
-   log("Edited "+MODS[k].title+" entry",d.batterySrNo||d.assetSrNo||d.iotImei||"(no serial)")})},
- del:async i=>{if(!isAdmin())return;const k=view,p=S[k].rows.find(x=>x.id===i);if(!confirm("Delete this entry permanently?"))return;
-  try{await deleteDoc(doc(db,MODS[k].col,i));S[k].rows=S[k].rows.filter(x=>x.id!==i);render();counts(k).then(render);toast("Deleted");log("Deleted "+MODS[k].title+" entry",(p&&(p.batterySrNo||p.assetSrNo))||i)}catch(e){fail(e)}},
- ex:async()=>{const k=view,M=MODS[k],qt=v=>`"${String(v??"").replace(/"/g,'""')}"`;
-  const out=[['"Sr. No."',...M.fields.map(f=>qt(f[1])),'"Added By"','"Added On"','"Last Updated By"'].join(",")];let last=null,n=0;toast("Preparing export…");
-  try{for(;;){const s=await getDocs(query(collection(db,M.col),...(last?[startAfter(last)]:[]),limit(1000)));
-   s.docs.forEach(d=>{const p=d.data();out.push([++n,...M.fields.map(f=>qt(cell(p,f))),qt(p.createdByName),qt(tm(p.createdAt)),qt(p.updatedByName)].join(","))});
-   if(s.docs.length<1000)break;last=s.docs[s.docs.length-1]}
-   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+out.join("\n")],{type:"text/csv"}));a.download=M.col+"_"+new Date().toISOString().slice(0,10)+".csv";a.click();toast("Exported");log("Exported CSV",M.title)}catch(e){fail(e)}},
- chpw:async()=>{const a=$("#np").value,b=$("#np2").value;if(a.length<6)return toast("Password min 6 chars");if(a!==b)return toast("Passwords match nahi karte");
-  try{await updatePassword(auth.currentUser,a);$("#np").value="";$("#np2").value="";toast("Password updated");log("Password changed")}catch(e){toast(e.code==="auth/requires-recent-login"?"Logout karke dobara login karo, phir password badlo":errMsg(e))}},
- savemyname:async()=>{const n=$("#myname").value.trim();if(!n)return;try{await updateDoc(doc(db,"users",me.uid),{name:n});me.name=n;$("#who").innerHTML=`${esc(n)} ${roleBadge(me.role)}`;toast("Saved")}catch(e){fail(e)}},
+  await setDoc(doc(db,BASE[k].col,id),{...d,...extra,createdAt:serverTimestamp()});
+  S[k].rows.unshift({id,...d,...extra,createdAt:new Date()});render();log("Added "+BASE[k].title+" entry",sid(k,d))})},
+ ed:i=>{const k=view,p=S[k].rows.find(x=>x.id===i);if(!p||!can("userEdit"))return;
+  formModal(k,p,"Edit "+BASE[k].title+" Entry",async d=>{const extra={updatedBy:me.uid,updatedByName:me.name};
+   await updateDoc(doc(db,BASE[k].col,i),{...d,...extra,updatedAt:serverTimestamp()});Object.assign(p,d,extra,{updatedAt:new Date()});render();log("Edited "+BASE[k].title+" entry",sid(k,d))})},
+ del:async i=>{if(!isAdmin())return;const k=view,p=S[k].rows.find(x=>x.id===i);if(!confirm("Permanently delete this entry?"))return;
+  try{await deleteDoc(doc(db,BASE[k].col,i));S[k].rows=S[k].rows.filter(x=>x.id!==i);render();toast("Entry deleted");log("Deleted "+BASE[k].title+" entry",p?sid(k,p):i)}catch(e){fail(e)}},
+ ex:()=>{const k=view,F=fieldsOf(k),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,l=applyF(k,S[k].rows,true);
+  const out=[['"Sr. No."',...F.map(f=>qt(f[1])),'"Added By"','"Added On"','"Last Updated By"'].join(",")];
+  l.forEach((p,i)=>out.push([i+1,...F.map(f=>qt(cell(k,p,f))),qt(p.createdByName),qt(tm(p.createdAt)),qt(p.updatedByName)].join(",")));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+out.join("\n")],{type:"text/csv"}));a.download=BASE[k].col+"_"+today()+".csv";a.click();toast("Exported "+l.length+" rows");log("Exported CSV",BASE[k].title+" ("+l.length+" rows)")},
+ chpw:async()=>{const a=$("#np").value,b=$("#np2").value;if(a.length<6)return toast("Password must be at least 6 characters.");if(a!==b)return toast("Passwords do not match.");
+  try{await updatePassword(auth.currentUser,a);$("#np").value="";$("#np2").value="";toast("Password updated");log("Changed password")}catch(e){toast(errMsg(e))}},
+ savemyname:async()=>{const n=$("#myname").value.trim();if(!n)return;try{await updateDoc(doc(db,"users",me.uid),{name:n});me.name=n;$("#who").innerHTML=`${esc(n)} ${roleBadge(me.role)}`;toast("Name updated")}catch(e){fail(e)}},
  cu:async()=>{const name=$("#un").value.trim(),email=$("#ue").value.trim(),pw=$("#up").value,role=$("#ur").value;
-  if(!name||!email||pw.length<6)return toast("Name, email aur password (min 6) daalo");if(role!=="user"&&!isOwner())return toast("Sirf owner admin bana sakta hai");
+  if(!name||!email||pw.length<6)return toast("Enter a name, email and a password of at least 6 characters.");if(role!=="user"&&!isOwner())return toast("Only the Owner can create admins.");
   const s=initializeApp(firebaseConfig,"sec"+Date.now()),a=getAuth(s);
   try{const c=await createUserWithEmailAndPassword(a,email,pw);const prof={name,email,role,disabled:false,createdBy:me.uid,createdAt:serverTimestamp()};
    await setDoc(doc(db,"users",c.user.uid),prof);users.push({id:c.user.uid,...prof,createdAt:new Date()});render();toast("User created");log("Created user",name+" ("+role+")")}
-  catch(e){fail(e);if(e.code&&e.code.startsWith("auth/"))toast(errMsg(e))}
+  catch(e){if(e.code&&e.code.startsWith("auth/"))toast(errMsg(e));else fail(e)}
   await signOut(a).catch(()=>{});await deleteApp(s).catch(()=>{})},
  dx:async i=>{const u=users.find(x=>x.id===i);try{await updateDoc(doc(db,"users",i),{disabled:!u.disabled});u.disabled=!u.disabled;render();log(u.disabled?"Disabled user":"Enabled user",u.name)}catch(e){fail(e)}},
- en:async i=>{const u=users.find(x=>x.id===i),n=prompt("Naya naam:",u.name);if(!n||!n.trim())return;try{await updateDoc(doc(db,"users",i),{name:n.trim()});u.name=n.trim();render()}catch(e){fail(e)}},
- rpw:async i=>{const u=users.find(x=>x.id===i);try{await sendPasswordResetEmail(auth,u.email);toast("Reset email bhej diya");log("Password reset email",u.name)}catch(e){toast(errMsg(e))}}
+ en:async i=>{const u=users.find(x=>x.id===i),n=prompt("New name:",u.name);if(!n||!n.trim())return;try{await updateDoc(doc(db,"users",i),{name:n.trim()});u.name=n.trim();render()}catch(e){fail(e)}},
+ rpw:async i=>{const u=users.find(x=>x.id===i);try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent");log("Sent password reset",u.name)}catch(e){toast(errMsg(e))}},
+ sm:i=>{stm=i;render()},
+ sp:async()=>{const p={};["userAdd","userEdit","userExport","userLog"].forEach(id=>p[id]=$("#"+id).checked);try{await setDoc(doc(db,"config","permissions"),p);cfg.perm=p;toast("Permissions saved");log("Updated user permissions",JSON.stringify(p));$("#navlog").classList.toggle("hide",!can("userLog"))}catch(e){fail(e)}},
+ oa:i=>{const v=$("#no_"+i).value.trim();if(!v)return;const a=[...optsOf(stm,i)];if(a.includes(v))return toast("Option already exists.");a.push(v);saveOpts(stm,i,a,"added "+v)},
+ oe:(i,b)=>{const f=b.dataset.f,a=[...optsOf(stm,f)],n=prompt("Rename option:",a[i]);if(!n||!n.trim()||n.trim()===a[i])return;const old=a[i];a[i]=n.trim();saveOpts(stm,f,a,old+" → "+a[i])},
+ od:(i,b)=>{const f=b.dataset.f,a=[...optsOf(stm,f)];if(!confirm('Delete option "'+a[i]+'"?'))return;const old=a.splice(i,1)[0];saveOpts(stm,f,a,"deleted "+old)},
+ ca:()=>{const label=$("#cn").value.trim(),type=$("#ct").value;if(!label)return toast("Enter a column name.");const a=[...(cfg.custom[stm]||[])];
+  const key="x_"+label.toLowerCase().replace(/[^a-z0-9]+/g,"_").slice(0,24)+"_"+Math.random().toString(36).slice(2,5);a.push({key,label,type});saveFields(stm,a,"added "+label)},
+ cd:i=>{const a=[...(cfg.custom[stm]||[])];if(!confirm('Remove column "'+a[i].label+'"? Stored data is kept.'))return;const old=a.splice(i,1)[0];saveFields(stm,a,"removed "+old.label)}
 };
 const V=$("#view");
-V.onclick=e=>{const b=e.target.closest("[data-a]");if(b&&H[b.dataset.a])H[b.dataset.a](b.dataset.i)};
+V.onclick=e=>{const b=e.target.closest("[data-a]");if(b&&H[b.dataset.a])H[b.dataset.a](b.dataset.i,b)};
 V.onchange=e=>{const t=e.target;
- if(t.dataset.f){FL[view][t.dataset.f]=t.value;render()}
+ if(t.dataset.f){const f=FL[curMod()];f[t.dataset.f]=t.value;if(t.dataset.f==="col")f.val="";render()}
+ else if(t.dataset.dim){DIM[dm]=t.value;DALL[dm]=false;render()}
  else if(t.dataset.c==="ro"){updateDoc(doc(db,"users",t.dataset.i),{role:t.value}).then(()=>{const u=users.find(x=>x.id===t.dataset.i);if(u){u.role=t.value;log("Changed role",u.name+" → "+t.value)}}).catch(fail)}};
-V.oninput=e=>{const t=e.target;if(t.id==="fq"){FL[view].q=t.value;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
+V.oninput=e=>{const t=e.target;if(t.id==="fq"){FL[curMod()].q=t.value;SHOW[curMod()]=25;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
 </script></body></html>
