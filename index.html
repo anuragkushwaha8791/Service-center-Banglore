@@ -71,6 +71,16 @@ td.w{white-space:normal;min-width:180px;max-width:260px}
 #toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:380px;margin:0 auto;background:#0f2a4a;color:#fff;padding:12px 18px;border-radius:8px;z-index:99;text-align:center}
 #warn{background:#fee2e2;color:#991b1b;padding:12px;border-radius:10px;margin-bottom:12px;font-size:13px}
 .who{background:var(--soft);border:1px dashed var(--acc2);padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px}
+html{-webkit-text-size-adjust:100%}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+#login,#app{min-height:100vh;min-height:100dvh}
+#toast{bottom:calc(20px + env(safe-area-inset-bottom))}
+#modal{padding-top:calc(24px + env(safe-area-inset-top));padding-bottom:calc(24px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media(max-width:800px){input,select,textarea{font-size:16px}input[type=date],input[type=datetime-local]{min-height:42px;-webkit-appearance:none;appearance:none}
+ .side{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+ .main{padding:calc(14px + env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom))}
+ .mi input{width:20px;height:20px}
+ .row.wr>*{flex:1 1 100%}}
 @media(max-width:800px){.hb{display:block}
  .side{position:fixed;left:0;top:0;bottom:0;z-index:20;margin-left:-260px;box-shadow:8px 0 20px rgba(0,0,0,.4);transition:margin .2s}
  .side.open{margin-left:0}.box{padding:22px}}
@@ -141,9 +151,9 @@ const BASE={
 };
 const S={battery:{rows:[],cur:null,more:false,loaded:false},charger:{rows:[],cur:null,more:false,loaded:false},lucknow:{rows:[],cur:null,more:false,loaded:false}};
 const FL={battery:{q:"",u:"",from:"",to:"",col:"",val:""},charger:{q:"",u:"",from:"",to:"",col:"",val:""},lucknow:{q:"",u:"",from:"",to:"",col:"",val:""}};
-const DIM={battery:"reportedIssue",charger:"reportedIssue",lucknow:"reportedIssue"},SHOW={battery:25,charger:25,lucknow:25},DALL={battery:false,charger:false,lucknow:false};
-const WINS=[[90,"Last 90 days"],[30,"Last 30 days"],[180,"Last 6 months"],[365,"Last 12 months"],[0,"All time (more reads)"]];
-const WIN=(()=>{const o={battery:90,charger:90,lucknow:90};for(const k in o){try{const v=localStorage.getItem("win_"+k);if(v!==null&&WINS.some(w=>w[0]===+v&&+v>0))o[k]=+v}catch(_){}}return o})();
+const DIM={battery:"reportedIssue",charger:"reportedIssue",lucknow:"reportedIssue"},SHOW={battery:20,charger:20,lucknow:20},DALL={battery:false,charger:false,lucknow:false};
+const WINS=[[0,"All time (all old entries)"],[365,"Last 12 months"],[180,"Last 6 months"],[90,"Last 90 days"],[30,"Last 30 days"]];
+const WIN=(()=>{const o={battery:0,charger:0,lucknow:0};for(const k in o){try{const v=localStorage.getItem("win_"+k);if(v!==null&&WINS.some(w=>w[0]===+v))o[k]=+v}catch(_){}}return o})();
 const wq=k=>{const d=WIN[k];return d>0?[where("createdAt",">=",Timestamp.fromDate(new Date(Date.now()-d*864e5))),orderBy("createdAt","desc")]:[]};
 const DEF_BR={app:"Service Center Bangalore",sub:"Battery & Charger Repair Operations",wheel:"Service Center & Repair Cycle",dashTitle:"CRM Dashboard",
  nav:{dash:"Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",lucknow:"Lucknow Charger Repair",log:"Activity Log",usr:"Users",set:"Admin Settings",acc:"My Account",out:"Sign Out"},
@@ -155,7 +165,7 @@ function mergeBR(s){const b=JSON.parse(JSON.stringify(DEF_BR));s=s||{};const ok=
  for(const g of["nav","mod"])for(const k in b[g])if(ok(s[g]?.[k]))b[g][k]=s[g][k].trim().slice(0,60);
  (Array.isArray(s.steps)?s.steps:[]).forEach((x,i)=>{if(b.steps[i]&&x){if(ok(x.t))b.steps[i].t=x.t.trim().slice(0,40);if(ok(x.d))b.steps[i].d=x.d.trim().slice(0,80)}});
  b.fl=s.fl&&typeof s.fl==="object"?s.fl:{};return b}
-let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=5,lLog=5,lastLoad=0,refT=null;
+let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=20,lLog=20,lastLoad=0,refT=null;
 const $=s=>document.querySelector(s);
 const isOwner=()=>me?.role==="owner",isAdmin=()=>!!me&&(me.role==="owner"||me.role==="admin"),can=p=>isAdmin()||cfg.perm[p]!==false;
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -217,7 +227,7 @@ $("#lo").onclick=async()=>{await log("Signed out");clearInterval(refT);signOut(a
 
 onAuthStateChanged(auth,async u=>{
  me=null;users=[];logs=[];clearInterval(refT);
- for(const k in S)Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false});
+ for(const k in S)Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false,full:false});
  if(!u){$("#app").classList.add("hide");$("#login").classList.remove("hide");return}
  try{
   const ref=doc(db,"users",u.uid),isO=(u.email||"").toLowerCase()===OWNER;
@@ -235,11 +245,11 @@ onAuthStateChanged(auth,async u=>{
 });
 document.querySelectorAll(".side a[data-v]").forEach(a=>a.onclick=()=>{nav(a.dataset.v);$("#side").classList.remove("open");$("#ov").classList.add("hide")});
 const ttlOf=v=>({dash:BR.dashTitle,battery:BASE.battery.title,charger:BASE.charger.title,lucknow:BASE.lucknow.title,log:BR.nav.log,usr:BR.nav.usr,set:BR.nav.set,acc:BR.nav.acc})[v]||"";
-function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=5;lLog=5;
+function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=20;lLog=20;
  document.querySelectorAll(".side a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
  $("#navlog").classList.toggle("hide",!can("userLog"));
  $("#ttl").textContent=ttlOf(v);
- const k=BASE[v]?v:(v==="dash"?dm:null);if(k&&!S[k].loaded)loadMod(k);render()}
+ const k=BASE[v]?v:(v==="dash"?dm:null);if(k){if(v==="dash")ensureDash(k);else if(!S[k].loaded)loadMod(k)}render()}
 
 async function loadConfig(){for(const [id,key] of [["options","opts"],["fields","custom"],["permissions","perm"]]){try{const s=await getDoc(doc(db,"config",id));cfg[key]=s.exists()?s.data():{}}catch(e){cfg[key]={}}}}
 async function loadBase(){try{
@@ -253,10 +263,11 @@ async function loadBase(){try{
   if(isAdmin())users=(await getDocs(collection(db,"users"))).docs.map(d=>({id:d.id,...d.data()}));
   lastLoad=Date.now();
  }catch(e){fail(e)}}
-async function loadMod(k,more){const s=S[k];
- try{const qs=await getDocs(query(collection(db,BASE[k].col),...wq(k),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(FETCH)));
-  const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===FETCH;s.loaded=true;lastLoad=Date.now();$("#warn").classList.add("hide")}catch(e){fail(e)}
+async function loadMod(k,more,n){const s=S[k],size=n||(more?40:Math.min(Math.max(s.rows.length,20),FETCH));
+ try{const qs=await getDocs(query(collection(db,BASE[k].col),...wq(k),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(size)));
+  const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===size;s.loaded=true;if(size>=FETCH)s.full=true;lastLoad=Date.now();$("#warn").classList.add("hide")}catch(e){fail(e)}
  render()}
+function ensureDash(k){const s=S[k];if(!s.loaded)loadMod(k,false,FETCH);else if(!s.full&&s.more)loadMod(k,true,FETCH)}
 async function refreshAll(){if(!me)return;await loadBase();const ks=Object.keys(S).filter(k=>S[k].loaded);for(const k of ks)await loadMod(k);render()}
 
 /* analytics helpers */
@@ -280,7 +291,23 @@ function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel
 const kpi=(l,v,c="")=>`<div class="c ${c}"><h3>${l}</h3><h2>${v}</h2></div>`;
 const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More</button></div>`:""}`;
 
-const winSel=k=>`<label style="margin:0">Data loaded</label><select data-win="1" style="width:auto;margin:0;flex:0 0 auto;min-width:170px">${WINS.map(([d,l])=>`<option value="${d}" ${WIN[k]===d?"selected":""}>${l}</option>`).join("")}</select>`;
+
+const PU={mechParts:false,elecParts:false};
+function partStats(all,key){const seen=new Set(optsOf("lucknow",key));all.forEach(p=>asArr(p[key]).forEach(x=>seen.add(x)));
+ const ct=[...new Set([...optsOf("lucknow","chargerType"),...all.map(p=>p.chargerType).filter(Boolean)])];
+ const m=new Map([...seen].map(o=>[o,{k:o,n:0,r:0,h:0,d:0,ct:{}}]));
+ all.forEach(p=>{const bad=isFail(p),good=!bad&&isOk(p),hold=!bad&&!good&&/hold/i.test(p.repairStatus||"");
+  new Set(asArr(p[key])).forEach(o=>{const g=m.get(o);if(!g)return;g.n++;if(good)g.r++;else if(bad)g.d++;else if(hold)g.h++;const c=p.chargerType||"—";g.ct[c]=(g.ct[c]||0)+1})});
+ return {rows:[...m.values()].sort((a,b)=>b.n-a.n||String(a.k).localeCompare(String(b.k))),ct}}
+function partsTbl(all,key,title,icon){const {rows,ct}=partStats(all,key),used=rows.filter(r=>r.n>0),show=PU[key]?rows:used,sum=used.reduce((a,r)=>a+r.n,0),mx=Math.max(1,...rows.map(r=>r.n)),isE=key==="elecParts";
+ const sp=k=>{const i=String(k).indexOf(" — ");return i>=0?[String(k).slice(0,i),String(k).slice(i+3)]:[String(k),""]};
+ return `<div class="sec"><h2>${icon} ${esc(title)} — Usage & Repair Result</h2>
+  <p class="note">${used.length} of ${rows.length} parts used · ${sum} total uses in ${all.length} entries (filters applied). Repaired = Charger Repaired · Hold = Hold for Part · Dead = Dead. One entry counts once per part.</p>
+  <div class="tw"><table><thead><tr><th>#</th><th>Part</th>${isE?"<th>Position / Sub Part</th>":""}<th>Used</th><th>Share</th><th></th><th>Repaired</th><th>Hold</th><th>Dead</th><th>Repair %</th>${ct.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>
+  ${show.map((r,i)=>{const [a,b]=isE?sp(r.k):[r.k,""];return `<tr><td>${i+1}</td><td class="w"><b>${esc(a)}</b></td>${isE?`<td class="w">${esc(b)}</td>`:""}<td><b>${r.n}</b></td><td>${pct(r.n,all.length)}%</td><td style="width:120px"><div class="bar"><i style="width:${pct(r.n,mx)}%"></i></div></td><td style="color:#16a34a;font-weight:700">${r.r}</td><td style="color:#d97706;font-weight:700">${r.h}</td><td style="color:#dc2626;font-weight:700">${r.d}</td><td>${r.n?pct(r.r,r.n)+"%":"—"}</td>${ct.map(c=>`<td>${r.ct[c]||0}</td>`).join("")}</tr>`}).join("")||`<tr><td colspan="${9+(isE?1:0)+ct.length}">No parts used yet</td></tr>`}</tbody></table></div>
+  ${rows.length>used.length?`<div class="row" style="margin-top:10px"><button class="gry" data-a="pu" data-i="${key}">${PU[key]?"Hide unused parts":"Show unused parts too ("+(rows.length-used.length)+")"}</button></div>`:""}</div>`}
+function partsDash(all){return partsTbl(all,"mechParts","Mechanical Parts","🔩")+partsTbl(all,"elecParts","Electrical Parts","⚡")}
+const winSel=k=>`<span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label style="margin:0">Data loaded</label><select data-win="1" style="width:auto;margin:0;flex:0 0 auto;min-width:170px">${WINS.map(([d,l])=>`<option value="${d}" ${WIN[k]===d?"selected":""}>${l}</option>`).join("")}</select></span>`;
 function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.length,fl=all.filter(isFail).length,ok=all.filter(isOk).length,pend=n-fl-ok;
  const stat=group(all,p=>p[B.stat]),byUser=group(all,p=>p.createdByName||"Unknown"),dimF=[...fieldsOf(k).filter(x=>x[2]==="sel"||x[2]==="multi").map(x=>[x[0],x[1]]),["__by","Added By"]];
  if(!dimF.some(x=>x[0]===DIM[k]))DIM[k]=dimF[0][0];
@@ -293,10 +320,11 @@ function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.len
  <div class="sec"><h2>Filters</h2>${fbar(k,false)}<p class="note">Failure = Repair Status of Not OK / Non-Repairable / Scrap / Dead, or PDI Fail. Resolved = Repair Status OK / Repaired / No Issue Found. Filters apply to every chart below. For parts columns, one entry is counted once under each part used.</p></div>
  ${s.loaded?"":`<div class="sec">Loading data…</div>`}
  <div class="cards">${kpi("Total Entries",n)}${kpi("Resolved",ok,"g2")}${kpi("Failed",fl,"r2")}${kpi("In Process / On Hold",pend,"o2")}${kpi("Failure Rate",pct(fl,n)+"%","r2")}${kpi("Success Rate",pct(ok,n)+"%","g2")}
-  ${k==="battery"?kpi("PDI Pass",pdiP,"g2")+kpi("PDI Fail",pdiF,"r2"):""}${kpi("Active Contributors",byUser.length)}${isAdmin()?kpi("Total Users",users.filter(u=>u.role==="user").length)+kpi("Total Admins",users.filter(u=>u.role!=="user").length):""}</div>
+  ${k==="battery"?kpi("PDI Pass",pdiP,"g2")+kpi("PDI Fail",pdiF,"r2"):""}${k==="lucknow"?kpi("Mechanical Issue",all.filter(p=>/mech/i.test(p.reportedIssue||"")).length)+kpi("Electrical Issue",all.filter(p=>/elec/i.test(p.reportedIssue||"")).length)+kpi("Mechanical Parts Used",all.reduce((a,p)=>a+asArr(p.mechParts).length,0))+kpi("Electrical Parts Used",all.reduce((a,p)=>a+asArr(p.elecParts).length,0)):""}${kpi("Active Contributors",byUser.length)}${isAdmin()?kpi("Total Users",users.filter(u=>u.role==="user").length)+kpi("Total Admins",users.filter(u=>u.role!=="user").length):""}</div>
  <div class="g2c"><div class="sec"><h2>Repair Status Distribution</h2><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><div class="donut" style="background:conic-gradient(${seg||"#e2e8f0 0deg 360deg"})"><div><b>${n}</b><small>Entries</small></div></div>
    <div>${stat.map((x,i)=>`<div class="leg"><i style="background:${PAL[i%8]}"></i>${esc(x.k)} <b>${x.n}</b> · ${pct(x.n,n)}%</div>`).join("")||"No data"}</div></div></div>
   <div class="sec"><h2>Efficiency by User (Success Rate)</h2>${byUser.map(x=>`<div class="brow"><span>${esc(x.k)}</span><div class="bar"><i style="width:${pct(x.o,x.n)}%;background:#16a34a"></i></div><b>${pct(x.o,x.n)}%</b></div>`).join("")||"No data"}</div></div>
+ ${k==="lucknow"?partsDash(all):""}
  <div class="sec"><h2>Analyze by Column</h2><div class="row"><label style="margin:0">Group by</label><select data-dim="1">${dimF.map(x=>`<option value="${x[0]}" ${DIM[k]===x[0]?"selected":""}>${esc(x[1])}</option>`).join("")}</select></div>
   <div class="tw"><table><thead><tr><th>Value</th><th>Entries</th><th>Share</th><th></th><th>Resolved</th><th>Failed</th><th>Failure %</th></tr></thead><tbody>
   ${dshow.map(x=>`<tr><td>${esc(x.k)}</td><td>${x.n}</td><td>${pct(x.n,n)}%</td><td style="width:140px"><div class="bar"><i style="width:${pct(x.n,n)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td></tr>`).join("")||"<tr><td colspan=7>No data</td></tr>"}</tbody></table></div>
@@ -307,11 +335,11 @@ function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.len
 
 function modView(k){const s=S[k],F=fieldsOf(k),l=applyF(k,s.rows,true),n=SHOW[k];
  return `<div class="sec"><div class="row">${can("userAdd")?`<button data-a="new">+ New Entry</button>`:""}<span style="flex:1"></span>${winSel(k)}<button class="gry" data-a="cnt">Σ Total in DB</button><button class="gry" data-a="ref">↻ Refresh</button>${can("userExport")?`<button class="grn" data-a="ex">Export CSV (filtered)</button>`:""}</div>
- ${fbar(k,true)}<p class="note">Showing ${Math.min(n,l.length)} of ${l.length} matching entries (${s.rows.length} loaded).</p>
+ ${fbar(k,true)}<p class="note">Showing ${Math.min(n,l.length)} of ${l.length} matching entries (${s.rows.length} loaded${s.more?", more on server":""}). Search/filters work on loaded entries — press Load More to fetch older ones.</p>
  <div class="tw"><table><thead><tr><th>Sr. No.</th>${F.map(x=>`<th>${esc(x[1])}</th>`).join("")}<th>Added By</th><th>Added On</th><th>Last Updated By</th><th class="act">Actions</th></tr></thead><tbody>
  ${l.slice(0,n).map((p,i)=>`<tr><td>${i+1}</td>${F.map(x=>`<td class="${["reportedIssue","actionTaken","remarks","mechParts","elecParts"].includes(x[0])?"w":""}">${esc(cell(k,p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
  <td class="act">${can("userEdit")?`<button class="gry" data-a="ed" data-i="${p.id}" title="Edit">✏️</button>`:""}${isAdmin()?`<button class="red" data-a="del" data-i="${p.id}" title="Delete">🗑</button>`:""}</td></tr>`).join("")||`<tr><td colspan="${F.length+5}">No data</td></tr>`}</tbody></table></div>
- <div class="row" style="margin-top:12px">${l.length>n?`<button class="gry" data-a="lm">Load More</button>`:""}${s.more?`<button class="gry" data-a="older">Load older entries from server</button>`:""}</div></div>`}
+ <div class="row" style="margin-top:12px">${l.length>n||s.more?`<button class="gry" data-a="lm">Load More (40)</button>`:""}</div></div>`}
 
 function usrView(){return `<div class="sec"><h2>Create New User</h2><div class="g"><div><label>Full Name</label><input id="un"></div><div><label>Email</label><input id="ue" type="email"></div><div><label>Password (min 6)</label><input id="up" type="password"></div>
  <div><label>Role</label><select id="ur"><option value="user">User</option>${isOwner()?`<option value="admin">Admin</option>`:""}</select></div></div><button data-a="cu">Create User</button></div>
@@ -371,7 +399,7 @@ function formModal(k,p,title,onSave){const F=fieldsOf(k),m=$("#modal"),v={...(p|
   F.forEach(([key,,t])=>{const el=$("#f_"+key);
    if(t==="multi"){d[key]=el?[...el.querySelectorAll("input:checked")].map(c=>c.dataset.v):[];return}
    d[key]=el?el.value.trim():"";
-   if(t==="sel"){const ot=$("#f_"+key+"Other");d[key+"Other"]=ot&&isOther(d[key])?ot.value.trim():""}});
+   if(t==="sel"){const ot=$("#f_"+key+"Other"),nv=ot&&isOther(d[key])?ot.value.trim():"";if(nv||(p&&p[key+"Other"]))d[key+"Other"]=nv}});
   $("#ps").disabled=true;
   try{await onSave(d);m.classList.add("hide");toast("Entry saved successfully")}catch(e){fail(e);$("#ps").disabled=false}}}
 
@@ -380,9 +408,9 @@ async function saveOpts(m,f,arr,msg){try{await setDoc(doc(db,"config","options")
 async function saveFields(m,arr,msg){try{await setDoc(doc(db,"config","fields"),{[m]:arr},{merge:true});cfg.custom[m]=arr;render();log("Updated custom columns",BASE[m].title+" ("+msg+")")}catch(e){fail(e)}}
 const H={
  ref:async()=>{await refreshAll();toast("Data refreshed")},
- clr:()=>{FL[curMod()]={q:"",u:"",from:"",to:"",col:"",val:""};render()},
- dm:i=>{dm=i;if(!S[i].loaded)loadMod(i);render()},dall:()=>{DALL[dm]=!DALL[dm];render()},
- lm:()=>{SHOW[view]+=25;render()},older:()=>loadMod(view,true),dmore:()=>{dLog+=5;render()},lmore:()=>{lLog+=5;render()},
+ clr:()=>{FL[curMod()]={q:"",u:"",from:"",to:"",col:"",val:""};SHOW[curMod()]=20;render()},
+ dm:i=>{dm=i;ensureDash(i);render()},dall:()=>{DALL[dm]=!DALL[dm];render()},
+ lm:()=>{const k=view,l=applyF(k,S[k].rows,true);SHOW[k]+=40;if(l.length<SHOW[k]&&S[k].more)loadMod(k,true,40);else render()},dmore:()=>{dLog+=40;render()},lmore:()=>{lLog+=40;render()},
  new:()=>{const k=curMod();if(!can("userAdd"))return;const id=nid();formModal(k,null,"New "+BASE[k].title+" Entry",async d=>{
   const extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
   const meta={module:k,entryDate:ymd(d)};
@@ -411,7 +439,8 @@ const H={
  en:async i=>{const u=users.find(x=>x.id===i),n=prompt("New name:",u.name);if(!n||!n.trim())return;try{await updateDoc(doc(db,"users",i),{name:n.trim()});u.name=n.trim();render()}catch(e){fail(e)}},
  rpw:async i=>{const u=users.find(x=>x.id===i);try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent");log("Sent password reset",u.name)}catch(e){toast(errMsg(e))}},
  sm:i=>{stm=i;render()},
-  dolder:()=>loadMod(dm,true),
+  pu:i=>{PU[i]=!PU[i];render()},
+  dolder:()=>loadMod(dm,true,FETCH),
   cnt:async()=>{const k=curMod();try{const r=await getCountFromServer(collection(db,BASE[k].col));toast(BASE[k].title+": "+r.data().count.toLocaleString()+" entries in database")}catch(e){fail(e)}},
   cr:i=>{const a=[...(cfg.custom[stm]||[])],n=prompt("Rename column:",a[i].label);if(!n||!n.trim())return;const old=a[i].label;a[i]={...a[i],label:n.trim()};saveFields(stm,a,"renamed "+old+" → "+n.trim())},
   sb:async()=>{const g=id=>($("#"+id)?.value||"").trim(),o={app:g("br_app"),sub:g("br_sub"),wheel:g("br_wheel"),dashTitle:g("br_dash"),nav:{},mod:{},steps:[],fl:{...(BR.fl||{})}};
@@ -441,10 +470,9 @@ const H={
 const V=$("#view");
 V.onclick=e=>{const b=e.target.closest("[data-a]");if(b&&H[b.dataset.a])H[b.dataset.a](b.dataset.i,b)};
 V.onchange=e=>{const t=e.target;
- if(t.dataset.win!==undefined){const k=curMod(),v=+t.value;if(v===0&&!confirm("All time loads every entry (1 read each; free limit 50,000 reads/day). Continue?")){render();return}
-  WIN[k]=v;try{v>0?localStorage.setItem("win_"+k,v):localStorage.removeItem("win_"+k)}catch(_){}Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false});SHOW[k]=25;render();loadMod(k)}
+ if(t.dataset.win!==undefined){const k=curMod(),v=+t.value;WIN[k]=v;try{localStorage.setItem("win_"+k,v)}catch(_){}Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false,full:false});SHOW[k]=20;render();loadMod(k,false,k===view?20:FETCH)}
  else if(t.dataset.f){const f=FL[curMod()];f[t.dataset.f]=t.value;if(t.dataset.f==="col")f.val="";render()}
  else if(t.dataset.dim){DIM[dm]=t.value;DALL[dm]=false;render()}
  else if(t.dataset.c==="ro"){updateDoc(doc(db,"users",t.dataset.i),{role:t.value}).then(()=>{const u=users.find(x=>x.id===t.dataset.i);if(u){u.role=t.value;log("Changed role",u.name+" → "+t.value)}}).catch(fail)}};
-V.oninput=e=>{const t=e.target;if(t.id==="fq"){FL[curMod()].q=t.value;SHOW[curMod()]=25;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
+V.oninput=e=>{const t=e.target;if(t.id==="fq"){FL[curMod()].q=t.value;SHOW[curMod()]=20;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
 </script></body></html>
