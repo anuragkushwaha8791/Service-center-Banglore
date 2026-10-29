@@ -165,7 +165,7 @@ function mergeBR(s){const b=JSON.parse(JSON.stringify(DEF_BR));s=s||{};const ok=
  for(const g of["nav","mod"])for(const k in b[g])if(ok(s[g]?.[k]))b[g][k]=s[g][k].trim().slice(0,60);
  (Array.isArray(s.steps)?s.steps:[]).forEach((x,i)=>{if(b.steps[i]&&x){if(ok(x.t))b.steps[i].t=x.t.trim().slice(0,40);if(ok(x.d))b.steps[i].d=x.d.trim().slice(0,80)}});
  b.fl=s.fl&&typeof s.fl==="object"?s.fl:{};return b}
-let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=20,lLog=20,lastLoad=0,refT=null;
+let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=5,lLog=5,lastLoad=0,refT=null;
 const $=s=>document.querySelector(s);
 const isOwner=()=>me?.role==="owner",isAdmin=()=>!!me&&(me.role==="owner"||me.role==="admin"),can=p=>isAdmin()||cfg.perm[p]!==false;
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -245,7 +245,7 @@ onAuthStateChanged(auth,async u=>{
 });
 document.querySelectorAll(".side a[data-v]").forEach(a=>a.onclick=()=>{nav(a.dataset.v);$("#side").classList.remove("open");$("#ov").classList.add("hide")});
 const ttlOf=v=>({dash:BR.dashTitle,battery:BASE.battery.title,charger:BASE.charger.title,lucknow:BASE.lucknow.title,log:BR.nav.log,usr:BR.nav.usr,set:BR.nav.set,acc:BR.nav.acc})[v]||"";
-function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=20;lLog=20;
+function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=5;lLog=5;
  document.querySelectorAll(".side a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
  $("#navlog").classList.toggle("hide",!can("userLog"));
  $("#ttl").textContent=ttlOf(v);
@@ -289,7 +289,7 @@ function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel
  <select data-f="val" ${f.col?"":"disabled"}><option value="">All values</option>${vals.map(v=>`<option ${f.val===v?"selected":""}>${esc(v)}</option>`).join("")}</select>
  <button class="gry" data-a="clr">Clear filters</button></div>`}
 const kpi=(l,v,c="")=>`<div class="c ${c}"><h3>${l}</h3><h2>${v}</h2></div>`;
-const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More</button></div>`:""}`;
+const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More (10)</button></div>`:""}`;
 
 
 const PU={mechParts:false,elecParts:false};
@@ -410,7 +410,7 @@ const H={
  ref:async()=>{await refreshAll();toast("Data refreshed")},
  clr:()=>{FL[curMod()]={q:"",u:"",from:"",to:"",col:"",val:""};SHOW[curMod()]=20;render()},
  dm:i=>{dm=i;ensureDash(i);render()},dall:()=>{DALL[dm]=!DALL[dm];render()},
- lm:()=>{const k=view,l=applyF(k,S[k].rows,true);SHOW[k]+=40;if(l.length<SHOW[k]&&S[k].more)loadMod(k,true,40);else render()},dmore:()=>{dLog+=40;render()},lmore:()=>{lLog+=40;render()},
+ lm:()=>{const k=view,l=applyF(k,S[k].rows,true);SHOW[k]+=40;if(l.length<SHOW[k]&&S[k].more)loadMod(k,true,40);else render()},dmore:()=>{dLog+=10;render()},lmore:()=>{lLog+=10;render()},
  new:()=>{const k=curMod();if(!can("userAdd"))return;const id=nid();formModal(k,null,"New "+BASE[k].title+" Entry",async d=>{
   const extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
   const meta={module:k,entryDate:ymd(d)};
