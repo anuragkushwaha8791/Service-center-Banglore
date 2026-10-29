@@ -1,0 +1,430 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "actionTaken",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "actionTakenOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "batteryMake",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "batteryMakeOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "batterySrNo",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "bmsFirmware",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "canResistance",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "chargerAuth",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "chargerAuthOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "configVersion",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "connectorVoltage",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "createdBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "createdByName",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "createdByRole",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "entryDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "gpsTime",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotFirmware",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotImei",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotLastSync",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotNotWorking",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotStatus",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "iotStatusOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "module",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "pdiStatus",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "pdiStatusOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "physicalCondition",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "physicalConditionOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "repairStatus",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "repairStatusOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "reportedIssue",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "reportedIssueOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "soc",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "ticketDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "updatedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "updatedBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "battery_repairs",
+      "fieldPath": "updatedByName",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "assetModel",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "assetModelOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "assetSrNo",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "assetType",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "assetTypeOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "bssType",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "bssTypeOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "closeDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "component1",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "component2",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "createdBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "createdByName",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "createdByRole",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "entryDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "module",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "openDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "remarks",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairLocation",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairLocationOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairStatus",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairStatusOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairedBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "repairedByOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "reportedIssue",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "reportedIssueOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "updatedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "updatedBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "charger_repairs",
+      "fieldPath": "updatedByName",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "chargerType",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "chargerTypeOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "createdBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "createdByName",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "createdByRole",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "elecParts",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "entryDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "mechParts",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "module",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "remarks",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "repairDate",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "repairLocation",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "repairLocationOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "repairStatus",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "repairStatusOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "reportedIssue",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "reportedIssueOther",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "serialNo",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "updatedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "updatedBy",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "lucknow_charger_repairs",
+      "fieldPath": "updatedByName",
+      "indexes": []
+    }
+  ]
+}
