@@ -62,6 +62,9 @@ td.w{white-space:normal;min-width:180px;max-width:260px}
 .leg{font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:6px}.leg i{width:11px;height:11px;border-radius:3px;flex-shrink:0}
 .chip{display:inline-flex;align-items:center;gap:4px;background:var(--soft);border-radius:99px;padding:4px 6px 4px 12px;margin:0 6px 6px 0;font-size:13px}
 .chip button{padding:2px 7px;font-size:13px;background:#fff;color:var(--ink);border-radius:99px}.chip button.x{color:#dc2626}
+.ms{border:1px solid var(--line);border-radius:8px;max-height:210px;overflow:auto;padding:6px 10px;background:#fff;margin-bottom:10px}
+.mi{display:flex;gap:8px;align-items:flex-start;text-transform:none;font-size:13px;color:var(--ink);font-weight:500;letter-spacing:0;padding:4px 0;cursor:pointer}.mi input{width:auto;margin:3px 0 0;flex-shrink:0}
+.msn{text-transform:none;color:var(--acc2);margin-left:6px;font-weight:600}
 .note{color:var(--mut);font-size:12px;margin:4px 0 10px}
 #modal{position:fixed;inset:0;background:rgba(15,42,74,.55);display:flex;justify-content:center;align-items:flex-start;overflow:auto;padding:24px 12px;z-index:30}
 #modal .box{width:860px;max-width:100%;text-align:left}
@@ -86,8 +89,8 @@ td.w{white-space:normal;min-width:180px;max-width:260px}
 <div id="app" class="hide">
  <div id="ov" class="hide" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:19"></div>
  <div class="side" id="side"><div class="logo">Service Center Bangalore</div>
-  <a data-v="dash">📊 Dashboard</a><a data-v="battery">🔋 Battery Repair</a><a data-v="charger">⚡ Charger / BSS Repair</a><a data-v="log" id="navlog">📜 Activity Log</a>
-  <a data-v="usr" class="adm">👥 Users</a><a data-v="set" class="adm">⚙️ Admin Settings</a><a data-v="acc">👤 My Account</a><a id="lo" style="background:#7f1d1d;color:#fff;margin-top:14px">Sign Out</a></div>
+  <a data-v="dash" data-ic="📊">📊 Dashboard</a><a data-v="battery" data-ic="🔋">🔋 Battery Repair</a><a data-v="charger" data-ic="⚡">⚡ Charger / BSS Repair</a><a data-v="lucknow" data-ic="🏭">🏭 Lucknow Charger Repair</a><a data-v="log" id="navlog" data-ic="📜">📜 Activity Log</a>
+  <a data-v="usr" class="adm" data-ic="👥">👥 Users</a><a data-v="set" class="adm" data-ic="⚙️">⚙️ Admin Settings</a><a data-v="acc" data-ic="👤">👤 My Account</a><a id="lo" style="background:#7f1d1d;color:#fff;margin-top:14px">Sign Out</a></div>
  <div class="main"><div class="top"><button class="hb" id="hb">☰</button><h1 id="ttl"></h1><div style="text-align:right"><b id="who"></b><br><small id="dt" style="color:var(--mut)"></small></div></div>
   <div id="warn" class="hide"></div><div id="view"></div></div>
 </div>
@@ -96,7 +99,7 @@ td.w{white-space:normal;min-width:180px;max-width:260px}
 <script type="module">
 import {initializeApp,deleteApp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged,createUserWithEmailAndPassword,updatePassword,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-import {getFirestore,collection,doc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,limit,startAfter,writeBatch,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import {getFirestore,collection,doc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,limit,orderBy,startAfter,writeBatch,serverTimestamp,Timestamp,getCountFromServer} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCKtdot0OTYMzuIlHkkvP2o-8KQ-36-HZQ",
@@ -114,6 +117,7 @@ const FAIL=/non[- ]?repairable|scrap|dead|not ok|fail/i,OK=/^ok$|repaired|no iss
 const BI=["Cell Unbalance Protection ON","Latch Protection ON","Charge UTP","CAN Data Issue","IoT Not Working","FET Failure - BMS","Temperature Sensor Fault","CAN Wire Damage","Battery Damage / Physical Issue","BUID Mismatch","PCB Over Temperature Fault","CAN Pin Backout","Water Ingress","Cell Dead","Cell Series Dead","LED Not Working","Fuse Burnt","Other Issue"];
 const BA=["Balancing Done","Released Through Lime App","Fixed Loose Connection","CAN Pin Fixed / IoT Reset","IoT Reset / IoT Replaced","Battery Pack Reset / BMS Replaced","Connector Removed and Reconnected","Wire Soldered","RTB","Fixed Through PCAN or BLE App","Checked Harness Connection and Fixed","CAN Pin Fixed Using Aligner Key","Balancing Required Twice & CDC Twice","Connection Checked / LED Replaced","Fuse Replaced","Other (Specify)"];
 const CI=["Charger AC Plug Burnt","Charger AC Plug Damaged","Charger IC Burnt","Charger MOSFET Burnt","Connector Voltage Not Showing","Fan Not Working","FW Updated (Mapping)","LED Not Working","No Power Supply Available","SB-75 Connector Damaged","Slave Card CAN IC Burnt","Slave Card Communication IC Burnt","SBS Damaged","CAN Pin Wire Added","Other"];
+const LM=["SB75 Connector", "Gold Pin", "Silver Pin", "Thimble", "SB 75 Connector Sleeve", "CAN Connector Male", "DC Fan Screw", "T Handle", "T Handle Screw + Nut + Washer", "Pressure Valve", "AC Input Connector", "AC Input Connector Cover (Sub Assembly)", "Cable Tie 150MM", "Fan Grill (3 inch)", "DC Fan 12V (Length + Width 3 inch)", "Grommet", "Base Plate Screw", "FFC Cable (10 Pin)", "Thermal Pad (Q8, Q9, D1, Q1, Q2, BR1, D13, D14, D15, D16)", "Fiber Glass Sleeve", "Power Board Screw", "10 mm Thermal Pad", "Charger Handle", "DC Output Cable (Sub Assembly)", "Golden Power Thimble (Black + Red Sleeve)", "Daughter Board", "Daughter Board Casing Top"],LE=["SL - SMD Diode — D17, D18", "Capacitor 100V 470uF — C25, C50", "Capacitor 450V 10uF — C17", "Bridge Rectifier — BR1", "MOSFET 60R080P7 — Q1, Q2, Q8, Q9", "Capacitor 470uF (M) 450V — C7", "Diode 2409 / D106506PQG2 — D1", "Viper IC 5QR4770AZ / H2306153P / 7A2331767G2 — U1", "SMD Diode — D13, D14, D15, D16", "IC D12001 — U6", "IC 3PG501 / H2350 / M27 / PF249289L55 — U10", "IC 2EDL23N06PJ / H2429 / L3D / 6A301245A02 — U2", "SMD Resistor 4R70 5.6m — R32, R35", "SMD Resistor 22R0 22k — R31, R34", "SMD Diode GS1M — D3, D9, D19, D21, D24, D25", "SMD 214.V — R9, R46", "50 2345 — NTC1", "IC 4UA5 — U5", "Transistor 2F — Q8", "SMD Resistor 10k — R37, R36", "SMD Fuse R010 — SH2, SH3", "IC — U8", "2H4 / K7 — Q11", "Fuse — F1", "Capacitor 4.7uF SMD — C60", "Resistance — R47", "Driver Transformer — T1", "Main Transformer — T2", "Line Filter — L1", "Line Filter — L3", "SMD Diode US1M 0.465 — D4, D5, D6, D20", "SMD Resistor 1000 / 100k — R72, R73, R106, R107", "SMD Resistor 22R0 22.3k — R31, R34, R82", "SMD Resistor 4.6k — R30, R34, R49", "SMD Diode 350+ Value — D2", "S20 / K275 — MOV", "Box Type Capacitor 22N J 700VAC S8 — C10, C16, C24, C42", "Relay 12V — K1", "Transistor KL4 — Q1, Q5, Q3, Q7, Q6, Q9", "Transistor AVW / 13 — U4, U10", "Capacitor SMD 1nF — C29, C30, C31, C32", "Diode SMD Value 0.660 — Z1, D27"];
 // [key,label,type,default options]; no field is mandatory
 const BASE={
  battery:{title:"Battery Repair",col:"battery_repairs",stat:"repairStatus",fields:[
@@ -129,11 +133,28 @@ const BASE={
   ["reportedIssue","Reported Issue","sel",CI],
   ["assetModel","Charger / Slave Card Make & Model","sel",["BSS Master Card for Repair","Drone Power 16A","LGDT BSS Charger","Santla BSS Charger","Slave Card","Controller IC","BSS Harness"]],
   ["repairStatus","Repair Status","sel",["No Issue Found (OK)","Non-Repairable (Dead)","Open-RTB for Plant Repair","Repaired","Hold for Part"]],
-  ["repairedBy","Repaired By","sel",["Balu","Shakti","Other"]],["component1","Component Used 01","text"],["component2","Component Used 02","text"],["remarks","Remarks","area"]]}
+  ["repairedBy","Repaired By","sel",["Balu","Shakti","Other"]],["component1","Component Used 01","text"],["component2","Component Used 02","text"],["remarks","Remarks","area"]]},
+ lucknow:{title:"Lucknow Charger Repair",col:"lucknow_charger_repairs",stat:"repairStatus",fields:[
+  ["repairDate","Date","date"],["repairLocation","Repair Location","sel",["Lucknow"]],["chargerType","Charger Type","sel",["Vecmocon","Livguard"]],["serialNo","Serial Number","text"],
+  ["reportedIssue","Reported Issue","sel",["Mechanical","Electrical Issue"]],["mechParts","Mechanical Parts Used","multi",LM],["elecParts","Electrical Parts Used (Part — Sub Part)","multi",LE],
+  ["repairStatus","Repair Status","sel",["Charger Repaired","Hold for Part","Dead"]],["remarks","Remarks","area"]]}
 };
-const S={battery:{rows:[],cur:null,more:false,loaded:false},charger:{rows:[],cur:null,more:false,loaded:false}};
-const FL={battery:{q:"",u:"",from:"",to:"",col:"",val:""},charger:{q:"",u:"",from:"",to:"",col:"",val:""}};
-const DIM={battery:"reportedIssue",charger:"reportedIssue"},SHOW={battery:25,charger:25},DALL={battery:false,charger:false};
+const S={battery:{rows:[],cur:null,more:false,loaded:false},charger:{rows:[],cur:null,more:false,loaded:false},lucknow:{rows:[],cur:null,more:false,loaded:false}};
+const FL={battery:{q:"",u:"",from:"",to:"",col:"",val:""},charger:{q:"",u:"",from:"",to:"",col:"",val:""},lucknow:{q:"",u:"",from:"",to:"",col:"",val:""}};
+const DIM={battery:"reportedIssue",charger:"reportedIssue",lucknow:"reportedIssue"},SHOW={battery:25,charger:25,lucknow:25},DALL={battery:false,charger:false,lucknow:false};
+const WINS=[[90,"Last 90 days"],[30,"Last 30 days"],[180,"Last 6 months"],[365,"Last 12 months"],[0,"All time (more reads)"]];
+const WIN=(()=>{const o={battery:90,charger:90,lucknow:90};for(const k in o){try{const v=localStorage.getItem("win_"+k);if(v!==null&&WINS.some(w=>w[0]===+v&&+v>0))o[k]=+v}catch(_){}}return o})();
+const wq=k=>{const d=WIN[k];return d>0?[where("createdAt",">=",Timestamp.fromDate(new Date(Date.now()-d*864e5))),orderBy("createdAt","desc")]:[]};
+const DEF_BR={app:"Service Center Bangalore",sub:"Battery & Charger Repair Operations",wheel:"Service Center & Repair Cycle",dashTitle:"CRM Dashboard",
+ nav:{dash:"Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",lucknow:"Lucknow Charger Repair",log:"Activity Log",usr:"Users",set:"Admin Settings",acc:"My Account",out:"Sign Out"},
+ mod:{battery:"Battery Repair",charger:"Charger / BSS Repair",lucknow:"Lucknow Charger Repair"},
+ steps:[{t:"Ticket Logged",d:"Asset received at Bangalore CSC"},{t:"Diagnosis",d:"Physical & electrical checks"},{t:"Repairing",d:"Component / BMS / IoT repair"},{t:"PDI Testing",d:"Pass / Fail verification"},{t:"Dispatched",d:"Repaired asset ready & closed"}],fl:{}};
+let BR=JSON.parse(JSON.stringify(DEF_BR));
+function mergeBR(s){const b=JSON.parse(JSON.stringify(DEF_BR));s=s||{};const ok=v=>typeof v==="string"&&v.trim();
+ for(const k of["app","sub","wheel","dashTitle"])if(ok(s[k]))b[k]=s[k].trim().slice(0,80);
+ for(const g of["nav","mod"])for(const k in b[g])if(ok(s[g]?.[k]))b[g][k]=s[g][k].trim().slice(0,60);
+ (Array.isArray(s.steps)?s.steps:[]).forEach((x,i)=>{if(b.steps[i]&&x){if(ok(x.t))b.steps[i].t=x.t.trim().slice(0,40);if(ok(x.d))b.steps[i].d=x.d.trim().slice(0,80)}});
+ b.fl=s.fl&&typeof s.fl==="object"?s.fl:{};return b}
 let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{}},view="dash",dm="battery",stm="battery",dLog=5,lLog=5,lastLoad=0,refT=null;
 const $=s=>document.querySelector(s);
 const isOwner=()=>me?.role==="owner",isAdmin=()=>!!me&&(me.role==="owner"||me.role==="admin"),can=p=>isAdmin()||cfg.perm[p]!==false;
@@ -144,13 +165,15 @@ const isOther=v=>/^other/i.test(v||"");
 const tsd=t=>t?.toDate?t.toDate():(t instanceof Date?t:null);
 const tm=t=>{const d=tsd(t);return d?d.toLocaleString():"…"};
 const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
-const ymd=p=>p.ticketDate||p.openDate||(tsd(p.createdAt)?new Date(tsd(p.createdAt)-tsd(p.createdAt).getTimezoneOffset()*6e4).toISOString().slice(0,10):today());
+const asArr=v=>Array.isArray(v)?v:(v?[v]:[]);
+const withTO=(p,ms=20000)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r({code:"timeout",message:"Save timed out. Check internet and press Save again."}),ms))]);
+const ymd=p=>p.ticketDate||p.openDate||p.repairDate||(tsd(p.createdAt)?new Date(tsd(p.createdAt)-tsd(p.createdAt).getTimezoneOffset()*6e4).toISOString().slice(0,10):today());
 const pct=(a,b)=>b?(a/b*100).toFixed(1):"0.0";
 const isFail=p=>FAIL.test(p.repairStatus||"")||FAIL.test(p.pdiStatus||"");
 const isOk=p=>!isFail(p)&&OK.test(p.repairStatus||"");
-const fieldsOf=k=>[...BASE[k].fields,...(cfg.custom[k]||[]).map(c=>[c.key,c.label,c.type==="dropdown"?"sel":c.type,[]])];
+const fieldsOf=k=>[...BASE[k].fields.map(f=>BR.fl?.[k]?.[f[0]]?[f[0],BR.fl[k][f[0]],...f.slice(2)]:f),...(cfg.custom[k]||[]).map(c=>[c.key,c.label,c.type==="dropdown"?"sel":c.type,[]])];
 const optsOf=(k,f)=>{const v=cfg.opts[k]?.[f];if(v)return v;return BASE[k].fields.find(x=>x[0]===f)?.[3]||[]};
-const cell=(k,p,[key,,t])=>{let v=p[key]??"";if(t==="sel"&&isOther(v)&&p[key+"Other"])v=v+": "+p[key+"Other"];if(t==="datetime-local")v=String(v).replace("T"," ");return v};
+const cell=(k,p,[key,,t])=>{let v=p[key]??"";if(Array.isArray(v))return v.join(", ");if(t==="sel"&&isOther(v)&&p[key+"Other"])v=v+": "+p[key+"Other"];if(t==="datetime-local")v=String(v).replace("T"," ");return v};
 const roleBadge=r=>r==="user"?"":`<span class="badge ${r}">${r}</span>`;
 const curMod=()=>BASE[view]?view:dm;
 setInterval(()=>{const d=$("#dt");if(d)d.textContent=new Date().toLocaleString()},1000);
@@ -163,11 +186,19 @@ async function log(action,detail){if(!me)return;const id=nid(),e={id,uid:me.uid,
 
 /* login animation */
 const ST=[{t:"Ticket Logged",d:"Asset received at Bangalore CSC",c:"#f59e0b"},{t:"Diagnosis",d:"Physical & electrical checks",c:"#7dd3fc"},{t:"Repairing",d:"Component / BMS / IoT repair",c:"#4ade80"},{t:"PDI Testing",d:"Pass / Fail verification",c:"#c4b5fd"},{t:"Dispatched",d:"Repaired asset ready & closed",c:"#fb7185"}];
-(()=>{const w=$("#wheel");ST.forEach((s,i)=>{const r=(-90+i*72)*Math.PI/180,n=document.createElement("div");n.className="wnode";n.style.left=50+44*Math.cos(r)+"%";n.style.top=50+44*Math.sin(r)+"%";n.innerHTML=`<div class="dot" style="background:${s.c};color:${s.c}"></div><b>${s.t}</b><span>${s.d}</span>`;w.appendChild(n)});
- const nodes=[...w.querySelectorAll(".wnode")],dot=$("#wdot");let si=0;
- const step=()=>{nodes.forEach((n,i)=>n.classList.toggle("active",i===si));const r=(-90+si*72)*Math.PI/180;dot.setAttribute("cx",50+44*Math.cos(r));dot.setAttribute("cy",50+44*Math.sin(r));dot.style.fill=ST[si].c;
-  const th=$("#thought"),k=si;th.style.opacity=0;setTimeout(()=>{th.textContent=ST[k].t+" — "+ST[k].d;th.style.opacity=.9},350);si=(si+1)%5};
- step();setInterval(step,2400)})();
+let wnodes=[],wi=0;
+function buildWheel(){const w=$("#wheel");w.querySelectorAll(".wnode").forEach(n=>n.remove());
+ ST.forEach((s,i)=>{const r=(-90+i*72)*Math.PI/180,n=document.createElement("div");n.className="wnode";n.style.left=50+44*Math.cos(r)+"%";n.style.top=50+44*Math.sin(r)+"%";
+  n.innerHTML=`<div class="dot" style="background:${s.c};color:${s.c}"></div><b>${esc(s.t)}</b><span>${esc(s.d)}</span>`;w.appendChild(n)});wnodes=[...w.querySelectorAll(".wnode")]}
+function wstep(){const dot=$("#wdot"),th=$("#thought"),si=wi;wnodes.forEach((n,i)=>n.classList.toggle("active",i===si));const r=(-90+si*72)*Math.PI/180;
+ dot.setAttribute("cx",50+44*Math.cos(r));dot.setAttribute("cy",50+44*Math.sin(r));dot.style.fill=ST[si].c;th.style.opacity=0;setTimeout(()=>{th.textContent=ST[si].t+" — "+ST[si].d;th.style.opacity=.9},350);wi=(wi+1)%ST.length}
+function applyBrand(){document.title=BR.app;$("#login h1").textContent=BR.app;$("#login .sub").textContent=BR.sub;$(".logo").textContent=BR.app;$(".wcenter b").textContent=BR.wheel;
+ for(const k in BASE)BASE[k].title=BR.mod[k]||DEF_BR.mod[k];
+ document.querySelectorAll(".side a[data-v]").forEach(a=>{a.textContent=a.dataset.ic+" "+(BR.nav[a.dataset.v]||"")});$("#lo").textContent=BR.nav.out;
+ ST.forEach((s,i)=>{if(BR.steps[i]){s.t=BR.steps[i].t;s.d=BR.steps[i].d}});buildWheel()}
+try{const c=localStorage.getItem("brand");if(c)BR=mergeBR(JSON.parse(c))}catch(_){}
+applyBrand();wstep();setInterval(wstep,2400);
+getDoc(doc(db,"config","branding")).then(s=>{if(s.exists()){BR=mergeBR(s.data());try{localStorage.setItem("brand",JSON.stringify(s.data()))}catch(_){}}applyBrand();if(me){$("#ttl").textContent=ttlOf(view);render()}}).catch(()=>{});
 $("#hb").onclick=()=>{$("#side").classList.add("open");$("#ov").classList.remove("hide")};
 $("#ov").onclick=()=>{$("#side").classList.remove("open");$("#ov").classList.add("hide")};
 
@@ -203,10 +234,11 @@ onAuthStateChanged(auth,async u=>{
  }catch(err){console.error(err);$("#err").textContent="Database error: "+(err.code==="permission-denied"?"Firestore Rules are not published (permission denied).":err.message);signOut(auth)}
 });
 document.querySelectorAll(".side a[data-v]").forEach(a=>a.onclick=()=>{nav(a.dataset.v);$("#side").classList.remove("open");$("#ov").classList.add("hide")});
+const ttlOf=v=>({dash:BR.dashTitle,battery:BASE.battery.title,charger:BASE.charger.title,lucknow:BASE.lucknow.title,log:BR.nav.log,usr:BR.nav.usr,set:BR.nav.set,acc:BR.nav.acc})[v]||"";
 function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(v==="log"&&!can("userLog"))return;view=v;dLog=5;lLog=5;
  document.querySelectorAll(".side a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
  $("#navlog").classList.toggle("hide",!can("userLog"));
- $("#ttl").textContent={dash:"CRM Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",log:"Activity Log",usr:"User Management",set:"Admin Settings",acc:"My Account"}[v];
+ $("#ttl").textContent=ttlOf(v);
  const k=BASE[v]?v:(v==="dash"?dm:null);if(k&&!S[k].loaded)loadMod(k);render()}
 
 async function loadConfig(){for(const [id,key] of [["options","opts"],["fields","custom"],["permissions","perm"]]){try{const s=await getDoc(doc(db,"config",id));cfg[key]=s.exists()?s.data():{}}catch(e){cfg[key]={}}}}
@@ -222,7 +254,7 @@ async function loadBase(){try{
   lastLoad=Date.now();
  }catch(e){fail(e)}}
 async function loadMod(k,more){const s=S[k];
- try{const qs=await getDocs(query(collection(db,BASE[k].col),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(FETCH)));
+ try{const qs=await getDocs(query(collection(db,BASE[k].col),...wq(k),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(FETCH)));
   const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===FETCH;s.loaded=true;lastLoad=Date.now();$("#warn").classList.add("hide")}catch(e){fail(e)}
  render()}
 async function refreshAll(){if(!me)return;await loadBase();const ks=Object.keys(S).filter(k=>S[k].loaded);for(const k of ks)await loadMod(k);render()}
@@ -230,13 +262,15 @@ async function refreshAll(){if(!me)return;await loadBase();const ks=Object.keys(
 /* analytics helpers */
 function applyF(k,rows,withQ){const f=FL[k],ql=f.q.toLowerCase();
  return rows.filter(p=>{if(withQ&&ql&&!JSON.stringify(p).toLowerCase().includes(ql))return false;if(f.u&&p.createdBy!==f.u)return false;
-  const d=ymd(p);if(f.from&&d<f.from)return false;if(f.to&&d>f.to)return false;if(f.col&&f.val&&p[f.col]!==f.val)return false;return true})}
-function group(rows,fn){const m=new Map();rows.forEach(p=>{const key=fn(p)||"(blank)";let g=m.get(key);if(!g){g={n:0,f:0,o:0,last:""};m.set(key,g)}g.n++;if(isFail(p))g.f++;else if(isOk(p))g.o++;const d=ymd(p);if(d>g.last)g.last=d});
+  const d=ymd(p);if(f.from&&d<f.from)return false;if(f.to&&d>f.to)return false;if(f.col&&f.val&&!asArr(p[f.col]).includes(f.val))return false;return true})}
+function group(rows,fn){const m=new Map();rows.forEach(p=>{let r=fn(p);r=Array.isArray(r)?r:[r];if(!r.length)r=[""];const d=ymd(p),bad=isFail(p),good=!bad&&isOk(p);
+ new Set(r.map(x=>x||"(blank)")).forEach(key=>{let g=m.get(key);if(!g){g={n:0,f:0,o:0,last:""};m.set(key,g)}g.n++;if(bad)g.f++;else if(good)g.o++;if(d>g.last)g.last=d})});
  return [...m].map(([k,g])=>({k,...g})).sort((a,b)=>b.n-a.n)}
+const dimVal=(k,p,key)=>{if(key==="__by")return p.createdByName;const f=fieldsOf(k).find(x=>x[0]===key);if(!f)return"";return f[2]==="multi"?asArr(p[key]):cell(k,p,f)};
 const fcls=v=>v>=30?"hi":v>=10?"mid":"lo";
-function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel");
+function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel"||x[2]==="multi");
  const people=[...new Map(s.rows.filter(p=>p.createdBy).map(p=>[p.createdBy,p.createdByName||"—"]))];
- const vals=f.col?[...new Set(s.rows.map(p=>p[f.col]).filter(Boolean))].sort():[];
+ const vals=f.col?[...new Set(s.rows.flatMap(p=>asArr(p[f.col])).filter(Boolean))].sort():[];
  return `<div class="row">${withQ?`<input id="fq" placeholder="Search all columns..." value="${esc(f.q)}">`:""}
  <select data-f="u"><option value="">All people</option>${people.map(([id,n])=>`<option value="${esc(id)}" ${f.u===id?"selected":""}>${esc(n)}</option>`).join("")}</select>
  <input type="date" data-f="from" value="${f.from}" title="From date"><input type="date" data-f="to" value="${f.to}" title="To date">
@@ -246,16 +280,17 @@ function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel
 const kpi=(l,v,c="")=>`<div class="c ${c}"><h3>${l}</h3><h2>${v}</h2></div>`;
 const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More</button></div>`:""}`;
 
+const winSel=k=>`<label style="margin:0">Data loaded</label><select data-win="1" style="width:auto;margin:0;flex:0 0 auto;min-width:170px">${WINS.map(([d,l])=>`<option value="${d}" ${WIN[k]===d?"selected":""}>${l}</option>`).join("")}</select>`;
 function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.length,fl=all.filter(isFail).length,ok=all.filter(isOk).length,pend=n-fl-ok;
- const stat=group(all,p=>p[B.stat]),byUser=group(all,p=>p.createdByName||"Unknown"),dimF=[...fieldsOf(k).filter(x=>x[2]==="sel").map(x=>[x[0],x[1]]),["__by","Added By"]];
+ const stat=group(all,p=>p[B.stat]),byUser=group(all,p=>p.createdByName||"Unknown"),dimF=[...fieldsOf(k).filter(x=>x[2]==="sel"||x[2]==="multi").map(x=>[x[0],x[1]]),["__by","Added By"]];
  if(!dimF.some(x=>x[0]===DIM[k]))DIM[k]=dimF[0][0];
- const dg=group(all,p=>DIM[k]==="__by"?p.createdByName:cell(k,p,fieldsOf(k).find(x=>x[0]===DIM[k]))),dshow=DALL[k]?dg:dg.slice(0,10);
+ const dg=group(all,p=>dimVal(k,p,DIM[k])),dshow=DALL[k]?dg:dg.slice(0,10);
  const pdiP=all.filter(p=>/^pass/i.test(p.pdiStatus||"")).length,pdiF=all.filter(p=>/fail/i.test(p.pdiStatus||"")).length;
  let acc=0;const seg=stat.map((x,i)=>{const a=acc/n*360;acc+=x.n;return `${PAL[i%8]} ${a}deg ${acc/n*360}deg`}).join(",");
- return `<div class="row"><div class="tabs" style="margin:0"><button class="${k==="battery"?"on":""}" data-a="dm" data-i="battery">🔋 Battery</button><button class="${k==="charger"?"on":""}" data-a="dm" data-i="charger">⚡ Charger / BSS</button></div>
+ return `<div class="row"><div class="tabs" style="margin:0"><button class="${k==="battery"?"on":""}" data-a="dm" data-i="battery">🔋 ${esc(BASE.battery.title)}</button><button class="${k==="charger"?"on":""}" data-a="dm" data-i="charger">⚡ ${esc(BASE.charger.title)}</button><button class="${k==="lucknow"?"on":""}" data-a="dm" data-i="lucknow">🏭 ${esc(BASE.lucknow.title)}</button></div>
   <span style="flex:1"></span><small style="color:var(--mut)">Updated ${lastLoad?new Date(lastLoad).toLocaleTimeString():"…"} · ${s.rows.length} entries loaded</small>
-  <button class="gry" data-a="ref">↻ Refresh</button>${can("userAdd")?`<button data-a="new">+ Add Entry</button>`:""}</div>
- <div class="sec"><h2>Filters</h2>${fbar(k,false)}<p class="note">Failure = Repair Status of Not OK / Non-Repairable / Scrap / Dead, or PDI Fail. Resolved = Repair Status OK / Repaired / No Issue Found. Filters apply to every chart below.</p></div>
+  ${winSel(k)}${s.more?`<button class="gry" data-a="dolder">⬇ Load more (stats incomplete)</button>`:""}<button class="gry" data-a="cnt">Σ Total in DB</button><button class="gry" data-a="ref">↻ Refresh</button>${can("userAdd")?`<button data-a="new">+ Add Entry</button>`:""}</div>
+ <div class="sec"><h2>Filters</h2>${fbar(k,false)}<p class="note">Failure = Repair Status of Not OK / Non-Repairable / Scrap / Dead, or PDI Fail. Resolved = Repair Status OK / Repaired / No Issue Found. Filters apply to every chart below. For parts columns, one entry is counted once under each part used.</p></div>
  ${s.loaded?"":`<div class="sec">Loading data…</div>`}
  <div class="cards">${kpi("Total Entries",n)}${kpi("Resolved",ok,"g2")}${kpi("Failed",fl,"r2")}${kpi("In Process / On Hold",pend,"o2")}${kpi("Failure Rate",pct(fl,n)+"%","r2")}${kpi("Success Rate",pct(ok,n)+"%","g2")}
   ${k==="battery"?kpi("PDI Pass",pdiP,"g2")+kpi("PDI Fail",pdiF,"r2"):""}${kpi("Active Contributors",byUser.length)}${isAdmin()?kpi("Total Users",users.filter(u=>u.role==="user").length)+kpi("Total Admins",users.filter(u=>u.role!=="user").length):""}</div>
@@ -271,10 +306,10 @@ function dash(){const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.len
  ${can("userLog")?`<div class="sec"><h2>Recent Activity</h2>${actTable(logs,dLog,"dmore")}</div>`:""}`}
 
 function modView(k){const s=S[k],F=fieldsOf(k),l=applyF(k,s.rows,true),n=SHOW[k];
- return `<div class="sec"><div class="row">${can("userAdd")?`<button data-a="new">+ New Entry</button>`:""}<span style="flex:1"></span><button class="gry" data-a="ref">↻ Refresh</button>${can("userExport")?`<button class="grn" data-a="ex">Export CSV (filtered)</button>`:""}</div>
+ return `<div class="sec"><div class="row">${can("userAdd")?`<button data-a="new">+ New Entry</button>`:""}<span style="flex:1"></span>${winSel(k)}<button class="gry" data-a="cnt">Σ Total in DB</button><button class="gry" data-a="ref">↻ Refresh</button>${can("userExport")?`<button class="grn" data-a="ex">Export CSV (filtered)</button>`:""}</div>
  ${fbar(k,true)}<p class="note">Showing ${Math.min(n,l.length)} of ${l.length} matching entries (${s.rows.length} loaded).</p>
  <div class="tw"><table><thead><tr><th>Sr. No.</th>${F.map(x=>`<th>${esc(x[1])}</th>`).join("")}<th>Added By</th><th>Added On</th><th>Last Updated By</th><th class="act">Actions</th></tr></thead><tbody>
- ${l.slice(0,n).map((p,i)=>`<tr><td>${i+1}</td>${F.map(x=>`<td class="${["reportedIssue","actionTaken","remarks"].includes(x[0])?"w":""}">${esc(cell(k,p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
+ ${l.slice(0,n).map((p,i)=>`<tr><td>${i+1}</td>${F.map(x=>`<td class="${["reportedIssue","actionTaken","remarks","mechParts","elecParts"].includes(x[0])?"w":""}">${esc(cell(k,p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
  <td class="act">${can("userEdit")?`<button class="gry" data-a="ed" data-i="${p.id}" title="Edit">✏️</button>`:""}${isAdmin()?`<button class="red" data-a="del" data-i="${p.id}" title="Delete">🗑</button>`:""}</td></tr>`).join("")||`<tr><td colspan="${F.length+5}">No data</td></tr>`}</tbody></table></div>
  <div class="row" style="margin-top:12px">${l.length>n?`<button class="gry" data-a="lm">Load More</button>`:""}${s.more?`<button class="gry" data-a="older">Load older entries from server</button>`:""}</div></div>`}
 
@@ -286,40 +321,61 @@ function usrView(){return `<div class="sec"><h2>Create New User</h2><div class="
   <td>${cn?`<button class="${u.disabled?"grn":"red"}" data-a="dx" data-i="${u.id}">${u.disabled?"Enable":"Disable"}</button>`:(u.disabled?"Disabled":"Active")}</td>
   <td>${cn?`<button class="gry" data-a="en" data-i="${u.id}">✏️ Rename</button> <button class="gry" data-a="rpw" data-i="${u.id}">🔑 Reset Password</button>`:"—"}</td></tr>`}).join("")}</tbody></table></div></div>`}
 
+
+function brandSec(){const i=(id,l,v)=>`<div><label>${esc(l)}</label><input id="${id}" value="${esc(v)}"></div>`;
+ return `<div class="sec"><h2>CRM Names & Labels</h2><p class="note">Change any text shown in the CRM (name, menus, module names, login text, column names). Leave a box empty to use the default. Applies to all users after saving.</p>
+ <div class="g">${i("br_app","CRM / Login name",BR.app)}${i("br_sub","Login subtitle",BR.sub)}${i("br_wheel","Login wheel centre text",BR.wheel)}${i("br_dash","Dashboard page title",BR.dashTitle)}</div>
+ <label>Menu names</label><div class="g" style="margin-top:6px">${Object.keys(DEF_BR.nav).map(k=>i("br_nav_"+k,DEF_BR.nav[k],BR.nav[k])).join("")}</div>
+ <label>Module names</label><div class="g" style="margin-top:6px">${Object.keys(DEF_BR.mod).map(k=>i("br_mod_"+k,DEF_BR.mod[k],BR.mod[k])).join("")}</div>
+ <label>Login animation steps</label><div class="g" style="margin-top:6px">${DEF_BR.steps.map((s,k)=>i("br_st_t"+k,"Step "+(k+1)+" title",BR.steps[k].t)+i("br_st_d"+k,"Step "+(k+1)+" detail",BR.steps[k].d)).join("")}</div>
+ <label>Column names — ${esc(BASE[stm].title)} (switch module with the tabs above)</label><div class="g" style="margin-top:6px">${BASE[stm].fields.map(f=>i("bf_"+f[0],f[1],BR.fl?.[stm]?.[f[0]]||f[1])).join("")}</div>
+ <div class="row"><button data-a="sb">Save Names & Labels</button><button class="gry" data-a="sr">Reset all to default</button></div></div>`}
+function bkSec(){return `<div class="sec"><h2>Owner Backup — Export all data</h2><p class="note">Visible only to the Owner. Each module is stored in its own Firestore collection (${Object.keys(BASE).map(k=>BASE[k].col).join(", ")}) so data never mixes. Backup reads every entry once (1 read per entry; free limit is 50,000 reads/day). For very large data, download one module CSV at a time.</p>
+ <div class="row"><button data-a="bkj">⬇ Full Backup (JSON: all modules + settings + users)</button>${Object.keys(BASE).map(k=>`<button class="grn" data-a="bkc" data-i="${k}">⬇ ${esc(BASE[k].title)} CSV (all)</button>`).join("")}</div><p class="note" id="bkst"></p></div>`}
+const ser=v=>{if(v&&typeof v.toDate==="function")return v.toDate().toISOString();if(Array.isArray(v))return v.map(ser);if(v&&typeof v==="object"){const o={};for(const k in v)o[k]=ser(v[k]);return o}return v};
+async function pageAll(col,cb,label){let cur=null,n=0;const st=$("#bkst");for(;;){const qs=await getDocs(query(collection(db,col),...(cur?[startAfter(cur)]:[]),limit(1000)));if(!qs.docs.length)break;
+  cb(qs.docs.map(d=>({id:d.id,...d.data()})));n+=qs.docs.length;cur=qs.docs[qs.docs.length-1];if(st)st.textContent=(label||col)+": "+n.toLocaleString()+" entries read…";if(qs.docs.length<1000)break}return n}
+const dl=(parts,name,type)=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(parts,{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),60000)};
 function setView(){const m=stm,P=cfg.perm,ck=(id,l)=>`<label style="display:flex;gap:8px;align-items:center;text-transform:none;font-size:14px;color:var(--ink);margin-bottom:8px"><input type="checkbox" id="${id}" style="width:auto;margin:0" ${P[id]!==false?"checked":""}>${l}</label>`;
  return `<div class="sec"><h2>User Permissions</h2><p class="note">Choose what regular users are allowed to do. Admins and the Owner always have full access. Deleting records is always restricted to Admins.</p>
   ${ck("userAdd","Users can add new entries")}${ck("userEdit","Users can edit entries")}${ck("userExport","Users can export CSV")}${ck("userLog","Users can view the Activity Log")}<button data-a="sp">Save Permissions</button></div>
- <div class="tabs"><button class="${m==="battery"?"on":""}" data-a="sm" data-i="battery">🔋 Battery</button><button class="${m==="charger"?"on":""}" data-a="sm" data-i="charger">⚡ Charger / BSS</button></div>
- <div class="sec"><h2>Dropdown Manager — ${esc(BASE[m].title)}</h2><p class="note">Add, rename or delete options for any dropdown. Existing entries keep their saved value.</p>
-  ${fieldsOf(m).filter(x=>x[2]==="sel").map(x=>`<div style="margin-bottom:16px"><label>${esc(x[1])}</label><div style="margin-top:6px">${optsOf(m,x[0]).map((o,i)=>`<span class="chip">${esc(o)}<button data-a="oe" data-f="${x[0]}" data-i="${i}" title="Rename">✎</button><button class="x" data-a="od" data-f="${x[0]}" data-i="${i}" title="Delete">×</button></span>`).join("")||"<small style='color:var(--mut)'>No options</small>"}</div>
+ <div class="tabs"><button class="${m==="battery"?"on":""}" data-a="sm" data-i="battery">🔋 ${esc(BASE.battery.title)}</button><button class="${m==="charger"?"on":""}" data-a="sm" data-i="charger">⚡ ${esc(BASE.charger.title)}</button><button class="${m==="lucknow"?"on":""}" data-a="sm" data-i="lucknow">🏭 ${esc(BASE.lucknow.title)}</button></div>
+ <div class="sec"><h2>Dropdown Manager — ${esc(BASE[m].title)}</h2><p class="note">Add, rename or delete options for any dropdown. Existing entries keep their saved value. For Electrical Parts use the format <b>Part — Sub Part</b> (e.g. MOSFET 60R080P7 — Q1, Q2).</p>
+  ${fieldsOf(m).filter(x=>x[2]==="sel"||x[2]==="multi").map(x=>`<div style="margin-bottom:16px"><label>${esc(x[1])}</label><div style="margin-top:6px">${optsOf(m,x[0]).map((o,i)=>`<span class="chip">${esc(o)}<button data-a="oe" data-f="${x[0]}" data-i="${i}" title="Rename">✎</button><button class="x" data-a="od" data-f="${x[0]}" data-i="${i}" title="Delete">×</button></span>`).join("")||"<small style='color:var(--mut)'>No options</small>"}</div>
   <div class="row" style="margin:6px 0 0"><input id="no_${x[0]}" placeholder="New option…"><button data-a="oa" data-i="${x[0]}">Add</button></div></div>`).join("")}</div>
  <div class="sec"><h2>Custom Columns — ${esc(BASE[m].title)}</h2><p class="note">Add extra columns to the entry form and table. Deleting a column hides it; stored data is not erased.</p>
-  <div>${(cfg.custom[m]||[]).map((c,i)=>`<span class="chip">${esc(c.label)} (${esc(c.type)})<button class="x" data-a="cd" data-i="${i}">×</button></span>`).join("")||"<small style='color:var(--mut)'>No custom columns</small>"}</div>
-  <div class="row" style="margin-top:10px"><input id="cn" placeholder="Column name"><select id="ct"><option value="text">Text</option><option value="date">Date</option><option value="dropdown">Dropdown</option></select><button data-a="ca">Add Column</button></div></div>`}
+  <div>${(cfg.custom[m]||[]).map((c,i)=>`<span class="chip">${esc(c.label)} (${esc(c.type)})<button data-a="cr" data-i="${i}" title="Rename">✎</button><button class="x" data-a="cd" data-i="${i}">×</button></span>`).join("")||"<small style='color:var(--mut)'>No custom columns</small>"}</div>
+  <div class="row" style="margin-top:10px"><input id="cn" placeholder="Column name"><select id="ct"><option value="text">Text</option><option value="date">Date</option><option value="dropdown">Dropdown</option></select><button data-a="ca">Add Column</button></div></div>${brandSec()}${isOwner()?bkSec():""}`}
 function accView(){const pw=`<div class="sec"><h2>Change Password</h2><label>New Password (min 6)</label><input id="np" type="password"><label>Confirm Password</label><input id="np2" type="password"><button data-a="chpw">Change Password</button></div>`;
  return `<div class="sec"><h2>My Account</h2><label>Full Name</label><input id="myname" value="${esc(me.name)}"><label>Email</label><input value="${esc(me.email)}" disabled><label>Role</label><input value="${esc(me.role)}" disabled><button data-a="savemyname">Save Name</button></div>${pw}`}
-function render(){if(!me)return;$("#view").innerHTML=({dash,battery:()=>modView("battery"),charger:()=>modView("charger"),log:()=>`<div class="sec"><h2>Activity Log ${isAdmin()?"(all users)":"(my activity)"}</h2><p class="note">Only the latest ${LOGMAX} activities are retained; older ones are removed automatically.</p>${actTable(logs,lLog,"lmore")}</div>`,usr:usrView,set:setView,acc:accView})[view]()}
+function render(){if(!me)return;$("#view").innerHTML=({dash,battery:()=>modView("battery"),charger:()=>modView("charger"),lucknow:()=>modView("lucknow"),log:()=>`<div class="sec"><h2>Activity Log ${isAdmin()?"(all users)":"(my activity)"}</h2><p class="note">Only the latest ${LOGMAX} activities are retained; older ones are removed automatically.</p>${actTable(logs,lLog,"lmore")}</div>`,usr:usrView,set:setView,acc:accView})[view]()}
 
 function formModal(k,p,title,onSave){const F=fieldsOf(k),m=$("#modal"),v={...(p||{})};
- if(!p){const d=today();if(k==="battery")v.ticketDate=d;else{v.openDate=d;v.repairLocation="Bangalore CSC"}}
+ if(!p){const d=today();if(k==="battery")v.ticketDate=d;else if(k==="lucknow"){v.repairDate=d;v.repairLocation="Lucknow"}else{v.openDate=d;v.repairLocation="Bangalore CSC"}}
  m.innerHTML=`<div class="box"><h2 style="margin-bottom:10px;color:var(--acc)">${esc(title)}</h2>
  <div class="who">👤 ${p?`Added by <b>${esc(p.createdByName||"—")}</b> on ${tm(p.createdAt)}. Your name (<b>${esc(me.name)}</b>) will be recorded as "Last Updated By".`:`This entry will be saved under <b>${esc(me.name)}</b> (${esc(me.role)}).`}<br><small>All fields are optional. The date defaults to today and can be changed.</small></div>
  <div class="g">${F.map(([key,l,t])=>{
   if(t==="sel"){const o=optsOf(k,key),ops=[...o];if(v[key]&&!ops.includes(v[key]))ops.push(v[key]);
    return `<div><label>${esc(l)}</label><select id="f_${key}" data-sel="${key}"><option value="">— Select —</option>${ops.map(x=>`<option ${v[key]===x?"selected":""}>${esc(x)}</option>`).join("")}</select>${o.some(isOther)?`<input id="f_${key}Other" placeholder="Specify details…" value="${esc(v[key+"Other"]||"")}" class="${isOther(v[key])?"":"hide"}">`:""}</div>`}
+  if(t==="multi"){const o=optsOf(k,key),sel=asArr(v[key]),ops=[...o];sel.forEach(x=>{if(!ops.includes(x))ops.push(x)});
+   return `<div style="grid-column:1/-1"><label>${esc(l)} <span class="msn" id="n_${key}">${sel.length} selected</span></label><input class="msq" data-q="${key}" placeholder="Search…" style="margin-bottom:6px"><div class="ms" id="f_${key}">${ops.map(x=>`<label class="mi"><input type="checkbox" data-v="${esc(x)}" ${sel.includes(x)?"checked":""}><span>${esc(x)}</span></label>`).join("")||"<small style='color:var(--mut)'>No options yet. Add them in Admin Settings.</small>"}</div></div>`}
   if(t==="area")return `<div style="grid-column:1/-1"><label>${esc(l)}</label><textarea id="f_${key}">${esc(v[key]||"")}</textarea></div>`;
   return `<div><label>${esc(l)}</label><input id="f_${key}" type="${t}" value="${esc(v[key]||"")}"></div>`}).join("")}</div>
  <div class="row" style="margin-top:14px"><button id="ps">Save Entry</button><button class="gry" id="pc">Cancel</button></div></div>`;
  m.classList.remove("hide");
- m.onchange=e=>{const key=e.target.dataset?.sel,o=key&&$("#f_"+key+"Other");if(o)o.classList.toggle("hide",!isOther(e.target.value))};
+ m.onchange=e=>{const key=e.target.dataset?.sel,o=key&&$("#f_"+key+"Other");if(o)o.classList.toggle("hide",!isOther(e.target.value));
+  const ms=e.target.closest&&e.target.closest(".ms");if(ms){const nn=$("#n_"+ms.id.slice(2));if(nn)nn.textContent=ms.querySelectorAll("input:checked").length+" selected"}};
+ m.oninput=e=>{const q=e.target.dataset?.q;if(!q)return;const s=e.target.value.toLowerCase();document.querySelectorAll("#f_"+q+" .mi").forEach(x=>x.classList.toggle("hide",!x.textContent.toLowerCase().includes(s)))};
  $("#pc").onclick=()=>m.classList.add("hide");
  $("#ps").onclick=async()=>{const d={};
-  F.forEach(([key,,t])=>{const el=$("#f_"+key);d[key]=el?el.value.trim():"";
+  F.forEach(([key,,t])=>{const el=$("#f_"+key);
+   if(t==="multi"){d[key]=el?[...el.querySelectorAll("input:checked")].map(c=>c.dataset.v):[];return}
+   d[key]=el?el.value.trim():"";
    if(t==="sel"){const ot=$("#f_"+key+"Other");d[key+"Other"]=ot&&isOther(d[key])?ot.value.trim():""}});
   $("#ps").disabled=true;
   try{await onSave(d);m.classList.add("hide");toast("Entry saved successfully")}catch(e){fail(e);$("#ps").disabled=false}}}
 
-const sid=(k,d)=>d.batterySrNo||d.assetSrNo||d.iotImei||"(no serial)";
+const sid=(k,d)=>d.batterySrNo||d.assetSrNo||d.serialNo||d.iotImei||"(no serial)";
 async function saveOpts(m,f,arr,msg){try{await setDoc(doc(db,"config","options"),{[m]:{[f]:arr}},{merge:true});cfg.opts[m]={...(cfg.opts[m]||{}),[f]:arr};render();log("Updated dropdown",BASE[m].title+" › "+f+" ("+msg+")")}catch(e){fail(e)}}
 async function saveFields(m,arr,msg){try{await setDoc(doc(db,"config","fields"),{[m]:arr},{merge:true});cfg.custom[m]=arr;render();log("Updated custom columns",BASE[m].title+" ("+msg+")")}catch(e){fail(e)}}
 const H={
@@ -327,13 +383,14 @@ const H={
  clr:()=>{FL[curMod()]={q:"",u:"",from:"",to:"",col:"",val:""};render()},
  dm:i=>{dm=i;if(!S[i].loaded)loadMod(i);render()},dall:()=>{DALL[dm]=!DALL[dm];render()},
  lm:()=>{SHOW[view]+=25;render()},older:()=>loadMod(view,true),dmore:()=>{dLog+=5;render()},lmore:()=>{lLog+=5;render()},
- new:()=>{const k=curMod();if(!can("userAdd"))return;formModal(k,null,"New "+BASE[k].title+" Entry",async d=>{
-  const id=nid(),extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
-  await setDoc(doc(db,BASE[k].col,id),{...d,...extra,createdAt:serverTimestamp()});
-  S[k].rows.unshift({id,...d,...extra,createdAt:new Date()});render();log("Added "+BASE[k].title+" entry",sid(k,d))})},
+ new:()=>{const k=curMod();if(!can("userAdd"))return;const id=nid();formModal(k,null,"New "+BASE[k].title+" Entry",async d=>{
+  const extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
+  const meta={module:k,entryDate:ymd(d)};
+  await withTO(setDoc(doc(db,BASE[k].col,id),{...d,...extra,...meta,createdAt:serverTimestamp()}));
+  S[k].rows.unshift({id,...d,...extra,...meta,createdAt:new Date()});render();log("Added "+BASE[k].title+" entry",sid(k,d))})},
  ed:i=>{const k=view,p=S[k].rows.find(x=>x.id===i);if(!p||!can("userEdit"))return;
   formModal(k,p,"Edit "+BASE[k].title+" Entry",async d=>{const extra={updatedBy:me.uid,updatedByName:me.name};
-   await updateDoc(doc(db,BASE[k].col,i),{...d,...extra,updatedAt:serverTimestamp()});Object.assign(p,d,extra,{updatedAt:new Date()});render();log("Edited "+BASE[k].title+" entry",sid(k,d))})},
+   const meta={module:k,entryDate:ymd(d)};await withTO(updateDoc(doc(db,BASE[k].col,i),{...d,...extra,...meta,updatedAt:serverTimestamp()}));Object.assign(p,d,extra,meta,{updatedAt:new Date()});render();log("Edited "+BASE[k].title+" entry",sid(k,d))})},
  del:async i=>{if(!isAdmin())return;const k=view,p=S[k].rows.find(x=>x.id===i);if(!confirm("Permanently delete this entry?"))return;
   try{await deleteDoc(doc(db,BASE[k].col,i));S[k].rows=S[k].rows.filter(x=>x.id!==i);render();toast("Entry deleted");log("Deleted "+BASE[k].title+" entry",p?sid(k,p):i)}catch(e){fail(e)}},
  ex:()=>{const k=view,F=fieldsOf(k),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,l=applyF(k,S[k].rows,true);
@@ -354,6 +411,25 @@ const H={
  en:async i=>{const u=users.find(x=>x.id===i),n=prompt("New name:",u.name);if(!n||!n.trim())return;try{await updateDoc(doc(db,"users",i),{name:n.trim()});u.name=n.trim();render()}catch(e){fail(e)}},
  rpw:async i=>{const u=users.find(x=>x.id===i);try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent");log("Sent password reset",u.name)}catch(e){toast(errMsg(e))}},
  sm:i=>{stm=i;render()},
+  dolder:()=>loadMod(dm,true),
+  cnt:async()=>{const k=curMod();try{const r=await getCountFromServer(collection(db,BASE[k].col));toast(BASE[k].title+": "+r.data().count.toLocaleString()+" entries in database")}catch(e){fail(e)}},
+  cr:i=>{const a=[...(cfg.custom[stm]||[])],n=prompt("Rename column:",a[i].label);if(!n||!n.trim())return;const old=a[i].label;a[i]={...a[i],label:n.trim()};saveFields(stm,a,"renamed "+old+" → "+n.trim())},
+  sb:async()=>{const g=id=>($("#"+id)?.value||"").trim(),o={app:g("br_app"),sub:g("br_sub"),wheel:g("br_wheel"),dashTitle:g("br_dash"),nav:{},mod:{},steps:[],fl:{...(BR.fl||{})}};
+   for(const k in DEF_BR.nav)o.nav[k]=g("br_nav_"+k);for(const k in DEF_BR.mod)o.mod[k]=g("br_mod_"+k);DEF_BR.steps.forEach((_,i)=>o.steps.push({t:g("br_st_t"+i),d:g("br_st_d"+i)}));
+   const fl={};BASE[stm].fields.forEach(f=>{const v=g("bf_"+f[0]);if(v&&v!==f[1])fl[f[0]]=v.slice(0,60)});o.fl[stm]=fl;
+   try{await withTO(setDoc(doc(db,"config","branding"),o));BR=mergeBR(o);try{localStorage.setItem("brand",JSON.stringify(o))}catch(_){}applyBrand();nav("set");toast("Names & labels saved");log("Updated CRM names & labels","")}catch(e){fail(e)}},
+  sr:async()=>{if(!confirm("Reset ALL names and labels to default?"))return;try{await setDoc(doc(db,"config","branding"),{});BR=mergeBR({});try{localStorage.removeItem("brand")}catch(_){}applyBrand();nav("set");toast("Reset to default");log("Reset CRM names & labels","")}catch(e){fail(e)}},
+  bkj:async()=>{if(!isOwner())return;if(!confirm("Backup reads every entry once (1 read per entry). Continue?"))return;const st=$("#bkst"),parts=[];let first=true;
+   try{parts.push('{"exportedAt":'+JSON.stringify(new Date().toISOString())+',"app":'+JSON.stringify(BR.app)+',"modules":{');
+    for(const k of Object.keys(BASE)){parts.push((first?"":",")+JSON.stringify(k)+':{"collection":'+JSON.stringify(BASE[k].col)+',"title":'+JSON.stringify(BASE[k].title)+',"columns":'+JSON.stringify(fieldsOf(k).map(f=>({key:f[0],label:f[1]})))+',"rows":[');first=false;let f2=true;
+     await pageAll(BASE[k].col,rows=>{parts.push((f2?"":",")+rows.map(r=>JSON.stringify(ser(r))).join(","));f2=false},BASE[k].title);parts.push("]}")}
+    parts.push('},"config":{');const cf=[];for(const id of["options","fields","permissions","branding"]){try{const s=await getDoc(doc(db,"config",id));cf.push(JSON.stringify(id)+":"+JSON.stringify(s.exists()?ser(s.data()):{}))}catch(_){cf.push(JSON.stringify(id)+":{}")}}
+    parts.push(cf.join(",")+'},"users":'+JSON.stringify(ser(users.map(u=>({...u}))))+"}");
+    dl(parts,"crm_backup_"+today()+".json","application/json");if(st)st.textContent="Backup downloaded.";log("Owner full backup (JSON)","")}catch(e){if(st)st.textContent="Backup failed: "+(e.code||e.message);fail(e)}},
+  bkc:async k=>{if(!isOwner())return;if(!confirm("Export reads every entry once (1 read per entry). Continue?"))return;const F=fieldsOf(k),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,st=$("#bkst");let n=0;
+   const parts=["\ufeff"+[['"Sr. No."','"Document ID"',...F.map(f=>qt(f[1])),'"Added By"','"Added On"','"Last Updated By"'].join(",")]+"\n"];
+   try{await pageAll(BASE[k].col,rows=>{parts.push(rows.map(p=>[++n,qt(p.id),...F.map(f=>qt(cell(k,p,f))),qt(p.createdByName),qt(tm(p.createdAt)),qt(p.updatedByName)].join(",")).join("\n")+"\n")},BASE[k].title);
+    dl(parts,BASE[k].col+"_ALL_"+today()+".csv","text/csv");if(st)st.textContent=BASE[k].title+": "+n.toLocaleString()+" rows exported.";log("Owner backup CSV",BASE[k].title+" ("+n+" rows)")}catch(e){if(st)st.textContent="Export failed: "+(e.code||e.message);fail(e)}},
  sp:async()=>{const p={};["userAdd","userEdit","userExport","userLog"].forEach(id=>p[id]=$("#"+id).checked);try{await setDoc(doc(db,"config","permissions"),p);cfg.perm=p;toast("Permissions saved");log("Updated user permissions",JSON.stringify(p));$("#navlog").classList.toggle("hide",!can("userLog"))}catch(e){fail(e)}},
  oa:i=>{const v=$("#no_"+i).value.trim();if(!v)return;const a=[...optsOf(stm,i)];if(a.includes(v))return toast("Option already exists.");a.push(v);saveOpts(stm,i,a,"added "+v)},
  oe:(i,b)=>{const f=b.dataset.f,a=[...optsOf(stm,f)],n=prompt("Rename option:",a[i]);if(!n||!n.trim()||n.trim()===a[i])return;const old=a[i];a[i]=n.trim();saveOpts(stm,f,a,old+" → "+a[i])},
@@ -365,7 +441,9 @@ const H={
 const V=$("#view");
 V.onclick=e=>{const b=e.target.closest("[data-a]");if(b&&H[b.dataset.a])H[b.dataset.a](b.dataset.i,b)};
 V.onchange=e=>{const t=e.target;
- if(t.dataset.f){const f=FL[curMod()];f[t.dataset.f]=t.value;if(t.dataset.f==="col")f.val="";render()}
+ if(t.dataset.win!==undefined){const k=curMod(),v=+t.value;if(v===0&&!confirm("All time loads every entry (1 read each; free limit 50,000 reads/day). Continue?")){render();return}
+  WIN[k]=v;try{v>0?localStorage.setItem("win_"+k,v):localStorage.removeItem("win_"+k)}catch(_){}Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false});SHOW[k]=25;render();loadMod(k)}
+ else if(t.dataset.f){const f=FL[curMod()];f[t.dataset.f]=t.value;if(t.dataset.f==="col")f.val="";render()}
  else if(t.dataset.dim){DIM[dm]=t.value;DALL[dm]=false;render()}
  else if(t.dataset.c==="ro"){updateDoc(doc(db,"users",t.dataset.i),{role:t.value}).then(()=>{const u=users.find(x=>x.id===t.dataset.i);if(u){u.role=t.value;log("Changed role",u.name+" → "+t.value)}}).catch(fail)}};
 V.oninput=e=>{const t=e.target;if(t.id==="fq"){FL[curMod()].q=t.value;SHOW[curMod()]=25;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
