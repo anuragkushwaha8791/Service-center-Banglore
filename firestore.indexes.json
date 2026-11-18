@@ -1,430 +1,715 @@
-{
-  "indexes": [],
-  "fieldOverrides": [
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "actionTaken",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "actionTakenOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "batteryMake",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "batteryMakeOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "batterySrNo",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "bmsFirmware",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "canResistance",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "chargerAuth",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "chargerAuthOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "configVersion",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "connectorVoltage",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "createdBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "createdByName",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "createdByRole",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "entryDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "gpsTime",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotFirmware",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotImei",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotLastSync",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotNotWorking",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotStatus",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "iotStatusOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "module",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "pdiStatus",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "pdiStatusOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "physicalCondition",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "physicalConditionOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "repairStatus",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "repairStatusOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "reportedIssue",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "reportedIssueOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "soc",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "ticketDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "updatedAt",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "updatedBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "battery_repairs",
-      "fieldPath": "updatedByName",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "assetModel",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "assetModelOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "assetSrNo",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "assetType",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "assetTypeOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "bssType",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "bssTypeOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "closeDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "component1",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "component2",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "createdBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "createdByName",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "createdByRole",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "entryDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "module",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "openDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "remarks",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairLocation",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairLocationOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairStatus",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairStatusOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairedBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "repairedByOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "reportedIssue",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "reportedIssueOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "updatedAt",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "updatedBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "charger_repairs",
-      "fieldPath": "updatedByName",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "chargerType",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "chargerTypeOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "createdBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "createdByName",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "createdByRole",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "elecParts",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "entryDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "mechParts",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "module",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "remarks",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "repairDate",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "repairLocation",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "repairLocationOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "repairStatus",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "repairStatusOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "reportedIssue",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "reportedIssueOther",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "serialNo",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "updatedAt",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "updatedBy",
-      "indexes": []
-    },
-    {
-      "collectionGroup": "lucknow_charger_repairs",
-      "fieldPath": "updatedByName",
-      "indexes": []
-    }
-  ]
-}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Service Center Bangalore</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;-webkit-tap-highlight-color:transparent}
+:root{--bg:#f4f7fb;--card:#fff;--ink:#16324f;--mut:#64748b;--line:#e2e8f0;--acc:#1e4e79;--acc2:#2f6fb0;--soft:#eef3f9}
+html,body{background:var(--bg);color:var(--ink);min-height:100%}
+.hide{display:none!important}
+input,select,textarea{width:100%;padding:10px 12px;margin:4px 0 10px;background:#fff;border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:14px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--acc2);box-shadow:0 0 0 3px rgba(47,111,176,.15)}textarea{height:80px;resize:vertical}
+input:disabled,select:disabled{background:var(--soft);color:var(--mut)}
+label{font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+button{padding:9px 14px;border:none;border-radius:8px;background:var(--acc);color:#fff;font-weight:600;cursor:pointer;font-size:13px}
+button:hover{filter:brightness(1.1)}button:active{transform:scale(.97)}button:disabled{opacity:.5}
+.red{background:#dc2626}.grn{background:#16a34a}.gry{background:#e8eef5;color:var(--ink)}.lnk{background:none;color:var(--acc2);padding:6px;font-weight:500}
+#login{display:flex;min-height:100vh}
+.art{flex:1.3;background:radial-gradient(circle at 30% 20%,#2f6fb0,#0f2a4a);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;color:#fff}
+.wheel{position:relative;width:min(460px,88%);aspect-ratio:1;margin-bottom:8px}
+.wheel svg{position:absolute;inset:0;width:100%;height:100%}
+.wtrack{stroke:rgba(255,255,255,.25);stroke-width:.5;fill:none}.wdot{fill:#f59e0b;filter:drop-shadow(0 0 2px #f59e0b)}
+.wcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid #fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:6%}
+.wcenter b{font-size:clamp(13px,2.2vw,18px);line-height:1.25}
+.wnode{position:absolute;width:30%;text-align:center;transform:translate(-50%,-50%)}
+.wnode .dot{width:14px;height:14px;border-radius:50%;margin:0 auto 6px;box-shadow:0 0 10px currentColor}
+.wnode b{display:block;font-size:clamp(11px,1.6vw,14px)}.wnode span{display:block;opacity:.75;font-size:clamp(9px,1.3vw,11.5px);margin-top:2px;line-height:1.3}
+.wnode.active .dot{animation:pu 1.6s ease-in-out infinite}
+@keyframes pu{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
+#thought{font-size:18px;min-height:56px;max-width:420px;transition:opacity .5s;margin-top:10px;opacity:.9}
+.lw{flex:1;display:flex;justify-content:center;align-items:center;padding:20px}
+.box{background:var(--card);padding:30px;width:390px;max-width:94vw;border-radius:14px;box-shadow:0 10px 30px rgba(15,42,74,.12)}
+.box h1{color:var(--acc);text-align:center;margin-bottom:6px;font-size:22px}.sub{text-align:center;color:var(--mut);font-size:13px;margin-bottom:18px}
+@media(max-width:800px){.art{display:none}}
+#app{display:flex;min-height:100vh}
+.side{width:230px;background:#0f2a4a;padding:18px;flex-shrink:0;color:#fff}
+.logo{font-size:19px;font-weight:700;margin-bottom:22px;word-break:break-word}
+.side a{display:block;padding:11px 12px;margin-bottom:6px;border-radius:8px;cursor:pointer;font-size:14px;color:#cbd5e1}.side a:hover{background:#17406b}.side a.on{background:var(--acc2);color:#fff}
+.main{flex:1;padding:18px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.top h1{font-size:22px;color:var(--acc)}
+.hb{display:none;background:#fff;border:1px solid var(--line);width:42px;height:42px;font-size:20px;color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.c{background:var(--card);padding:16px;border-radius:12px;border:1px solid var(--line)}.c h3{font-size:11px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.05em}.c h2{font-size:28px;margin-top:8px;color:var(--acc)}
+.c.g2 h2{color:#16a34a}.c.r2 h2{color:#dc2626}.c.o2 h2{color:#d97706}
+.sec{background:var(--card);padding:16px;border-radius:12px;margin-bottom:16px;border:1px solid var(--line)}.sec h2{margin-bottom:12px;font-size:16px;color:var(--acc)}
+.tw{overflow-x:auto;border-radius:10px;-webkit-overflow-scrolling:touch}table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;white-space:nowrap}th{background:var(--soft);color:var(--ink);text-transform:uppercase;font-size:11px;letter-spacing:.03em}
+td.w{white-space:normal;min-width:180px;max-width:260px}
+.act{position:sticky;right:0;background:#fff;box-shadow:-6px 0 8px rgba(15,42,74,.08)}th.act{background:var(--soft)}
+.act button{padding:7px 9px;margin-right:3px;font-size:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 14px}
+.g2c{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}.row input,.row select{width:auto;margin:0;flex:1;min-width:130px}
+.bar{height:10px;border-radius:5px;background:var(--soft);overflow:hidden;min-width:70px}.bar i{display:block;height:100%;border-radius:5px;background:var(--acc2)}
+.brow{display:grid;grid-template-columns:minmax(90px,1.2fr) 2fr 50px;gap:10px;align-items:center;margin-bottom:9px;font-size:13px}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:600;background:#e2e8f0;color:#334155;margin-left:4px}
+.badge.owner{background:#ede9fe;color:#6d28d9}.badge.admin{background:#dbeafe;color:#1d4ed8}
+.pf{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:700}.pf.lo{background:#dcfce7;color:#166534}.pf.mid{background:#fef3c7;color:#92400e}.pf.hi{background:#fee2e2;color:#991b1b}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.tabs button{background:#fff;color:var(--ink);border:1px solid var(--line)}.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.donut{width:170px;height:170px;border-radius:50%;position:relative;flex-shrink:0}
+.donut>div{position:absolute;inset:26px;background:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut b{font-size:26px}.donut small{color:var(--mut);font-size:11px}
+.leg{font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:6px}.leg i{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--soft);border-radius:99px;padding:4px 6px 4px 12px;margin:0 6px 6px 0;font-size:13px}
+.chip button{padding:2px 7px;font-size:13px;background:#fff;color:var(--ink);border-radius:99px}.chip button.x{color:#dc2626}
+.ms{border:1px solid var(--line);border-radius:8px;max-height:210px;overflow:auto;padding:6px 10px;background:#fff;margin-bottom:10px}
+.mi{display:flex;gap:8px;align-items:flex-start;text-transform:none;font-size:13px;color:var(--ink);font-weight:500;letter-spacing:0;padding:4px 0;cursor:pointer}.mi input{width:auto;margin:3px 0 0;flex-shrink:0}
+.msn{text-transform:none;color:var(--acc2);margin-left:6px;font-weight:600}
+.note{color:var(--mut);font-size:12px;margin:4px 0 10px}
+#modal{position:fixed;inset:0;background:rgba(15,42,74,.55);display:flex;justify-content:center;align-items:flex-start;overflow:auto;padding:24px 12px;z-index:30}
+#modal .box{width:860px;max-width:100%;text-align:left}
+#toast{position:fixed;bottom:20px;left:20px;right:20px;max-width:380px;margin:0 auto;background:#0f2a4a;color:#fff;padding:12px 18px;border-radius:8px;z-index:99;text-align:center}
+#warn{background:#fee2e2;color:#991b1b;padding:12px;border-radius:10px;margin-bottom:12px;font-size:13px}
+.who{background:var(--soft);border:1px dashed var(--acc2);padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px}
+html{-webkit-text-size-adjust:100%}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+#login,#app{min-height:100vh;min-height:100dvh}
+#toast{bottom:calc(20px + env(safe-area-inset-bottom))}
+#modal{padding-top:calc(24px + env(safe-area-inset-top));padding-bottom:calc(24px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media(max-width:800px){input,select,textarea{font-size:16px}input[type=date],input[type=datetime-local]{min-height:42px;-webkit-appearance:none;appearance:none}
+ .side{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(18px + env(safe-area-inset-top));padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+ .main{padding:calc(14px + env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom))}
+ .mi input{width:20px;height:20px}
+ .row.wr>*{flex:1 1 100%}}
+@media(max-width:800px){.hb{display:block}
+ .side{position:fixed;left:0;top:0;bottom:0;z-index:20;margin-left:-260px;box-shadow:8px 0 20px rgba(0,0,0,.4);transition:margin .2s}
+ .side.open{margin-left:0}.box{padding:22px}}
+/* ===== Professional theme layer ===== */
+:root{--acc:#17426b;--acc2:#2563a8;--ink:#0f2742;--bg:#f2f5f9;--line:#e1e8f0;--shadow:0 1px 2px rgba(15,42,74,.05),0 6px 18px rgba(15,42,74,.05)}
+*{font-family:Inter,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}
+body{font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{height:9px;width:9px}::-webkit-scrollbar-thumb{background:#c5d1de;border-radius:9px}::-webkit-scrollbar-track{background:transparent}
+button{border-radius:9px;box-shadow:0 1px 2px rgba(15,42,74,.12);transition:filter .15s,transform .05s,background .15s}
+button.gry{box-shadow:none;border:1px solid var(--line)}button.gry:hover{background:#dde7f2;filter:none}
+input,select,textarea{border-radius:9px;border-color:#d5dee9}
+label{display:block}
+.box{border:1px solid var(--line);box-shadow:0 18px 50px rgba(15,42,74,.16)}
+.box h1{font-size:23px;letter-spacing:-.01em}
+.side{background:linear-gradient(180deg,#0b2140 0%,#0f2a4a 55%,#13355d 100%);width:246px;border-right:1px solid rgba(255,255,255,.06)}
+.logo{padding:6px 6px 16px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.14);font-size:17px;letter-spacing:.01em;line-height:1.25}
+.side a{border-left:3px solid transparent;font-weight:500;padding:11px 12px}
+.side a.on{background:rgba(37,99,168,.95);border-left-color:#f59e0b;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.top{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;box-shadow:var(--shadow)}
+.top h1{font-size:20px;letter-spacing:-.01em}
+.cards{gap:14px}
+.c{border-top:3px solid var(--acc2);box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.c:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(15,42,74,.1)}
+.c.g2{border-top-color:#16a34a}.c.r2{border-top-color:#dc2626}.c.o2{border-top-color:#d97706}
+.c h2{font-size:27px;letter-spacing:-.02em}
+.sec{box-shadow:var(--shadow)}
+.sec h2{font-size:16px;padding-bottom:10px;border-bottom:1px solid var(--line);letter-spacing:-.005em}
+.tw{border:1px solid var(--line)}
+th{position:sticky;top:0;background:#eaf0f7;color:#27425f;font-weight:700}
+.tw tbody tr:nth-child(even) td{background:#fafcfe}
+.tw tbody tr:hover td{background:#eef4fb}
+.tw td.act,.tw th.act{background:#fff}.tw tbody tr:hover td.act{background:#eef4fb}
+tfoot td{font-weight:700;background:#eaf0f7;border-top:2px solid #cbd7e5}
+th.grp{text-align:center;border-bottom:1px solid #cbd7e5;color:var(--acc)}
+.pf{min-width:48px;text-align:center}
+.badge{letter-spacing:.02em}
+.note{line-height:1.5}
+.seg{display:inline-flex;background:#e3ebf4;border-radius:11px;padding:4px;margin-bottom:14px;gap:4px;flex-wrap:wrap}
+.seg button{background:transparent;color:var(--ink);box-shadow:none;padding:9px 16px;border-radius:8px}
+.seg button.on{background:#fff;color:var(--acc);box-shadow:var(--shadow)}
+.sh{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:20px 2px 10px;font-weight:700}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 14px}
+.alert{background:#fffbeb;border:1px solid #fde68a;color:#92400e;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px}
+.who{border-radius:10px}
+@media print{.side,.hb,#ov,.seg,.tabs,#toast,#modal,.row button,.row select{display:none!important}
+ .main{padding:0}.top{box-shadow:none}.sec,.c{box-shadow:none;break-inside:avoid}.tw{overflow:visible}}
+</style></head><body>
+
+<div id="login">
+ <div class="art"><div class="wheel" id="wheel"><svg viewBox="0 0 100 100"><circle class="wtrack" cx="50" cy="50" r="44"/><circle id="wdot" class="wdot" cx="50" cy="6" r="2.6"/></svg>
+  <div class="wcenter"><b>Service Center<br>&amp; Repair Cycle</b></div></div><div id="thought"></div></div>
+ <div class="lw"><div class="box"><h1>Service Center Bangalore</h1><div class="sub">Battery &amp; Charger Repair Operations</div>
+  <input id="em" type="email" placeholder="Email address" autocomplete="username"><input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+  <button style="width:100%;padding:12px" id="lb">Sign In</button>
+  <div style="display:flex;justify-content:space-between;margin-top:8px"><button class="lnk" id="fp">Forgot password?</button><button class="lnk" id="os">Owner first-time setup</button></div>
+  <p id="err" style="color:#dc2626;font-size:13px;margin-top:8px;text-align:center"></p></div></div>
+</div>
+
+<div id="app" class="hide">
+ <div id="ov" class="hide" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:19"></div>
+ <div class="side" id="side"><div class="logo">Service Center Bangalore</div>
+  <a data-v="dash" data-ic="📊">📊 Dashboard</a><div id="locnav"></div><a data-v="log" id="navlog" data-ic="📜">📜 Activity Log</a>
+  <a data-v="usr" class="adm" data-ic="👥">👥 Users</a><a data-v="set" class="adm" data-ic="⚙️">⚙️ Admin Settings</a><a data-v="acc" data-ic="👤">👤 My Account</a><a id="lo" style="background:#7f1d1d;color:#fff;margin-top:14px">Sign Out</a></div>
+ <div class="main"><div class="top"><button class="hb" id="hb">☰</button><h1 id="ttl"></h1><div style="text-align:right"><b id="who"></b><br><small id="dt" style="color:var(--mut)"></small></div></div>
+  <div id="warn" class="hide"></div><div id="view"></div></div>
+</div>
+<div id="modal" class="hide"></div>
+
+<script type="module">
+import {initializeApp,deleteApp} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged,createUserWithEmailAndPassword,updatePassword,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import {getFirestore,initializeFirestore,persistentLocalCache,persistentMultipleTabManager,collection,doc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,limit,orderBy,startAfter,writeBatch,serverTimestamp,Timestamp,getCountFromServer,deleteField} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCKtdot0OTYMzuIlHkkvP2o-8KQ-36-HZQ",
+  authDomain: "for-blr-team.firebaseapp.com",
+  projectId: "for-blr-team",
+  storageBucket: "for-blr-team.firebasestorage.app",
+  messagingSenderId: "1096056026396",
+  appId: "1:1096056026396:web:eb48c9fcc97b889aa8b6d9",
+  measurementId: "G-10R8BFR43M"
+};
+const app=initializeApp(firebaseConfig),auth=getAuth(app);
+let db;try{db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentMultipleTabManager()})})}catch(_){db=getFirestore(app)}
+const OWNER="operations194@mooving.com",FETCH=1000,LOGMAX=50,PAL=["#2f6fb0","#f59e0b","#16a34a","#dc2626","#7c3aed","#0891b2","#db2777","#64748b"];
+const FAIL=/non[- ]?repairable|scrap|dead|not ok|fail/i,OK=/^ok$|repaired|no issue found/i;
+
+const BI=["Cell Unbalance Protection ON","Latch Protection ON","Charge UTP","CAN Data Issue","IoT Not Working","FET Failure - BMS","Temperature Sensor Fault","CAN Wire Damage","Battery Damage / Physical Issue","BUID Mismatch","PCB Over Temperature Fault","CAN Pin Backout","Water Ingress","Cell Dead","Cell Series Dead","LED Not Working","Fuse Burnt","Other Issue"];
+const BA=["Balancing Done","Released Through Lime App","Fixed Loose Connection","CAN Pin Fixed / IoT Reset","IoT Reset / IoT Replaced","Battery Pack Reset / BMS Replaced","Connector Removed and Reconnected","Wire Soldered","RTB","Fixed Through PCAN or BLE App","Checked Harness Connection and Fixed","CAN Pin Fixed Using Aligner Key","Balancing Required Twice & CDC Twice","Connection Checked / LED Replaced","Fuse Replaced","Other (Specify)"];
+const CI=["Charger AC Plug Burnt","Charger AC Plug Damaged","Charger IC Burnt","Charger MOSFET Burnt","Connector Voltage Not Showing","Fan Not Working","FW Updated (Mapping)","LED Not Working","No Power Supply Available","SB-75 Connector Damaged","Slave Card CAN IC Burnt","Slave Card Communication IC Burnt","SBS Damaged","CAN Pin Wire Added","Other"];
+const LM=["SB75 Connector", "Gold Pin", "Silver Pin", "Thimble", "SB 75 Connector Sleeve", "CAN Connector Male", "DC Fan Screw", "T Handle", "T Handle Screw + Nut + Washer", "Pressure Valve", "AC Input Connector", "AC Input Connector Cover (Sub Assembly)", "Cable Tie 150MM", "Fan Grill (3 inch)", "DC Fan 12V (Length + Width 3 inch)", "Grommet", "Base Plate Screw", "FFC Cable (10 Pin)", "Thermal Pad (Q8, Q9, D1, Q1, Q2, BR1, D13, D14, D15, D16)", "Fiber Glass Sleeve", "Power Board Screw", "10 mm Thermal Pad", "Charger Handle", "DC Output Cable (Sub Assembly)", "Golden Power Thimble (Black + Red Sleeve)", "Daughter Board", "Daughter Board Casing Top"],LE=["SL - SMD Diode — D17, D18", "Capacitor 100V 470uF — C25, C50", "Capacitor 450V 10uF — C17", "Bridge Rectifier — BR1", "MOSFET 60R080P7 — Q1, Q2, Q8, Q9", "Capacitor 470uF (M) 450V — C7", "Diode 2409 / D106506PQG2 — D1", "Viper IC 5QR4770AZ / H2306153P / 7A2331767G2 — U1", "SMD Diode — D13, D14, D15, D16", "IC D12001 — U6", "IC 3PG501 / H2350 / M27 / PF249289L55 — U10", "IC 2EDL23N06PJ / H2429 / L3D / 6A301245A02 — U2", "SMD Resistor 4R70 5.6m — R32, R35", "SMD Resistor 22R0 22k — R31, R34", "SMD Diode GS1M — D3, D9, D19, D21, D24, D25", "SMD 214.V — R9, R46", "50 2345 — NTC1", "IC 4UA5 — U5", "Transistor 2F — Q8", "SMD Resistor 10k — R37, R36", "SMD Fuse R010 — SH2, SH3", "IC — U8", "2H4 / K7 — Q11", "Fuse — F1", "Capacitor 4.7uF SMD — C60", "Resistance — R47", "Driver Transformer — T1", "Main Transformer — T2", "Line Filter — L1", "Line Filter — L3", "SMD Diode US1M 0.465 — D4, D5, D6, D20", "SMD Resistor 1000 / 100k — R72, R73, R106, R107", "SMD Resistor 22R0 22.3k — R31, R34, R82", "SMD Resistor 4.6k — R30, R34, R49", "SMD Diode 350+ Value — D2", "S20 / K275 — MOV", "Box Type Capacitor 22N J 700VAC S8 — C10, C16, C24, C42", "Relay 12V — K1", "Transistor KL4 — Q1, Q5, Q3, Q7, Q6, Q9", "Transistor AVW / 13 — U4, U10", "Capacitor SMD 1nF — C29, C30, C31, C32", "Diode SMD Value 0.660 — Z1, D27"];
+// [key,label,type,default options]; no field is mandatory
+const BASE={
+ battery:{title:"Battery Repair",col:"battery_repairs",stat:"repairStatus",fields:[
+  ["ticketDate","Date","date"],["repairLocation","Repair Location","sel",[]],["batteryMake","Battery Pack Make & Model","sel",["Inverted","Trontek"]],["batterySrNo","Battery Sr. No.","text"],["iotImei","IoT IMEI No.","text"],
+  ["physicalCondition","Physical Condition","sel",["OK","Not OK"]],["canResistance","CAN Resistance","text"],["connectorVoltage","Connector Voltage","text"],["soc","SOC","text"],
+  ["iotLastSync","IoT Last Sync","datetime-local"],["gpsTime","GPS Time Stamp","datetime-local"],["iotStatus","IoT Status","sel",["Working","Not Working"]],
+  ["iotFirmware","IoT Firmware","text"],["bmsFirmware","BMS Firmware","text"],["chargerAuth","Charger Auth","sel",["On","Off"]],["configVersion","Configuration Version","text"],
+  ["iotNotWorking","IoT Not Working (Details)","text"],["reportedIssue","Reported Issue","sel",BI],["actionTaken","Action Taken","sel",BA],
+  ["repairStatus","Repair Status","sel",["OK","Not OK","Non-Repairable","Scrap"]],["pdiStatus","PDI (Pass/Fail)","sel",["Pass","Fail"]]]},
+ charger:{title:"Charger / BSS Repair",col:"charger_repairs",stat:"repairStatus",fields:[
+  ["openDate","Ticket Open Date","date"],["closeDate","Ticket Closing Date","date"],["bssType","BSS Type","sel",["V1","V2"]],["repairLocation","Repair Location","sel",["Bangalore CSC"]],
+  ["assetType","Type of Asset Repaired","sel",["BSS Master Card","BSS Other Part","Charger","Slave Card"]],["assetSrNo","Asset Sr. No. (Slave or Charger)","text"],
+  ["reportedIssue","Reported Issue","sel",CI],
+  ["assetModel","Charger / Slave Card Make & Model","sel",["BSS Master Card for Repair","Drone Power 16A","LGDT BSS Charger","Santla BSS Charger","Slave Card","Controller IC","BSS Harness"]],
+  ["repairStatus","Repair Status","sel",["No Issue Found (OK)","Non-Repairable (Dead)","Open-RTB for Plant Repair","Repaired","Hold for Part"]],
+  ["repairedBy","Repaired By","sel",["Balu","Shakti","Other"]],["component1","Component Used 01","text"],["component2","Component Used 02","text"],["remarks","Remarks","area"]]},
+ lucknow:{title:"Lucknow Charger Repair",col:"lucknow_charger_repairs",stat:"repairStatus",fields:[
+  ["repairDate","Date","date"],["repairLocation","Repair Location","sel",["Lucknow"]],["chargerType","Charger Type","sel",["Vecmocon","Livguard"]],["serialNo","Serial Number","text"],
+  ["reportedIssue","Reported Issue","sel",["Mechanical","Electrical Issue"]],["mechParts","Mechanical Parts Used","multi",LM],["elecParts","Electrical Parts Used (Part — Sub Part)","multi",LE],
+  ["repairStatus","Repair Status","sel",["Charger Repaired","Hold for Part","Dead"]],["remarks","Remarks","area"]]}
+};
+/* ===== LOCATIONS & MODULES (dynamic) ===== */
+const T0={batt:BASE.battery.fields,blr:BASE.charger.fields,lko:BASE.lucknow.fields};
+const DEFLOCS=[
+ {id:"bangalore",name:"Bangalore CSC",menu:"Bangalore Service",ic:"🏢",tpl:"blr",sys:1},
+ {id:"ghaziabad",name:"Ghaziabad Warehouse Repairing Center",menu:"Ghaziabad Warehouse Repairing Center",ic:"🏬",tpl:"lko",sys:1},
+ {id:"lucknow",name:"Lucknow",menu:"Lucknow",ic:"🏭",tpl:"lko",sys:1}];
+const LEG={bangalore:{b:"battery",c:"charger",bcol:"battery_repairs",ccol:"charger_repairs"},
+ ghaziabad:{b:"gzBattery",c:"gzCharger",bcol:"ghaziabad_battery_repairs",ccol:"ghaziabad_charger_repairs"},
+ lucknow:{b:"lkBattery",c:"lucknow",bcol:"lucknow_battery_repairs",ccol:"lucknow_charger_repairs"}};
+let LOCS=DEFLOCS.map(l=>({...l,mods:[]}));
+const locOpts=()=>[...LOCS.map(l=>l.name),"Other"];
+const locName=id=>LOCS.find(l=>l.id===id)?.name||"",locMenu=id=>LOCS.find(l=>l.id===id)?.menu||"";
+const ft=k=>locMenu(BASE[k].loc)+" · "+BASE[k].title;
+const isBat=k=>BASE[k].fields.some(f=>f[0]==="batterySrNo");
+const hasParts=k=>BASE[k].fields.some(f=>f[0]==="mechParts");
+const EF=()=>({q:"",u:"",from:"",to:"",col:"",val:""});
+const S={},FL={},DIM={},SHOW={},DALL={},WIN={};
+const WINS=[[0,"All time (all old entries)"],[365,"Last 12 months"],[180,"Last 6 months"],[90,"Last 90 days"],[30,"Last 30 days"]];
+const readWin=k=>{let r=0;try{const v=localStorage.getItem("win_"+k);if(v!==null&&WINS.some(w=>w[0]===+v))r=+v}catch(_){}return r};
+function regMods(){
+ for(const l of LOCS){const g=LEG[l.id]||{b:l.id+"_b",c:l.id+"_c",bcol:l.id+"_battery_repairs",ccol:l.id+"_charger_repairs"},lko=l.tpl==="lko";
+  BASE[g.b]={title:"Battery Repair",t0:"Battery Repair",col:g.bcol,stat:"repairStatus",fields:T0.batt.map(f=>[...f]),cfg:"battery",loc:l.id,ic:"🔋"};
+  BASE[g.c]={title:lko?"Charger Repair":"Charger / BSS Repair",t0:lko?"Charger Repair":"Charger / BSS Repair",col:g.ccol,stat:"repairStatus",fields:(lko?T0.lko:T0.blr).map(f=>[...f]),cfg:lko?"lucknow":"charger",loc:l.id,ic:"⚡"};
+  l.mods=[g.b,g.c]}
+ const keep=new Set(LOCS.flatMap(l=>l.mods));for(const k of Object.keys(BASE))if(!keep.has(k))delete BASE[k];
+ for(const k in BASE){BASE[k].title=BR.mod[k]||DEF_BR.mod[k]||BASE[k].t0;
+  if(!S[k]){S[k]={rows:[],cur:null,more:false,loaded:false};FL[k]=EF();DIM[k]="reportedIssue";SHOW[k]=20;DALL[k]=false;WIN[k]=readWin(k)}}}
+function applyLocs(list){const m=new Map(DEFLOCS.map(l=>[l.id,{...l}]));
+ (Array.isArray(list)?list:[]).forEach(x=>{if(!x||typeof x.id!=="string"||!/^[a-z0-9]{2,14}$/.test(x.id))return;
+  const d=m.get(x.id),nm=String(x.name||x.menu||"").trim().slice(0,60),mn=String(x.menu||nm).trim().slice(0,60);
+  if(d){if(nm){d.name=nm;d.menu=mn}}else if(nm)m.set(x.id,{id:x.id,name:nm,menu:mn,ic:"📍",tpl:x.tpl==="blr"?"blr":"lko"})});
+ LOCS=[...m.values()].map(l=>({...l,mods:[]}));regMods()}
+const wq=k=>{const d=WIN[k];return d>0?[where("createdAt",">=",Timestamp.fromDate(new Date(Date.now()-d*864e5))),orderBy("createdAt","desc")]:[]};
+const DEF_BR={app:"Service Center Bangalore",sub:"Battery & Charger Repair Operations",wheel:"Service Center & Repair Cycle",dashTitle:"CRM Dashboard",
+ nav:{dash:"Dashboard",battery:"Battery Repair",charger:"Charger / BSS Repair",lucknow:"Lucknow Charger Repair",log:"Activity Log",usr:"Users",set:"Admin Settings",acc:"My Account",out:"Sign Out"},
+ mod:{battery:"Battery Repair",charger:"Charger / BSS Repair",lucknow:"Lucknow Charger Repair"},
+ steps:[{t:"Ticket Logged",d:"Asset received at Bangalore CSC"},{t:"Diagnosis",d:"Physical & electrical checks"},{t:"Repairing",d:"Component / BMS / IoT repair"},{t:"PDI Testing",d:"Pass / Fail verification"},{t:"Dispatched",d:"Repaired asset ready & closed"}],fl:{}};
+let BR=JSON.parse(JSON.stringify(DEF_BR));
+regMods();
+function mergeBR(s){const b=JSON.parse(JSON.stringify(DEF_BR));s=s||{};const ok=v=>typeof v==="string"&&v.trim();
+ for(const k of["app","sub","wheel","dashTitle"])if(ok(s[k]))b[k]=s[k].trim().slice(0,80);
+ for(const g of["nav","mod"])for(const k in b[g])if(ok(s[g]?.[k]))b[g][k]=s[g][k].trim().slice(0,60);
+ (Array.isArray(s.steps)?s.steps:[]).forEach((x,i)=>{if(b.steps[i]&&x){if(ok(x.t))b.steps[i].t=x.t.trim().slice(0,40);if(ok(x.d))b.steps[i].d=x.d.trim().slice(0,80)}});
+ b.fl=s.fl&&typeof s.fl==="object"?s.fl:{};return b}
+let me=null,users=[],logs=[],cfg={opts:{},custom:{},perm:{},meta:{}},view="dash",dm="battery",stm="battery",dLog=5,lLog=5,lastLoad=0,refT=null;
+const $=s=>document.querySelector(s);
+const isOwner=()=>me?.role==="owner",isAdmin=()=>!!me&&(me.role==="owner"||me.role==="admin"),can=p=>isAdmin()||cfg.perm[p]!==false;
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const toast=m=>{const t=document.createElement("div");t.id="toast";t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),3200)};
+const nid=()=>String(9e12-Date.now()).padStart(13,"0")+Math.random().toString(36).slice(2,8);
+const isOther=v=>/^other/i.test(v||"");
+const tsd=t=>t?.toDate?t.toDate():(t instanceof Date?t:null);
+const tm=t=>{const d=tsd(t);return d?d.toLocaleString():"…"};
+const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const asArr=v=>Array.isArray(v)?v:(v?[v]:[]);
+const withTO=(p,ms=20000)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r({code:"timeout",message:"Save is taking long (slow internet). Press Save again - the same entry will not be duplicated."}),ms))]);
+const ymd=p=>p.ticketDate||p.openDate||p.repairDate||(tsd(p.createdAt)?new Date(tsd(p.createdAt)-tsd(p.createdAt).getTimezoneOffset()*6e4).toISOString().slice(0,10):today());
+const pct=(a,b)=>b?(a/b*100).toFixed(1):"0.0";
+const isFail=p=>FAIL.test(p.repairStatus||"")||FAIL.test(p.pdiStatus||"");
+const isOk=p=>!isFail(p)&&OK.test(p.repairStatus||"");
+const ck=k=>"L_"+k;
+const customOf=k=>{const a=cfg.custom[ck(k)],b=cfg.custom[BASE[k].cfg||k];return Array.isArray(a)?a:(Array.isArray(b)?b:[])};
+const hiddenOf=k=>Array.isArray(cfg.custom["H_"+k])?cfg.custom["H_"+k]:[];
+const lbl=(k,f)=>BR.fl?.[ck(k)]?.[f[0]]||BR.fl?.[BASE[k].cfg||k]?.[f[0]]||f[1];
+const allBase=k=>BASE[k].fields.map(f=>[f[0],lbl(k,f),...f.slice(2)]);
+const fieldsOf=k=>{const hid=hiddenOf(k);return [...allBase(k).filter(f=>!hid.includes(f[0])),...customOf(k).map(x=>[x.key,x.label,x.type==="dropdown"?"sel":x.type,[]])]};
+const optsOf=(k,f)=>{if(f==="repairLocation")return locOpts();const lo=cfg.opts[ck(k)]?.[f];if(lo)return lo;const c=BASE[k].cfg||k,v=cfg.opts[c]?.[f];if(v)return v;return BASE[k].fields.find(x=>x[0]===f)?.[3]||[]};
+const cell=(k,p,[key,,t])=>{let v=p[key]??"";if(Array.isArray(v))return v.join(", ");if(t==="sel"&&isOther(v)&&p[key+"Other"])v=v+": "+p[key+"Other"];if(t==="datetime-local")v=String(v).replace("T"," ");return v};
+const roleBadge=r=>r==="user"?"":`<span class="badge ${r}">${r}</span>`;
+const curMod=()=>BASE[view]?view:dm;
+const canLoc=l=>isAdmin()||(!!me&&!!me.location&&me.location===l),visLocs=()=>LOCS.filter(l=>canLoc(l.id));
+const defMod=()=>{const l=LOCS.find(x=>x.id===me?.location&&canLoc(x.id))||visLocs()[0];return l?l.mods[0]:null};
+setInterval(()=>{const d=$("#dt");if(d)d.textContent=new Date().toLocaleString()},1000);
+function fail(e){console.error(e);if(e.code==="permission-denied"){const w=$("#warn");w.classList.remove("hide");w.textContent="Permission denied. Either the Firestore Rules have not been published, or your account does not have permission for this action."}toast("Error: "+(e.code||e.message))}
+
+async function log(action,detail){if(!me)return;const id=nid(),e={id,uid:me.uid,name:me.name,role:me.role,action,detail:String(detail||"").slice(0,300),ts:new Date()};
+ logs.unshift(e);const extra=logs.splice(LOGMAX);if(view==="dash"||view==="log")render();
+ try{const {id:_,...rest}=e;await setDoc(doc(db,"logs",id),{...rest,ts:serverTimestamp()});
+  if(isAdmin()&&extra.length){const b=writeBatch(db);extra.forEach(x=>x.id&&b.delete(doc(db,"logs",x.id)));await b.commit()}}catch(_){}}
+
+/* login animation */
+const ST=[{t:"Ticket Logged",d:"Asset received at Bangalore CSC",c:"#f59e0b"},{t:"Diagnosis",d:"Physical & electrical checks",c:"#7dd3fc"},{t:"Repairing",d:"Component / BMS / IoT repair",c:"#4ade80"},{t:"PDI Testing",d:"Pass / Fail verification",c:"#c4b5fd"},{t:"Dispatched",d:"Repaired asset ready & closed",c:"#fb7185"}];
+let wnodes=[],wi=0;
+function buildWheel(){const w=$("#wheel");w.querySelectorAll(".wnode").forEach(n=>n.remove());
+ ST.forEach((s,i)=>{const r=(-90+i*72)*Math.PI/180,n=document.createElement("div");n.className="wnode";n.style.left=50+44*Math.cos(r)+"%";n.style.top=50+44*Math.sin(r)+"%";
+  n.innerHTML=`<div class="dot" style="background:${s.c};color:${s.c}"></div><b>${esc(s.t)}</b><span>${esc(s.d)}</span>`;w.appendChild(n)});wnodes=[...w.querySelectorAll(".wnode")]}
+function wstep(){const dot=$("#wdot"),th=$("#thought"),si=wi;wnodes.forEach((n,i)=>n.classList.toggle("active",i===si));const r=(-90+si*72)*Math.PI/180;
+ dot.setAttribute("cx",50+44*Math.cos(r));dot.setAttribute("cy",50+44*Math.sin(r));dot.style.fill=ST[si].c;th.style.opacity=0;setTimeout(()=>{th.textContent=ST[si].t+" — "+ST[si].d;th.style.opacity=.9},350);wi=(wi+1)%ST.length}
+function applyBrand(){document.title=BR.app;$("#login h1").textContent=BR.app;$("#login .sub").textContent=BR.sub;$(".logo").textContent=BR.app;$(".wcenter b").textContent=BR.wheel;
+ for(const k in BASE)BASE[k].title=BR.mod[k]||DEF_BR.mod[k]||BASE[k].t0;
+ document.querySelectorAll(".side a[data-v]").forEach(a=>{a.textContent=a.dataset.ic+" "+(BR.nav[a.dataset.v]||"")});$("#lo").textContent=BR.nav.out;
+ ST.forEach((s,i)=>{if(BR.steps[i]){s.t=BR.steps[i].t;s.d=BR.steps[i].d}});buildWheel()}
+try{const c=localStorage.getItem("brand");if(c)BR=mergeBR(JSON.parse(c))}catch(_){}
+applyBrand();wstep();setInterval(wstep,2400);
+getDoc(doc(db,"config","branding")).then(s=>{if(s.exists()){BR=mergeBR(s.data());try{localStorage.setItem("brand",JSON.stringify(s.data()))}catch(_){}}applyBrand();if(me){$("#ttl").textContent=ttlOf(view);render()}}).catch(()=>{});
+$("#hb").onclick=()=>{$("#side").classList.add("open");$("#ov").classList.remove("hide")};
+$("#ov").onclick=()=>{$("#side").classList.remove("open");$("#ov").classList.add("hide")};
+
+const errMsg=e=>({"auth/invalid-credential":"Incorrect email or password.","auth/wrong-password":"Incorrect password.","auth/user-not-found":"No account exists for this email.","auth/invalid-email":"Please enter a valid email address.","auth/too-many-requests":"Too many attempts. Please try again later.","auth/network-request-failed":"Network error. Please check your connection.","auth/operation-not-allowed":"Email/Password sign-in is disabled. Enable it in Firebase Console → Authentication → Sign-in method.","auth/email-already-in-use":"This account already exists. Please sign in or use Forgot password.","auth/requires-recent-login":"Please sign out and sign in again, then retry."}[e.code]||("Error ["+(e.code||"")+"]: "+e.message));
+$("#lb").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#dc2626";
+ if(!email||!pw){er.textContent="Please enter your email and password.";return}
+ try{er.textContent="Signing in...";await signInWithEmailAndPassword(auth,email,pw);er.textContent=""}catch(e){er.textContent=errMsg(e)}};
+$("#pw").onkeydown=e=>{if(e.key==="Enter")$("#lb").click()};
+$("#fp").onclick=async()=>{const email=$("#em").value.trim(),er=$("#err");if(!email){er.textContent="Please enter your email first.";return}
+ try{await sendPasswordResetEmail(auth,email);er.style.color="#16a34a";er.textContent="Password reset email sent. Please check your inbox and spam folder."}catch(e){er.style.color="#dc2626";er.textContent=errMsg(e)}};
+$("#os").onclick=async()=>{const email=$("#em").value.trim(),pw=$("#pw").value,er=$("#err");er.style.color="#dc2626";
+ if(email.toLowerCase()!==OWNER){er.textContent="First-time setup is available only for the owner email.";return}
+ if(pw.length<6){er.textContent="Enter a new password (minimum 6 characters).";return}
+ try{await createUserWithEmailAndPassword(auth,email,pw)}catch(e){er.textContent=errMsg(e)}};
+$("#lo").onclick=async()=>{await log("Signed out");clearInterval(refT);signOut(auth)};
+
+onAuthStateChanged(auth,async u=>{
+ me=null;users=[];logs=[];clearInterval(refT);dtab="loc";ovBusy=false;
+ for(const k in S)Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false,full:false});
+ if(!u){$("#app").classList.add("hide");$("#login").classList.remove("hide");return}
+ try{
+  const ref=doc(db,"users",u.uid),isO=(u.email||"").toLowerCase()===OWNER;
+  let p=await getDoc(ref).catch(e=>{if(!isO)throw e;return null});
+  if(isO&&(!p||!p.exists()||p.data().role!=="owner")){
+   await setDoc(ref,{name:(p&&p.exists()&&p.data().name)||"Owner",email:u.email,role:"owner",disabled:false,createdAt:serverTimestamp()},{merge:true});p=await getDoc(ref)}
+  if(!p||!p.exists()){await signOut(auth);$("#err").textContent="Your profile was not found. Please ask the Owner/Admin to create your user account.";return}
+  if(p.data().disabled){await signOut(auth);$("#err").textContent="Access denied. Your account has been disabled.";return}
+  me={uid:u.uid,...p.data()};
+  $("#login").classList.add("hide");$("#app").classList.remove("hide");$("#pw").value="";
+  $("#who").innerHTML=`${esc(me.name)} ${roleBadge(me.role)}`;
+  document.querySelectorAll(".adm").forEach(a=>a.classList.toggle("hide",!isAdmin()));
+  await loadBase();buildLocNav();dm=defMod()||dm;log("Signed in");nav("dash");refT=setInterval(refreshAll,5*60*60*1000);
+ }catch(err){console.error(err);$("#err").textContent="Database error: "+(err.code==="permission-denied"?"Firestore Rules are not published (permission denied).":err.message);signOut(auth)}
+});
+document.querySelectorAll(".side a[data-v]").forEach(a=>a.onclick=()=>{nav(a.dataset.v);$("#side").classList.remove("open");$("#ov").classList.add("hide")});
+const ttlOf=v=>BASE[v]?locMenu(BASE[v].loc)+" › "+BASE[v].title:({dash:BR.dashTitle,log:BR.nav.log,usr:BR.nav.usr,set:BR.nav.set,acc:BR.nav.acc})[v]||"";
+function nav(v){if((v==="usr"||v==="set")&&!isAdmin())return;if(BASE[v]&&!canLoc(BASE[v].loc))return;if(v==="log"&&!can("userLog"))return;view=v;dLog=5;lLog=5;
+ document.querySelectorAll(".side a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
+ document.querySelectorAll("#locnav a").forEach(a=>a.classList.toggle("on",BASE[v]?.loc===a.dataset.loc));
+ $("#navlog").classList.toggle("hide",!can("userLog"));
+ $("#ttl").textContent=ttlOf(v);
+ const k=BASE[v]?v:(v==="dash"&&dtab!=="all"?dm:null);if(v==="dash"&&dtab==="all")ovLoad(false);if(k&&canLoc(BASE[k].loc)){if(v==="dash")ensureDash(k);else if(!S[k].loaded)loadMod(k)}render()}
+
+async function loadConfig(){for(const [id,key] of [["options","opts"],["fields","custom"],["permissions","perm"],["meta","meta"]]){try{const s=await getDoc(doc(db,"config",id));cfg[key]=s.exists()?s.data():{}}catch(e){cfg[key]={}}}
+ try{const s=await getDoc(doc(db,"config","branding"));if(s.exists()){BR=mergeBR(s.data());try{localStorage.setItem("brand",JSON.stringify(s.data()))}catch(_){}applyBrand()}}catch(_){}
+ try{const s=await getDoc(doc(db,"config","locations"));applyLocs(s.exists()?s.data().list:[])}catch(e){applyLocs([])}}
+async function loadBase(){try{
+  await loadConfig();
+  const lq=isAdmin()?query(collection(db,"logs"),limit(LOGMAX+1)):query(collection(db,"logs"),where("uid","==",me.uid),limit(LOGMAX));
+  let ls=await getDocs(lq);let arr=ls.docs.map(d=>({id:d.id,...d.data()}));
+  if(!isAdmin())arr=arr.filter(x=>x.uid===me.uid);
+  if(isAdmin()&&arr.length>LOGMAX){const old=await getDocs(query(collection(db,"logs"),startAfter(ls.docs[LOGMAX-1]),limit(450)));
+   if(old.docs.length){const b=writeBatch(db);old.docs.forEach(d=>b.delete(d.ref));await b.commit().catch(()=>{})}arr=arr.slice(0,LOGMAX)}
+  logs=arr;
+  if(isAdmin())users=(await getDocs(collection(db,"users"))).docs.map(d=>({id:d.id,...d.data()}));
+  lastLoad=Date.now();
+ }catch(e){fail(e)}}
+async function loadMod(k,more,n){if(!canLoc(BASE[k].loc))return;const s=S[k],size=n||(more?40:Math.min(Math.max(s.rows.length,20),FETCH));
+ try{const qs=await getDocs(query(collection(db,BASE[k].col),...wq(k),...(more&&s.cur?[startAfter(s.cur)]:[]),limit(size)));
+  const rows=qs.docs.map(d=>({id:d.id,...d.data()}));s.rows=more?[...s.rows,...rows]:rows;s.cur=qs.docs[qs.docs.length-1]||s.cur;s.more=qs.docs.length===size;s.loaded=true;if(size>=FETCH)s.full=true;lastLoad=Date.now();$("#warn").classList.add("hide")}catch(e){fail(e)}
+ render()}
+function ensureDash(k){const s=S[k];if(!s.loaded)loadMod(k,false,FETCH);else if(!s.full&&s.more)loadMod(k,true,FETCH)}
+async function refreshAll(){if(!me||document.hidden)return;await loadBase();const ks=Object.keys(S).filter(k=>S[k].loaded);for(const k of ks)await loadMod(k);render()}
+
+function buildLocNav(){const n=$("#locnav");n.innerHTML=visLocs().map(l=>`<a data-loc="${l.id}">${l.ic} ${esc(l.menu)} ▾</a>`).join("");
+ n.querySelectorAll("a").forEach(a=>a.onclick=()=>pickModal(a.dataset.loc,"nav"))}
+function pickModal(lid,ctx){const L=LOCS.find(x=>x.id===lid);if(!L||!canLoc(lid))return;const m=$("#modal"),cur=ctx==="dash"?dm:view;
+ $("#side").classList.remove("open");$("#ov").classList.add("hide");
+ m.innerHTML=`<div class="box" style="width:420px"><h2 style="margin-bottom:6px;color:var(--acc)">${L.ic} ${esc(L.menu)}</h2><p class="note">${ctx==="dash"?"Select which data to show on the dashboard.":"Select what you want to open."}</p>
+ ${L.mods.map(k=>`<button data-pk="${k}" class="${cur===k?"":"gry"}" style="width:100%;padding:16px;margin-bottom:10px;font-size:15px;text-align:left">${BASE[k].ic} ${esc(BASE[k].title)}</button>`).join("")}
+ <button class="lnk" id="pkc" style="width:100%">Cancel</button></div>`;
+ m.onchange=null;m.oninput=null;m.classList.remove("hide");
+ m.querySelectorAll("[data-pk]").forEach(b=>b.onclick=()=>{m.classList.add("hide");if(ctx==="dash"){dm=b.dataset.pk;nav("dash")}else nav(b.dataset.pk)});
+ $("#pkc").onclick=()=>m.classList.add("hide")}
+
+/* analytics helpers */
+function applyF(k,rows,withQ){const f=FL[k],ql=f.q.toLowerCase();
+ return rows.filter(p=>{if(withQ&&ql&&!JSON.stringify(p).toLowerCase().includes(ql))return false;if(f.u&&p.createdBy!==f.u)return false;
+  const d=ymd(p);if(f.from&&d<f.from)return false;if(f.to&&d>f.to)return false;if(f.col&&f.val&&!asArr(p[f.col]).includes(f.val))return false;return true})}
+function group(rows,fn){const m=new Map();rows.forEach(p=>{let r=fn(p);r=Array.isArray(r)?r:[r];if(!r.length)r=[""];const d=ymd(p),bad=isFail(p),good=!bad&&isOk(p);
+ new Set(r.map(x=>x||"(blank)")).forEach(key=>{let g=m.get(key);if(!g){g={n:0,f:0,o:0,last:""};m.set(key,g)}g.n++;if(bad)g.f++;else if(good)g.o++;if(d>g.last)g.last=d})});
+ return [...m].map(([k,g])=>({k,...g})).sort((a,b)=>b.n-a.n)}
+const dimVal=(k,p,key)=>{if(key==="__by")return p.createdByName;const f=fieldsOf(k).find(x=>x[0]===key);if(!f)return"";return f[2]==="multi"?asArr(p[key]):cell(k,p,f)};
+const fcls=v=>v>=30?"hi":v>=10?"mid":"lo";
+function fbar(k,withQ){const f=FL[k],s=S[k],fl=fieldsOf(k).filter(x=>x[2]==="sel"||x[2]==="multi");
+ const people=[...new Map(s.rows.filter(p=>p.createdBy).map(p=>[p.createdBy,p.createdByName||"—"]))];
+ const vals=f.col?[...new Set(s.rows.flatMap(p=>asArr(p[f.col])).filter(Boolean))].sort():[];
+ return `<div class="row">${withQ?`<input id="fq" placeholder="Search all columns..." value="${esc(f.q)}">`:""}
+ <select data-f="u"><option value="">All people</option>${people.map(([id,n])=>`<option value="${esc(id)}" ${f.u===id?"selected":""}>${esc(n)}</option>`).join("")}</select>
+ <input type="date" data-f="from" value="${f.from}" title="From date"><input type="date" data-f="to" value="${f.to}" title="To date">
+ <select data-f="col"><option value="">Filter by column…</option>${fl.map(x=>`<option value="${x[0]}" ${f.col===x[0]?"selected":""}>${esc(x[1])}</option>`).join("")}</select>
+ <select data-f="val" ${f.col?"":"disabled"}><option value="">All values</option>${vals.map(v=>`<option ${f.val===v?"selected":""}>${esc(v)}</option>`).join("")}</select>
+ <button class="gry" data-a="clr">Clear filters</button></div>`}
+const kpi=(l,v,c="")=>`<div class="c ${c}"><h3>${l}</h3><h2>${v}</h2></div>`;
+const actTable=(l,n,btn)=>`<div class="tw"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Detail</th></tr></thead><tbody>${l.slice(0,n).map(x=>`<tr><td>${tm(x.ts)}</td><td>${esc(x.name)} ${roleBadge(x.role)}</td><td>${esc(x.action)}</td><td class="w">${esc(x.detail)}</td></tr>`).join("")||"<tr><td colspan=4>No activity yet</td></tr>"}</tbody></table></div>${l.length>n?`<div class="row" style="margin-top:10px"><button class="gry" data-a="${btn}">Load More (10)</button></div>`:""}`;
+
+
+const PU={mechParts:false,elecParts:false};
+function partStats(all,key){const seen=new Set(optsOf("lucknow",key));all.forEach(p=>asArr(p[key]).forEach(x=>seen.add(x)));
+ const ct=[...new Set([...optsOf("lucknow","chargerType"),...all.map(p=>p.chargerType).filter(Boolean)])];
+ const m=new Map([...seen].map(o=>[o,{k:o,n:0,r:0,h:0,d:0,ct:{}}]));
+ all.forEach(p=>{const bad=isFail(p),good=!bad&&isOk(p),hold=!bad&&!good&&/hold/i.test(p.repairStatus||"");
+  new Set(asArr(p[key])).forEach(o=>{const g=m.get(o);if(!g)return;g.n++;if(good)g.r++;else if(bad)g.d++;else if(hold)g.h++;const c=p.chargerType||"—";g.ct[c]=(g.ct[c]||0)+1})});
+ return {rows:[...m.values()].sort((a,b)=>b.n-a.n||String(a.k).localeCompare(String(b.k))),ct}}
+function partsTbl(all,key,title,icon){const {rows,ct}=partStats(all,key),used=rows.filter(r=>r.n>0),show=PU[key]?rows:used,sum=used.reduce((a,r)=>a+r.n,0),mx=Math.max(1,...rows.map(r=>r.n)),isE=key==="elecParts";
+ const sp=k=>{const i=String(k).indexOf(" — ");return i>=0?[String(k).slice(0,i),String(k).slice(i+3)]:[String(k),""]};
+ return `<div class="sec"><h2>${icon} ${esc(title)} — Usage & Repair Result</h2>
+  <p class="note">${used.length} of ${rows.length} parts used · ${sum} total uses in ${all.length} entries (filters applied). Repaired = Charger Repaired · Hold = Hold for Part · Dead = Dead. One entry counts once per part.</p>
+  <div class="tw"><table><thead><tr><th>#</th><th>Part</th>${isE?"<th>Position / Sub Part</th>":""}<th>Used</th><th>Share</th><th></th><th>Repaired</th><th>Hold</th><th>Dead</th><th>Repair %</th>${ct.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>
+  ${show.map((r,i)=>{const [a,b]=isE?sp(r.k):[r.k,""];return `<tr><td>${i+1}</td><td class="w"><b>${esc(a)}</b></td>${isE?`<td class="w">${esc(b)}</td>`:""}<td><b>${r.n}</b></td><td>${pct(r.n,all.length)}%</td><td style="width:120px"><div class="bar"><i style="width:${pct(r.n,mx)}%"></i></div></td><td style="color:#16a34a;font-weight:700">${r.r}</td><td style="color:#d97706;font-weight:700">${r.h}</td><td style="color:#dc2626;font-weight:700">${r.d}</td><td>${r.n?pct(r.r,r.n)+"%":"—"}</td>${ct.map(c=>`<td>${r.ct[c]||0}</td>`).join("")}</tr>`}).join("")||`<tr><td colspan="${9+(isE?1:0)+ct.length}">No parts used yet</td></tr>`}</tbody></table></div>
+  ${rows.length>used.length?`<div class="row" style="margin-top:10px"><button class="gry" data-a="pu" data-i="${key}">${PU[key]?"Hide unused parts":"Show unused parts too ("+(rows.length-used.length)+")"}</button></div>`:""}</div>`}
+function partsDash(all){return partsTbl(all,"mechParts","Mechanical Parts","🔩")+partsTbl(all,"elecParts","Electrical Parts","⚡")}
+const winSel=k=>`<span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label style="margin:0">Data loaded</label><select data-win="1" style="width:auto;margin:0;flex:0 0 auto;min-width:170px">${WINS.map(([d,l])=>`<option value="${d}" ${WIN[k]===d?"selected":""}>${l}</option>`).join("")}</select></span>`;
+function dashLoc(){if(!canLoc(BASE[dm].loc)){const m=defMod();if(!m)return `<div class="sec"><h2>No location assigned</h2><p class="note">Your account is not linked to any location yet. Please ask the Admin to set your location in Users.</p></div>`;dm=m;ensureDash(m)}const k=dm,s=S[k],B=BASE[k],all=applyF(k,s.rows,false),n=all.length,fl=all.filter(isFail).length,ok=all.filter(isOk).length,pend=n-fl-ok;
+ const stat=group(all,p=>p[B.stat]),byUser=group(all,p=>p.createdByName||"Unknown"),dimF=[...fieldsOf(k).filter(x=>x[2]==="sel"||x[2]==="multi").map(x=>[x[0],x[1]]),["__by","Added By"]];
+ if(!dimF.some(x=>x[0]===DIM[k]))DIM[k]=dimF[0][0];
+ const dg=group(all,p=>dimVal(k,p,DIM[k])),dshow=DALL[k]?dg:dg.slice(0,10);
+ const pdiP=all.filter(p=>/^pass/i.test(p.pdiStatus||"")).length,pdiF=all.filter(p=>/fail/i.test(p.pdiStatus||"")).length;
+ let acc=0;const seg=stat.map((x,i)=>{const a=acc/n*360;acc+=x.n;return `${PAL[i%8]} ${a}deg ${acc/n*360}deg`}).join(",");
+ return `<div class="row"><div class="tabs" style="margin:0">${visLocs().map(l=>`<button class="${BASE[k].loc===l.id?"on":""}" data-a="locpick" data-i="${l.id}">${l.ic} ${esc(l.menu)} ▾</button>`).join("")}</div><span class="badge" style="font-size:12px;padding:6px 12px">${BASE[k].ic} ${esc(BASE[k].title)}</span>
+  <span style="flex:1"></span><small style="color:var(--mut)">Updated ${lastLoad?new Date(lastLoad).toLocaleTimeString():"…"} · ${s.rows.length} entries loaded</small>
+  ${winSel(k)}${s.more?`<button class="gry" data-a="dolder">⬇ Load more (stats incomplete)</button>`:""}<button class="gry" data-a="cnt">Σ Total in DB</button><button class="gry" data-a="ref">↻ Refresh</button>${can("userAdd")?`<button data-a="new">+ Add Entry</button>`:""}</div>
+ <div class="sec"><h2>Filters</h2>${fbar(k,false)}<p class="note">Failure = Repair Status of Not OK / Non-Repairable / Scrap / Dead, or PDI Fail. Resolved = Repair Status OK / Repaired / No Issue Found. Filters apply to every chart below. For parts columns, one entry is counted once under each part used.</p></div>
+ ${s.loaded?"":`<div class="sec">Loading data…</div>`}
+ <div class="cards">${kpi("Total Entries",n)}${kpi("Resolved",ok,"g2")}${kpi("Failed",fl,"r2")}${kpi("In Process / On Hold",pend,"o2")}${kpi("Failure Rate",pct(fl,n)+"%","r2")}${kpi("Success Rate",pct(ok,n)+"%","g2")}
+  ${isBat(k)?kpi("PDI Pass",pdiP,"g2")+kpi("PDI Fail",pdiF,"r2"):""}${hasParts(k)?kpi("Mechanical Issue",all.filter(p=>/mech/i.test(p.reportedIssue||"")).length)+kpi("Electrical Issue",all.filter(p=>/elec/i.test(p.reportedIssue||"")).length)+kpi("Mechanical Parts Used",all.reduce((a,p)=>a+asArr(p.mechParts).length,0))+kpi("Electrical Parts Used",all.reduce((a,p)=>a+asArr(p.elecParts).length,0)):""}${kpi("Active Contributors",byUser.length)}${isAdmin()?kpi("Total Users",users.filter(u=>u.role==="user").length)+kpi("Total Admins",users.filter(u=>u.role!=="user").length):""}</div>
+ <div class="g2c"><div class="sec"><h2>Repair Status Distribution</h2><div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"><div class="donut" style="background:conic-gradient(${seg||"#e2e8f0 0deg 360deg"})"><div><b>${n}</b><small>Entries</small></div></div>
+   <div>${stat.map((x,i)=>`<div class="leg"><i style="background:${PAL[i%8]}"></i>${esc(x.k)} <b>${x.n}</b> · ${pct(x.n,n)}%</div>`).join("")||"No data"}</div></div></div>
+  <div class="sec"><h2>Efficiency by User (Success Rate)</h2>${byUser.map(x=>`<div class="brow"><span>${esc(x.k)}</span><div class="bar"><i style="width:${pct(x.o,x.n)}%;background:#16a34a"></i></div><b>${pct(x.o,x.n)}%</b></div>`).join("")||"No data"}</div></div>
+ ${hasParts(k)?partsDash(all):""}
+ <div class="sec"><h2>Analyze by Column</h2><div class="row"><label style="margin:0">Group by</label><select data-dim="1">${dimF.map(x=>`<option value="${x[0]}" ${DIM[k]===x[0]?"selected":""}>${esc(x[1])}</option>`).join("")}</select></div>
+  <div class="tw"><table><thead><tr><th>Value</th><th>Entries</th><th>Share</th><th></th><th>Resolved</th><th>Failed</th><th>Failure %</th></tr></thead><tbody>
+  ${dshow.map(x=>`<tr><td>${esc(x.k)}</td><td>${x.n}</td><td>${pct(x.n,n)}%</td><td style="width:140px"><div class="bar"><i style="width:${pct(x.n,n)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td></tr>`).join("")||"<tr><td colspan=7>No data</td></tr>"}</tbody></table></div>
+  ${dg.length>10?`<div class="row" style="margin-top:10px"><button class="gry" data-a="dall">${DALL[k]?"Show Top 10":"Show All ("+dg.length+")"}</button></div>`:""}</div>
+ <div class="sec"><h2>User-wise Activity & Ratio</h2><div class="tw"><table><thead><tr><th>User</th><th>Entries</th><th>Share of Total</th><th></th><th>Resolved</th><th>Failed</th><th>Failure %</th><th>Success %</th><th>Last Entry</th></tr></thead><tbody>
+  ${byUser.map(x=>`<tr><td><b>${esc(x.k)}</b></td><td>${x.n}</td><td>${pct(x.n,n)}%</td><td style="width:120px"><div class="bar"><i style="width:${pct(x.n,n)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td><td>${pct(x.o,x.n)}%</td><td>${esc(x.last)}</td></tr>`).join("")||"<tr><td colspan=9>No data</td></tr>"}</tbody></table></div></div>
+ ${can("userLog")?`<div class="sec"><h2>Recent Activity</h2>${actTable(logs,dLog,"dmore")}</div>`:""}`}
+
+function modView(k){const s=S[k],F=fieldsOf(k),l=applyF(k,s.rows,true),n=SHOW[k];
+ return `<div class="sec"><div class="row">${can("userAdd")?`<button data-a="new">+ New Entry</button>`:""}<span style="flex:1"></span>${winSel(k)}<button class="gry" data-a="cnt">Σ Total in DB</button><button class="gry" data-a="ref">↻ Refresh</button>${can("userExport")?`<button class="grn" data-a="ex">Export CSV (filtered)</button>`:""}</div>
+ ${fbar(k,true)}<p class="note">Showing ${Math.min(n,l.length)} of ${l.length} matching entries (${s.rows.length} loaded${s.more?", more on server":""}). Search/filters work on loaded entries — press Load More to fetch older ones.</p>
+ <div class="tw"><table><thead><tr><th>Sr. No.</th>${F.map(x=>`<th>${esc(x[1])}</th>`).join("")}<th>Added By</th><th>Added On</th><th>Last Updated By</th><th class="act">Actions</th></tr></thead><tbody>
+ ${l.slice(0,n).map((p,i)=>`<tr><td>${i+1}</td>${F.map(x=>`<td class="${["reportedIssue","actionTaken","remarks","mechParts","elecParts"].includes(x[0])?"w":""}">${esc(cell(k,p,x))}</td>`).join("")}<td><b>${esc(p.createdByName||"—")}</b></td><td>${tm(p.createdAt)}</td><td>${esc(p.updatedByName||"—")}</td>
+ <td class="act">${can("userEdit")?`<button class="gry" data-a="ed" data-i="${p.id}" title="Edit">✏️</button>`:""}${isAdmin()?`<button class="red" data-a="del" data-i="${p.id}" title="Delete">🗑</button>`:""}</td></tr>`).join("")||`<tr><td colspan="${F.length+5}">No data</td></tr>`}</tbody></table></div>
+ <div class="row" style="margin-top:12px">${l.length>n||s.more?`<button class="gry" data-a="lm">Load More (40)</button>`:""}</div></div>`}
+
+function usrView(){return `<div class="sec"><h2>Create New User</h2><div class="g"><div><label>Full Name</label><input id="un"></div><div><label>Email</label><input id="ue" type="email"></div><div><label>Password (min 6)</label><input id="up" type="password"></div>
+ <div><label>Role</label><select id="ur"><option value="user">User</option>${isOwner()?`<option value="admin">Admin</option>`:""}</select></div><div><label>Location</label><select id="ul">${LOCS.map(l=>`<option value="${l.id}">${esc(l.menu)}</option>`).join("")}</select></div></div><button data-a="cu">Create User</button></div>
+ <div class="sec"><h2>Users</h2><div class="tw"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead><tbody>${users.map(u=>{
+  const mine=u.id===me.uid,cn=!mine&&u.role!=="owner"&&(isOwner()||u.role==="user");
+  return `<tr><td>${esc(u.name)}</td><td>${esc(u.email)}</td><td>${cn&&isOwner()?`<select data-c="ro" data-i="${u.id}" style="margin:0"><option ${u.role==="user"?"selected":""}>user</option><option ${u.role==="admin"?"selected":""}>admin</option></select>`:esc(u.role)}</td>
+  <td>${cn?`<select data-c="loc" data-i="${u.id}" style="margin:0"><option value="">— None —</option>${LOCS.map(l=>`<option value="${l.id}" ${u.location===l.id?"selected":""}>${esc(l.menu)}</option>`).join("")}</select>`:esc(locMenu(u.location)||(u.role==="user"?"—":"All"))}</td>
+  <td>${cn?`<button class="${u.disabled?"grn":"red"}" data-a="dx" data-i="${u.id}">${u.disabled?"Enable":"Disable"}</button>`:(u.disabled?"Disabled":"Active")}</td>
+  <td>${cn?`<button class="gry" data-a="en" data-i="${u.id}">✏️ Rename</button> <button class="gry" data-a="rpw" data-i="${u.id}">🔑 Reset Password</button>`:"—"}</td></tr>`}).join("")}</tbody></table></div></div>`}
+
+
+function brandSec(){const i=(id,l,v)=>`<div><label>${esc(l)}</label><input id="${id}" value="${esc(v)}"></div>`;
+ return `<div class="sec"><h2>CRM Names & Labels</h2><p class="note">Change any text shown in the CRM (name, menus, module names, login text, column names). Leave a box empty to use the default. Applies to all users after saving.</p>
+ <div class="g">${i("br_app","CRM / Login name",BR.app)}${i("br_sub","Login subtitle",BR.sub)}${i("br_wheel","Login wheel centre text",BR.wheel)}${i("br_dash","Dashboard page title",BR.dashTitle)}</div>
+ <label>Menu names</label><div class="g" style="margin-top:6px">${Object.keys(DEF_BR.nav).filter(k=>!["battery","charger","lucknow"].includes(k)).map(k=>i("br_nav_"+k,DEF_BR.nav[k],BR.nav[k])).join("")}</div>
+ <label>Module names</label><div class="g" style="margin-top:6px">${Object.keys(DEF_BR.mod).map(k=>i("br_mod_"+k,DEF_BR.mod[k],BR.mod[k])).join("")}</div>
+ <label>Login animation steps</label><div class="g" style="margin-top:6px">${DEF_BR.steps.map((s,k)=>i("br_st_t"+k,"Step "+(k+1)+" title",BR.steps[k].t)+i("br_st_d"+k,"Step "+(k+1)+" detail",BR.steps[k].d)).join("")}</div>
+ <label>Column names — ${esc(ft(stm))} (choose location &amp; section in “Edit Location Setup” above)</label><div class="g" style="margin-top:6px">${BASE[stm].fields.map(f=>i("bf_"+f[0],f[1],lbl(stm,f))).join("")}</div>
+ <div class="row"><button data-a="sb">Save Names & Labels</button><button class="gry" data-a="sr">Reset all to default</button></div></div>`}
+function bkSec(){return `<div class="sec"><h2>Owner Backup — Export all data</h2><p class="note">Visible only to the Owner. Each module is stored in its own Firestore collection (${Object.keys(BASE).map(k=>BASE[k].col).join(", ")}) so data never mixes. Backup reads every entry once (1 read per entry; free limit is 50,000 reads/day). For very large data, download one module CSV at a time.</p>
+ <p class="note">🛡 <b>Last full backup:</b> ${cfg.meta?.lastBackup?new Date(cfg.meta.lastBackup).toLocaleString()+(cfg.meta.lastBackupBy?" by "+esc(cfg.meta.lastBackupBy):""):"never recorded"}. Deleted entries are also kept in the <b>deleted_entries</b> collection (Firebase Console) so nothing is lost by mistake.</p><div class="row"><button data-a="bkj">⬇ Full Backup (JSON: all modules + settings + users)</button>${Object.keys(BASE).map(k=>`<button class="grn" data-a="bkc" data-i="${k}">⬇ ${esc(ft(k))} CSV (all)</button>`).join("")}</div><p class="note" id="bkst"></p></div>`}
+const ser=v=>{if(v&&typeof v.toDate==="function")return v.toDate().toISOString();if(Array.isArray(v))return v.map(ser);if(v&&typeof v==="object"){const o={};for(const k in v)o[k]=ser(v[k]);return o}return v};
+async function pageAll(col,cb,label){let cur=null,n=0;const st=$("#bkst");for(;;){const qs=await getDocs(query(collection(db,col),...(cur?[startAfter(cur)]:[]),limit(1000)));if(!qs.docs.length)break;
+  cb(qs.docs.map(d=>({id:d.id,...d.data()})));n+=qs.docs.length;cur=qs.docs[qs.docs.length-1];if(st)st.textContent=(label||col)+": "+n.toLocaleString()+" entries read…";if(qs.docs.length<1000)break}return n}
+const dl=(parts,name,type)=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(parts,{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),60000)};
+function locSec(){return `<div class="sec"><h2>📍 Locations / Service Centers</h2><p class="note">Every location gets its own Battery Repair and Charger Repair (separate data, dashboard and menu). Add a new location, then rename it any time with ✎. Default locations cannot be removed. Removing a custom location only hides it - its saved data is kept in the database.</p>
+ <div>${LOCS.map((l,i)=>`<span class="chip">${l.ic} ${esc(l.menu)} <small style="color:var(--mut)">(${l.tpl==="lko"?"Lucknow-style forms":"Bangalore-style forms"})</small><button data-a="lr" data-i="${i}" title="Rename">✎</button>${l.sys?"":`<button class="x" data-a="ld" data-i="${i}" title="Remove">×</button>`}</span>`).join("")}</div>
+ <div class="row" style="margin-top:10px"><input id="ln" placeholder="New location name (e.g. Pune Service Center)"><select id="lt"><option value="lko">Same as Lucknow / Ghaziabad (parts form)</option><option value="blr">Same as Bangalore (BSS charger form)</option></select><button data-a="la">Add Location</button></div></div>`}
+function setView(){if(!BASE[stm])stm=LOCS[0]?.mods[0]||"battery";
+ const m=stm,P=cfg.perm,L=LOCS.find(l=>l.id===BASE[m].loc)||LOCS[0],ov=cfg.opts[ck(m)]||{},hid=hiddenOf(m),
+  prot=new Set([BASE[m].fields[0][0],BASE[m].stat,"batterySrNo","assetSrNo","serialNo","repairLocation"]),
+  pk=(id,l)=>`<label style="display:flex;gap:8px;align-items:center;text-transform:none;font-size:14px;color:var(--ink);margin-bottom:8px"><input type="checkbox" id="${id}" style="width:auto;margin:0" ${P[id]!==false?"checked":""}>${l}</label>`,
+  at=`${esc(L.menu)} › ${esc(BASE[m].title)}`;
+ return `${locSec()}<div class="sec"><h2>User Permissions</h2><p class="note">Choose what regular users are allowed to do. Admins and the Owner always have full access. Deleting records is always restricted to Admins.</p>
+  ${pk("userAdd","Users can add new entries")}${pk("userEdit","Users can edit entries")}${pk("userExport","Users can export CSV")}${pk("userLog","Users can view the Activity Log")}<button data-a="sp">Save Permissions</button></div>
+ <div class="sec"><h2>✏️ Edit Location Setup</h2><p class="note">Step 1: choose the location · Step 2: open its Battery or Charger section · Step 3: add, rename or delete dropdown options, custom columns, or hide columns. Every location keeps its own setup — a change here affects <b>only</b> the selected location. Options that existed before stay exactly as they were until you change them.</p>
+  <label>1 · Location</label><div class="tabs" style="margin-top:6px">${LOCS.map(l=>`<button class="${l.id===L.id?"on":""}" data-a="sl" data-i="${l.id}">${l.ic} ${esc(l.menu)}</button>`).join("")}</div>
+  <label>2 · Section</label><div class="tabs" style="margin-top:6px">${L.mods.map(k=>`<button class="${k===m?"on":""}" data-a="sm" data-i="${k}">${BASE[k].ic} ${esc(BASE[k].title)}</button>`).join("")}</div>
+  <div class="who" style="margin:0;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><span>Now editing: <b>${L.ic} ${at}</b></span><button class="gry" data-a="rs">↺ Reset this section to shared defaults</button></div></div>
+ <div class="sec"><h2>🔽 Dropdown Manager — ${at}</h2><p class="note">Add, rename or delete options of any dropdown for this section only. Existing entries keep their saved value. For Electrical Parts use the format <b>Part — Sub Part</b> (e.g. MOSFET 60R080P7 — Q1, Q2).</p>
+  ${fieldsOf(m).filter(x=>(x[2]==="sel"||x[2]==="multi")&&x[0]!=="repairLocation").map(x=>`<div style="margin-bottom:16px"><label>${esc(x[1])} ${ov[x[0]]?`<span class="badge" style="text-transform:none;background:#dcfce7;color:#166534">edited for this location</span>`:`<span class="badge" style="text-transform:none">default</span>`}</label><div style="margin-top:6px">${optsOf(m,x[0]).map((o,i)=>`<span class="chip">${esc(o)}<button data-a="oe" data-f="${x[0]}" data-i="${i}" title="Rename">✎</button><button class="x" data-a="od" data-f="${x[0]}" data-i="${i}" title="Delete">×</button></span>`).join("")||"<small style='color:var(--mut)'>No options</small>"}</div>
+  <div class="row" style="margin:6px 0 0"><input id="no_${x[0]}" placeholder="New option…"><button data-a="oa" data-i="${x[0]}">Add</button></div></div>`).join("")}</div>
+ <div class="sec"><h2>➕ Custom Columns — ${at}</h2><p class="note">Add extra columns to the entry form and table of this section. Deleting a column hides it; stored data is not erased. New dropdown columns get their options in the Dropdown Manager above.</p>
+  <div>${customOf(m).map((c,i)=>`<span class="chip">${esc(c.label)} (${esc(c.type)})<button data-a="cr" data-i="${i}" title="Rename">✎</button><button class="x" data-a="cd" data-i="${i}">×</button></span>`).join("")||"<small style='color:var(--mut)'>No custom columns</small>"}</div>
+  <div class="row" style="margin-top:10px"><input id="cn" placeholder="Column name"><select id="ct"><option value="text">Text</option><option value="date">Date</option><option value="dropdown">Dropdown</option></select><button data-a="ca">Add Column</button></div></div>
+ <div class="sec"><h2>👁 Show / Hide Columns — ${at}</h2><p class="note">Hide a built-in column to remove it from this section's entry form, table, filters and analysis. Saved data is not deleted and you can show the column again any time. 🔒 = required column, cannot be hidden.</p>
+  <div>${allBase(m).map(f=>`<span class="chip" style="${hid.includes(f[0])?"opacity:.55":""}">${esc(f[1])}${prot.has(f[0])?" 🔒":`<button data-a="hf" data-i="${f[0]}">${hid.includes(f[0])?"Show":"Hide"}</button>`}</span>`).join("")}</div></div>
+ ${brandSec()}${isOwner()?bkSec():""}`}
+function accView(){const pw=`<div class="sec"><h2>Change Password</h2><label>New Password (min 6)</label><input id="np" type="password"><label>Confirm Password</label><input id="np2" type="password"><button data-a="chpw">Change Password</button></div>`;
+ return `<div class="sec"><h2>My Account</h2><label>Full Name</label><input id="myname" value="${esc(me.name)}"><label>Email</label><input value="${esc(me.email)}" disabled><label>Role</label><input value="${esc(me.role)}" disabled><label>Location</label><input value="${esc(isAdmin()?"All locations"+(locMenu(me.location)?" (home: "+locMenu(me.location)+")":""):(locMenu(me.location)||"Not assigned"))}" disabled><button data-a="savemyname">Save Name</button></div>${pw}`}
+function render(){if(!me)return;$("#view").innerHTML=({dash,__m:()=>modView(view),log:()=>`<div class="sec"><h2>Activity Log ${isAdmin()?"(all users)":"(my activity)"}</h2><p class="note">Only the latest ${LOGMAX} activities are retained; older ones are removed automatically.</p>${actTable(logs,lLog,"lmore")}</div>`,usr:usrView,set:setView,acc:accView})[BASE[view]?"__m":view]()}
+
+function formModal(k,p,title,onSave){const F=fieldsOf(k),m=$("#modal"),v={...(p||{})};
+ if(!p){v[BASE[k].fields[0][0]]=today();v.repairLocation=locName(BASE[k].loc)}
+ m.innerHTML=`<div class="box"><h2 style="margin-bottom:10px;color:var(--acc)">${esc(title)}</h2>
+ <div class="who">👤 ${p?`Added by <b>${esc(p.createdByName||"—")}</b> on ${tm(p.createdAt)}. Your name (<b>${esc(me.name)}</b>) will be recorded as "Last Updated By".`:`This entry will be saved under <b>${esc(me.name)}</b> (${esc(me.role)}).`}<br><small>All fields are optional. The date defaults to today and can be changed.</small></div>
+ <div class="g">${F.map(([key,l,t])=>{
+  if(t==="sel"){const o=optsOf(k,key),ops=[...o];if(v[key]&&!ops.includes(v[key]))ops.push(v[key]);
+   return `<div><label>${esc(l)}</label><select id="f_${key}" data-sel="${key}"><option value="">— Select —</option>${ops.map(x=>`<option ${v[key]===x?"selected":""}>${esc(x)}</option>`).join("")}</select>${o.some(isOther)?`<input id="f_${key}Other" placeholder="Specify details…" value="${esc(v[key+"Other"]||"")}" class="${isOther(v[key])?"":"hide"}">`:""}</div>`}
+  if(t==="multi"){const o=optsOf(k,key),sel=asArr(v[key]),ops=[...o];sel.forEach(x=>{if(!ops.includes(x))ops.push(x)});
+   return `<div style="grid-column:1/-1"><label>${esc(l)} <span class="msn" id="n_${key}">${sel.length} selected</span></label><input class="msq" data-q="${key}" placeholder="Search…" style="margin-bottom:6px"><div class="ms" id="f_${key}">${ops.map(x=>`<label class="mi"><input type="checkbox" data-v="${esc(x)}" ${sel.includes(x)?"checked":""}><span>${esc(x)}</span></label>`).join("")||"<small style='color:var(--mut)'>No options yet. Add them in Admin Settings.</small>"}</div></div>`}
+  if(t==="area")return `<div style="grid-column:1/-1"><label>${esc(l)}</label><textarea id="f_${key}">${esc(v[key]||"")}</textarea></div>`;
+  return `<div><label>${esc(l)}</label><input id="f_${key}" type="${t}" value="${esc(v[key]||"")}"></div>`}).join("")}</div>
+ <div class="row" style="margin-top:14px"><button id="ps">Save Entry</button><button class="gry" id="pc">Cancel</button></div></div>`;
+ m.classList.remove("hide");
+ m.onchange=e=>{const key=e.target.dataset?.sel,o=key&&$("#f_"+key+"Other");if(o)o.classList.toggle("hide",!isOther(e.target.value));
+  const ms=e.target.closest&&e.target.closest(".ms");if(ms){const nn=$("#n_"+ms.id.slice(2));if(nn)nn.textContent=ms.querySelectorAll("input:checked").length+" selected"}};
+ m.oninput=e=>{const q=e.target.dataset?.q;if(!q)return;const s=e.target.value.toLowerCase();document.querySelectorAll("#f_"+q+" .mi").forEach(x=>x.classList.toggle("hide",!x.textContent.toLowerCase().includes(s)))};
+ $("#pc").onclick=()=>m.classList.add("hide");
+ $("#ps").onclick=async()=>{const d={};
+  F.forEach(([key,,t])=>{const el=$("#f_"+key);
+   if(t==="multi"){d[key]=el?[...el.querySelectorAll("input:checked")].map(c=>c.dataset.v):[];return}
+   d[key]=el?el.value.trim():"";
+   if(t==="sel"){const ot=$("#f_"+key+"Other"),nv=ot&&isOther(d[key])?ot.value.trim():"";if(nv||(p&&p[key+"Other"]))d[key+"Other"]=nv}});
+  $("#ps").disabled=true;
+  try{await onSave(d);m.classList.add("hide");toast("Entry saved successfully")}catch(e){fail(e);$("#ps").disabled=false}}}
+
+const sid=(k,d)=>d.batterySrNo||d.assetSrNo||d.serialNo||d.iotImei||"(no serial)";
+async function saveOpts(m,f,arr,msg){try{await setDoc(doc(db,"config","options"),{[ck(m)]:{[f]:arr}},{merge:true});cfg.opts[ck(m)]={...(cfg.opts[ck(m)]||{}),[f]:arr};render();log("Updated dropdown",ft(m)+" › "+f+" ("+msg+")")}catch(e){fail(e)}}
+async function saveFields(m,arr,msg){try{await setDoc(doc(db,"config","fields"),{[ck(m)]:arr},{merge:true});cfg.custom[ck(m)]=arr;render();log("Updated custom columns",ft(m)+" ("+msg+")")}catch(e){fail(e)}}
+async function saveLocs(next,msg){if(!isAdmin())return;try{await withTO(setDoc(doc(db,"config","locations"),{list:next.map(l=>({id:l.id,name:l.name,menu:l.menu,ic:l.ic,tpl:l.tpl}))}));
+  applyLocs(next);buildLocNav();if(!BASE[dm]||!canLoc(BASE[dm].loc))dm=defMod()||"battery";
+  if(BASE[view]===undefined&&!["dash","log","usr","set","acc"].includes(view))view="set";
+  $("#ttl").textContent=ttlOf(view);render();log("Updated locations",msg);toast("Locations saved")}catch(e){fail(e)}}
+const H={
+ ref:async()=>{await refreshAll();toast("Data refreshed")},
+ clr:()=>{FL[curMod()]=EF();SHOW[curMod()]=20;render()},
+ locpick:i=>pickModal(i,"dash"),
+ la:()=>{const name=$("#ln").value.trim(),tpl=$("#lt").value;if(!name)return toast("Enter a location name.");
+  const base=name.toLowerCase().replace(/[^a-z0-9]+/g,"").slice(0,12)||"loc";let id=base,n=1;while(id.length<2||LOCS.some(l=>l.id===id))id=base+(++n);
+  saveLocs([...LOCS,{id,name,menu:name,ic:"📍",tpl}],"added "+name)},
+ lr:i=>{const l=LOCS[i],n=prompt("Rename location:",l.menu);if(!n||!n.trim()||n.trim()===l.menu)return;const a=LOCS.map(x=>({...x}));a[i].name=n.trim();a[i].menu=n.trim();saveLocs(a,"renamed "+l.menu+" → "+n.trim())},
+ ld:i=>{const l=LOCS[i];if(!l||l.sys||!confirm('Remove location "'+l.menu+'"? Its data stays in the database but it will be hidden. Users assigned to it lose access.'))return;saveLocs(LOCS.filter((_,j)=>j!==i),"removed "+l.menu)},dall:()=>{DALL[dm]=!DALL[dm];render()},
+ lm:()=>{const k=view,l=applyF(k,S[k].rows,true);SHOW[k]+=40;if(l.length<SHOW[k]&&S[k].more)loadMod(k,true,40);else render()},dmore:()=>{dLog+=10;render()},lmore:()=>{lLog+=10;render()},
+ new:()=>{const k=curMod();if(!can("userAdd"))return;const id=nid();formModal(k,null,"New "+ft(k)+" Entry",async d=>{
+  const extra={createdBy:me.uid,createdByName:me.name,createdByRole:me.role};
+  const meta={module:k,loc:BASE[k].loc,entryDate:ymd(d)};
+  await withTO(setDoc(doc(db,BASE[k].col,id),{...d,...extra,...meta,createdAt:serverTimestamp()}));
+  S[k].rows.unshift({id,...d,...extra,...meta,createdAt:new Date()});render();log("Added "+ft(k)+" entry",sid(k,d))})},
+ ed:i=>{const k=view,p=S[k].rows.find(x=>x.id===i);if(!p||!can("userEdit"))return;
+  formModal(k,p,"Edit "+ft(k)+" Entry",async d=>{const extra={updatedBy:me.uid,updatedByName:me.name};
+   const meta={module:k,loc:BASE[k].loc,entryDate:ymd(d)};await withTO(updateDoc(doc(db,BASE[k].col,i),{...d,...extra,...meta,updatedAt:serverTimestamp()}));Object.assign(p,d,extra,meta,{updatedAt:new Date()});render();log("Edited "+ft(k)+" entry",sid(k,d))})},
+ del:async i=>{if(!isAdmin())return;const k=view,p=S[k].rows.find(x=>x.id===i);if(!confirm("Permanently delete this entry? A safety copy is stored in the deleted-entries archive."))return;
+  try{const b=writeBatch(db);if(p){const cp={};for(const [a,v] of Object.entries(p)){if(a==="id")continue;cp[a]=v&&typeof v.toDate==="function"?v.toDate().toISOString():(v instanceof Date?v.toISOString():v)}
+    b.set(doc(db,"deleted_entries",nid()),{...cp,_collection:BASE[k].col,_docId:i,_deletedBy:me.uid,_deletedByName:me.name,_deletedAt:serverTimestamp()})}
+   b.delete(doc(db,BASE[k].col,i));await withTO(b.commit());S[k].rows=S[k].rows.filter(x=>x.id!==i);render();toast("Entry deleted (safety copy archived)");log("Deleted "+ft(k)+" entry",p?sid(k,p):i)}catch(e){fail(e)}},
+ ex:()=>{const k=view,F=fieldsOf(k),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,l=applyF(k,S[k].rows,true);
+  const out=[['"Sr. No."',...F.map(f=>qt(f[1])),'"Added By"','"Added On"','"Last Updated By"'].join(",")];
+  l.forEach((p,i)=>out.push([i+1,...F.map(f=>qt(cell(k,p,f))),qt(p.createdByName),qt(tm(p.createdAt)),qt(p.updatedByName)].join(",")));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+out.join("\n")],{type:"text/csv"}));a.download=BASE[k].col+"_"+today()+".csv";a.click();toast("Exported "+l.length+" rows");log("Exported CSV",ft(k)+" ("+l.length+" rows)")},
+ chpw:async()=>{const a=$("#np").value,b=$("#np2").value;if(a.length<6)return toast("Password must be at least 6 characters.");if(a!==b)return toast("Passwords do not match.");
+  try{await updatePassword(auth.currentUser,a);$("#np").value="";$("#np2").value="";toast("Password updated");log("Changed password")}catch(e){toast(errMsg(e))}},
+ savemyname:async()=>{const n=$("#myname").value.trim();if(!n)return;try{await updateDoc(doc(db,"users",me.uid),{name:n});me.name=n;$("#who").innerHTML=`${esc(n)} ${roleBadge(me.role)}`;toast("Name updated")}catch(e){fail(e)}},
+ cu:async()=>{const name=$("#un").value.trim(),email=$("#ue").value.trim(),pw=$("#up").value,role=$("#ur").value,location=$("#ul").value;
+  if(!name||!email||pw.length<6)return toast("Enter a name, email and a password of at least 6 characters.");if(role!=="user"&&!isOwner())return toast("Only the Owner can create admins.");
+  const s=initializeApp(firebaseConfig,"sec"+Date.now()),a=getAuth(s);
+  try{const c=await createUserWithEmailAndPassword(a,email,pw);const prof={name,email,role,location,disabled:false,createdBy:me.uid,createdAt:serverTimestamp()};
+   await setDoc(doc(db,"users",c.user.uid),prof);users.push({id:c.user.uid,...prof,createdAt:new Date()});render();toast("User created");log("Created user",name+" ("+role+")")}
+  catch(e){if(e.code&&e.code.startsWith("auth/"))toast(errMsg(e));else fail(e)}
+  await signOut(a).catch(()=>{});await deleteApp(s).catch(()=>{})},
+ dx:async i=>{const u=users.find(x=>x.id===i);try{await updateDoc(doc(db,"users",i),{disabled:!u.disabled});u.disabled=!u.disabled;render();log(u.disabled?"Disabled user":"Enabled user",u.name)}catch(e){fail(e)}},
+ en:async i=>{const u=users.find(x=>x.id===i),n=prompt("New name:",u.name);if(!n||!n.trim())return;try{await updateDoc(doc(db,"users",i),{name:n.trim()});u.name=n.trim();render()}catch(e){fail(e)}},
+ rpw:async i=>{const u=users.find(x=>x.id===i);try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent");log("Sent password reset",u.name)}catch(e){toast(errMsg(e))}},
+ sm:i=>{stm=i;render()},
+  pu:i=>{PU[i]=!PU[i];render()},
+  dolder:()=>loadMod(dm,true,FETCH),
+  cnt:async()=>{const k=curMod();try{const r=await getCountFromServer(collection(db,BASE[k].col));toast(ft(k)+": "+r.data().count.toLocaleString()+" entries in database")}catch(e){fail(e)}},
+  cr:i=>{const a=[...customOf(stm)],n=prompt("Rename column:",a[i].label);if(!n||!n.trim())return;const old=a[i].label;a[i]={...a[i],label:n.trim()};saveFields(stm,a,"renamed "+old+" → "+n.trim())},
+  sb:async()=>{const g=id=>($("#"+id)?.value||"").trim(),o={app:g("br_app"),sub:g("br_sub"),wheel:g("br_wheel"),dashTitle:g("br_dash"),nav:{},mod:{},steps:[],fl:{...(BR.fl||{})}};
+   for(const k in DEF_BR.nav)o.nav[k]=g("br_nav_"+k);for(const k in DEF_BR.mod)o.mod[k]=g("br_mod_"+k);DEF_BR.steps.forEach((_,i)=>o.steps.push({t:g("br_st_t"+i),d:g("br_st_d"+i)}));
+   const fl={};BASE[stm].fields.forEach(f=>{const v=g("bf_"+f[0]);if(v&&v!==f[1])fl[f[0]]=v.slice(0,60)});o.fl[ck(stm)]=fl;
+   try{await withTO(setDoc(doc(db,"config","branding"),o));BR=mergeBR(o);try{localStorage.setItem("brand",JSON.stringify(o))}catch(_){}applyBrand();nav("set");toast("Names & labels saved");log("Updated CRM names & labels","")}catch(e){fail(e)}},
+  sr:async()=>{if(!confirm("Reset ALL names and labels to default?"))return;try{await setDoc(doc(db,"config","branding"),{});BR=mergeBR({});try{localStorage.removeItem("brand")}catch(_){}applyBrand();nav("set");toast("Reset to default");log("Reset CRM names & labels","")}catch(e){fail(e)}},
+  bkj:async()=>{if(!isOwner())return;if(!confirm("Backup reads every entry once (1 read per entry). Continue?"))return;const st=$("#bkst"),parts=[];let first=true;
+   try{parts.push('{"exportedAt":'+JSON.stringify(new Date().toISOString())+',"app":'+JSON.stringify(BR.app)+',"modules":{');
+    for(const k of Object.keys(BASE)){parts.push((first?"":",")+JSON.stringify(k)+':{"collection":'+JSON.stringify(BASE[k].col)+',"title":'+JSON.stringify(ft(k))+',"columns":'+JSON.stringify(fieldsOf(k).map(f=>({key:f[0],label:f[1]})))+',"rows":[');first=false;let f2=true;
+     await pageAll(BASE[k].col,rows=>{parts.push((f2?"":",")+rows.map(r=>JSON.stringify(ser(r))).join(","));f2=false},ft(k));parts.push("]}")}
+    parts.push('},"config":{');const cf=[];for(const id of["options","fields","permissions","branding"]){try{const s=await getDoc(doc(db,"config",id));cf.push(JSON.stringify(id)+":"+JSON.stringify(s.exists()?ser(s.data()):{}))}catch(_){cf.push(JSON.stringify(id)+":{}")}}
+    parts.push(cf.join(",")+'},"users":'+JSON.stringify(ser(users.map(u=>({...u}))))+"}");
+    dl(parts,"crm_backup_"+today()+".json","application/json");if(st)st.textContent="Backup downloaded.";markBackup();log("Owner full backup (JSON)","")}catch(e){if(st)st.textContent="Backup failed: "+(e.code||e.message);fail(e)}},
+  bkc:async k=>{if(!isOwner())return;if(!confirm("Export reads every entry once (1 read per entry). Continue?"))return;const F=fieldsOf(k),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,st=$("#bkst");let n=0;
+   const parts=["\ufeff"+[['"Sr. No."','"Document ID"',...F.map(f=>qt(f[1])),'"Added By"','"Added On"','"Last Updated By"'].join(",")]+"\n"];
+   try{await pageAll(BASE[k].col,rows=>{parts.push(rows.map(p=>[++n,qt(p.id),...F.map(f=>qt(cell(k,p,f))),qt(p.createdByName),qt(tm(p.createdAt)),qt(p.updatedByName)].join(",")).join("\n")+"\n")},ft(k));
+    dl(parts,BASE[k].col+"_ALL_"+today()+".csv","text/csv");if(st)st.textContent=ft(k)+": "+n.toLocaleString()+" rows exported.";log("Owner backup CSV",ft(k)+" ("+n+" rows)")}catch(e){if(st)st.textContent="Export failed: "+(e.code||e.message);fail(e)}},
+ sp:async()=>{const p={};["userAdd","userEdit","userExport","userLog"].forEach(id=>p[id]=$("#"+id).checked);try{await setDoc(doc(db,"config","permissions"),p);cfg.perm=p;toast("Permissions saved");log("Updated user permissions",JSON.stringify(p));$("#navlog").classList.toggle("hide",!can("userLog"))}catch(e){fail(e)}},
+ oa:i=>{const v=$("#no_"+i).value.trim();if(!v)return;const a=[...optsOf(stm,i)];if(a.includes(v))return toast("Option already exists.");a.push(v);saveOpts(stm,i,a,"added "+v)},
+ oe:(i,b)=>{const f=b.dataset.f,a=[...optsOf(stm,f)],n=prompt("Rename option:",a[i]);if(!n||!n.trim()||n.trim()===a[i])return;const old=a[i];a[i]=n.trim();saveOpts(stm,f,a,old+" → "+a[i])},
+ od:(i,b)=>{const f=b.dataset.f,a=[...optsOf(stm,f)];if(!confirm('Delete option "'+a[i]+'"?'))return;const old=a.splice(i,1)[0];saveOpts(stm,f,a,"deleted "+old)},
+ ca:()=>{const label=$("#cn").value.trim(),type=$("#ct").value;if(!label)return toast("Enter a column name.");const a=[...customOf(stm)];
+  const key="x_"+label.toLowerCase().replace(/[^a-z0-9]+/g,"_").slice(0,24)+"_"+Math.random().toString(36).slice(2,5);a.push({key,label,type});saveFields(stm,a,"added "+label)},
+ cd:i=>{const a=[...customOf(stm)];if(!confirm('Remove column "'+a[i].label+'"? Stored data is kept.'))return;const old=a.splice(i,1)[0];saveFields(stm,a,"removed "+old.label)}
+};
+Object.assign(H,{
+ sl:i=>{const l=LOCS.find(x=>x.id===i);if(!l)return;const cur=LOCS.find(x=>x.id===BASE[stm]?.loc),idx=Math.max(0,(cur?cur.mods:[]).indexOf(stm));stm=l.mods[idx]||l.mods[0];render()},
+ hf:async i=>{const a=[...hiddenOf(stm)],j=a.indexOf(i);if(j>=0)a.splice(j,1);else a.push(i);
+  try{await setDoc(doc(db,"config","fields"),{["H_"+stm]:a},{merge:true});cfg.custom["H_"+stm]=a;render();log("Updated columns",ft(stm)+" ("+(j>=0?"shown ":"hidden ")+i+")")}catch(e){fail(e)}},
+ rs:async()=>{if(!confirm('Reset "'+ft(stm)+'" to the shared default setup? Location-specific dropdown options, custom columns, hidden columns and column names of this section will be removed (saved entries are kept).'))return;
+  try{const k=ck(stm);await setDoc(doc(db,"config","options"),{[k]:deleteField()},{merge:true});await setDoc(doc(db,"config","fields"),{[k]:deleteField(),["H_"+stm]:deleteField()},{merge:true});
+   if(BR.fl&&BR.fl[k]){await setDoc(doc(db,"config","branding"),{fl:{[k]:deleteField()}},{merge:true});delete BR.fl[k];try{localStorage.removeItem("brand")}catch(_){}}
+   delete cfg.opts[k];delete cfg.custom[k];delete cfg.custom["H_"+stm];render();toast("Section reset to shared defaults");log("Reset section setup",ft(stm))}catch(e){fail(e)}}
+});
+
+/* ===== OVERALL ANALYTICS (all locations combined) ===== */
+let dtab="loc",ovBusy=false;
+const PALL={battery:false,charger:false};
+const OF={loc:"",cat:"",st:"",from:"",to:"",q:"",pre:"",len:3};
+const CATL={battery:"🔋 Battery",charger:"⚡ Charger"};
+const serialOf=p=>String(p.batterySrNo||p.assetSrNo||p.serialNo||"").trim();
+const prefOf=(sr,n)=>{const s=String(sr||"").replace(/\s+/g,"").toUpperCase();return s?s.slice(0,n):"(no serial)"};
+const catOf=k=>isBat(k)?"battery":"charger";
+const stOf=p=>isFail(p)?"f":isOk(p)?"o":"p";
+const ecls=v=>v>=70?"lo":v>=40?"mid":"hi";
+const agg=a=>{const n=a.length,f=a.filter(x=>x.st==="f").length,o=a.filter(x=>x.st==="o").length;return {n,f,o,p:n-f-o}};
+function ovRows(){const out=[],q=OF.q.toLowerCase(),pre=OF.pre.replace(/\s+/g,"").toUpperCase();
+ for(const l of visLocs()){if(OF.loc&&OF.loc!==l.id)continue;
+  for(const k of l.mods){const cat=catOf(k);if(OF.cat&&OF.cat!==cat)continue;
+   for(const p of S[k].rows){const d=ymd(p);if(OF.from&&d<OF.from)continue;if(OF.to&&d>OF.to)continue;
+    const st=stOf(p);if(OF.st&&OF.st!==st)continue;const sr=serialOf(p);
+    if(pre&&!sr.replace(/\s+/g,"").toUpperCase().startsWith(pre))continue;
+    if(q&&!sr.toLowerCase().includes(q))continue;
+    out.push({p,k,loc:l.id,cat,sr,st,pf:prefOf(sr,OF.len)})}}}
+ return out}
+async function ovLoad(full){if(ovBusy)return;ovBusy=true;render();
+ try{for(const l of visLocs())for(const k of l.mods){if(!S[k].loaded)await loadMod(k,false,FETCH);
+   if(full)while(S[k].loaded&&S[k].more){const b=S[k].rows.length;await loadMod(k,true,FETCH);if(S[k].rows.length===b)break}}}
+ finally{ovBusy=false;render()}}
+function modeBar(){return `<div class="seg"><button class="${dtab==="loc"?"on":""}" data-a="dtab" data-i="loc">📍 Location Dashboard</button><button class="${dtab==="all"?"on":""}" data-a="dtab" data-i="all">🌐 Overall Analytics · All Locations</button></div>`}
+function ovFilters(vl){const sel=(id,l,o,v)=>`<div><label>${l}</label><select data-of="${id}">${o.map(([a,b])=>`<option value="${esc(a)}" ${String(v)===String(a)?"selected":""}>${esc(b)}</option>`).join("")}</select></div>`;
+ return `<div class="fgrid">${sel("loc","Location",[["","All locations"],...vl.map(l=>[l.id,l.menu])],OF.loc)}${sel("cat","Type",[["","Battery + Charger"],["battery","Battery only"],["charger","Charger only"]],OF.cat)}${sel("st","Status",[["","All status"],["f","Faulty only"],["o","Resolved only"],["p","Pending / Hold only"]],OF.st)}${sel("len","Group serial by",[1,2,3,4,5,6,7,8].map(n=>[n,"First "+n+" character"+(n>1?"s":"")]),OF.len)}
+ <div><label>From date</label><input type="date" data-of="from" value="${esc(OF.from)}"></div><div><label>To date</label><input type="date" data-of="to" value="${esc(OF.to)}"></div>
+ <div><label>Serial starts with</label><input data-of="pre" placeholder="e.g. VSC" value="${esc(OF.pre)}"></div><div><label>Serial contains</label><input data-of="q" placeholder="Search serial…" value="${esc(OF.q)}"></div></div>
+ <div class="row"><button class="gry" data-a="ovclr">Clear filters</button></div>`}
+function pfTable(cat,rows,locs){
+ const list=rows.filter(x=>x.cat===cat),g=new Map();
+ list.forEach(x=>{let e=g.get(x.pf);if(!e){e={k:x.pf,n:0,f:0,o:0,loc:{}};g.set(x.pf,e)}
+  e.n++;if(x.st==="f")e.f++;else if(x.st==="o")e.o++;
+  const L=e.loc[x.loc]||(e.loc[x.loc]={n:0,f:0});L.n++;if(x.st==="f")L.f++});
+ const arr=[...g.values()].sort((a,b)=>b.n-a.n||a.k.localeCompare(b.k)),N=list.length,mx=Math.max(1,...arr.map(e=>e.n)),show=PALL[cat]?arr:arr.slice(0,15),T=agg(list);
+ const lc=(e,id)=>{const L=e.loc[id];return L?`<b>${L.n}</b>${L.f?` <small style="color:#dc2626">(${L.f} faulty)</small>`:""}`:"<span style='color:var(--mut)'>0</span>"};
+ const lt=id=>{const z=agg(list.filter(x=>x.loc===id));return `<b>${z.n}</b>${z.f?` <small style="color:#dc2626">(${z.f} faulty)</small>`:""}`};
+ return `<div class="sec"><h2>${CATL[cat]} — Serial Number Series (first ${OF.len} characters)</h2>
+  <p class="note">${arr.length} different series · ${N} entries. Faulty = Non-Repairable / Scrap / Dead / Not OK / PDI Fail. Use <b>Details</b> for location split, top issues and the faulty serial numbers of that series.</p>
+  <div class="tw"><table><thead><tr><th>#</th><th>Starts with</th><th>Total</th><th>Share</th><th></th><th>Resolved</th><th>Faulty</th><th>Pending</th><th>Fault %</th><th>Efficiency</th>${locs.map(l=>`<th>${esc(l.menu)}</th>`).join("")}<th></th></tr></thead><tbody>
+  ${show.map((e,i)=>`<tr><td>${i+1}</td><td><b>${esc(e.k)}</b></td><td><b>${e.n}</b></td><td>${pct(e.n,N)}%</td><td style="width:110px"><div class="bar"><i style="width:${pct(e.n,mx)}%"></i></div></td><td style="color:#16a34a;font-weight:700">${e.o}</td><td style="color:#dc2626;font-weight:700">${e.f}</td><td style="color:#d97706;font-weight:700">${e.n-e.o-e.f}</td><td><span class="pf ${fcls(e.f/e.n*100)}">${pct(e.f,e.n)}%</span></td><td>${pct(e.o,e.n)}%</td>${locs.map(l=>`<td>${lc(e,l.id)}</td>`).join("")}<td><button class="gry" data-a="pd" data-i="${esc(cat+"|"+e.k)}">Details</button></td></tr>`).join("")||`<tr><td colspan="${11+locs.length}">No entries match the filters</td></tr>`}
+  </tbody>${arr.length?`<tfoot><tr><td></td><td>TOTAL</td><td>${T.n}</td><td>100%</td><td></td><td>${T.o}</td><td>${T.f}</td><td>${T.p}</td><td>${pct(T.f,T.n)}%</td><td>${pct(T.o,T.n)}%</td>${locs.map(l=>`<td>${lt(l.id)}</td>`).join("")}<td></td></tr></tfoot>`:""}</table></div>
+  ${arr.length>15?`<div class="row" style="margin-top:10px"><button class="gry" data-a="pall" data-i="${cat}">${PALL[cat]?"Show top 15":"Show all "+arr.length+" series"}</button></div>`:""}</div>`}
+function issueTable(cat,rows){const list=rows.filter(x=>x.cat===cat),N=list.length,g=group(list.map(x=>x.p),p=>p.reportedIssue||"").slice(0,12),mx=Math.max(1,...g.map(x=>x.n));
+ return `<div class="sec"><h2>${CATL[cat]} — Top Reported Issues (all locations)</h2><div class="tw"><table><thead><tr><th>Issue</th><th>Entries</th><th>Share</th><th></th><th>Resolved</th><th>Faulty</th><th>Fault %</th></tr></thead><tbody>
+ ${g.map(x=>`<tr><td class="w">${esc(x.k)}</td><td><b>${x.n}</b></td><td>${pct(x.n,N)}%</td><td style="width:110px"><div class="bar"><i style="width:${pct(x.n,mx)}%"></i></div></td><td>${x.o}</td><td>${x.f}</td><td><span class="pf ${fcls(x.f/x.n*100)}">${pct(x.f,x.n)}%</span></td></tr>`).join("")||"<tr><td colspan=7>No data</td></tr>"}</tbody></table></div></div>`}
+function ovDash(){
+ const vl=visLocs(),mods=vl.flatMap(l=>l.mods),loaded=mods.filter(k=>S[k].loaded).length,moreK=mods.filter(k=>S[k].more),
+  rows=ovRows(),A=agg(rows),Bt=agg(rows.filter(x=>x.cat==="battery")),Ch=agg(rows.filter(x=>x.cat==="charger")),
+  locs=vl.filter(l=>!OF.loc||OF.loc===l.id),ef=a=>pct(a.o,a.n),cs=a=>pct(a.o,a.o+a.f);
+ const lr=locs.map(l=>{const r=rows.filter(x=>x.loc===l.id);return {l,b:agg(r.filter(x=>x.cat==="battery")),c:agg(r.filter(x=>x.cat==="charger")),t:agg(r)}});
+ const eff=a=>a.n?`<span class="pf ${ecls(a.o/a.n*100)}">${ef(a)}%</span>`:"—";
+ const cells=a=>`<td>${a.n}</td><td style="color:#16a34a;font-weight:700">${a.o}</td><td style="color:#dc2626;font-weight:700">${a.f}</td><td>${eff(a)}</td>`;
+ const tot=(l,b,c,t)=>`<td>${t.n}</td><td style="color:#dc2626;font-weight:700">${t.f}</td><td>${eff(t)}</td><td style="width:110px"><div class="bar"><i style="width:${ef(t)}%;background:#16a34a"></i></div></td>`;
+ return `<div class="row"><span style="flex:1;min-width:220px"><b style="font-size:16px;color:var(--acc)">Overall Analytics</b><br><small style="color:var(--mut)">Battery &amp; Charger of every location combined · ${loaded}/${mods.length} sections loaded · ${rows.length} entries after filters</small></span>
+  <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><label style="margin:0">Data loaded</label><select data-owin="1" style="width:auto;margin:0;min-width:170px">${WINS.map(([d,l])=>`<option value="${d}" ${(WIN[mods[0]]||0)===d?"selected":""}>${l}</option>`).join("")}</select></span>
+  <button class="gry" data-a="ovfull">⬇ Load complete data</button><button class="gry" data-a="ref">↻ Refresh</button><button class="grn" data-a="ovex">Export CSV</button><button class="gry" data-a="opr">🖨 Print</button></div>
+ ${ovBusy?`<div class="alert">⏳ Loading data from all locations…</div>`:""}
+ ${moreK.length&&!ovBusy?`<div class="alert">⚠ ${moreK.length} section(s) have more entries on the server than loaded. Press <b>Load complete data</b> for exact totals.</div>`:""}
+ <div class="sec"><h2>Filters</h2>${ovFilters(vl)}<p class="note">All numbers below follow these filters. Efficiency = Resolved ÷ Total entries. Faulty = Repair Status Not OK / Non-Repairable / Scrap / Dead or PDI Fail. Resolved = OK / Repaired / No Issue Found. The rest is Pending / On Hold.</p></div>
+ <h3 class="sh">Combined — Battery + Charger, all locations</h3>
+ <div class="cards">${kpi("Total Entries",A.n)}${kpi("Resolved",A.o,"g2")}${kpi("Faulty",A.f,"r2")}${kpi("Pending / Hold",A.p,"o2")}${kpi("Overall Efficiency",ef(A)+"%","g2")}${kpi("Failure Rate",pct(A.f,A.n)+"%","r2")}${kpi("Success on Closed Cases",cs(A)+"%","g2")}${kpi("Locations",locs.length)}</div>
+ <h3 class="sh">🔋 Battery — all locations</h3>
+ <div class="cards">${kpi("Battery Entries",Bt.n)}${kpi("Resolved",Bt.o,"g2")}${kpi("Faulty",Bt.f,"r2")}${kpi("Pending / Hold",Bt.p,"o2")}${kpi("Battery Efficiency",ef(Bt)+"%","g2")}${kpi("Failure Rate",pct(Bt.f,Bt.n)+"%","r2")}</div>
+ <h3 class="sh">⚡ Charger — all locations</h3>
+ <div class="cards">${kpi("Charger Entries",Ch.n)}${kpi("Resolved",Ch.o,"g2")}${kpi("Faulty",Ch.f,"r2")}${kpi("Pending / Hold",Ch.p,"o2")}${kpi("Charger Efficiency",ef(Ch)+"%","g2")}${kpi("Failure Rate",pct(Ch.f,Ch.n)+"%","r2")}</div>
+ <div class="sec"><h2>Overall Efficiency Summary</h2>
+  <div class="brow"><span>🔋 Battery (all locations)</span><div class="bar"><i style="width:${ef(Bt)}%;background:#16a34a"></i></div><b>${ef(Bt)}%</b></div>
+  <div class="brow"><span>⚡ Charger (all locations)</span><div class="bar"><i style="width:${ef(Ch)}%;background:#16a34a"></i></div><b>${ef(Ch)}%</b></div>
+  <div class="brow"><span><b>Combined</b></span><div class="bar"><i style="width:${ef(A)}%;background:#1e4e79"></i></div><b>${ef(A)}%</b></div></div>
+ <div class="sec"><h2>📍 Location-wise Efficiency</h2><div class="tw"><table><thead><tr><th rowspan="2">Location</th><th colspan="4" class="grp">🔋 Battery</th><th colspan="4" class="grp">⚡ Charger</th><th colspan="4" class="grp">Combined</th></tr>
+  <tr><th>Entries</th><th>Resolved</th><th>Faulty</th><th>Efficiency</th><th>Entries</th><th>Resolved</th><th>Faulty</th><th>Efficiency</th><th>Entries</th><th>Faulty</th><th>Efficiency</th><th></th></tr></thead><tbody>
+  ${lr.map(x=>`<tr><td><b>${x.l.ic} ${esc(x.l.menu)}</b></td>${cells(x.b)}${cells(x.c)}${tot(x.l,x.b,x.c,x.t)}</tr>`).join("")||"<tr><td colspan=13>No data</td></tr>"}</tbody>
+  <tfoot><tr><td>ALL LOCATIONS</td>${cells(Bt)}${cells(Ch)}${tot(0,Bt,Ch,A)}</tr></tfoot></table></div></div>
+ ${(OF.cat!=="charger"?pfTable("battery",rows,locs):"")}${(OF.cat!=="battery"?pfTable("charger",rows,locs):"")}
+ ${(OF.cat!=="charger"?issueTable("battery",rows):"")}${(OF.cat!=="battery"?issueTable("charger",rows):"")}`}
+
+Object.assign(H,{
+ dtab:i=>{dtab=i;if(i==="all")ovLoad(false);else{ensureDash(dm);render()}},
+ ovfull:()=>{if(confirm("This reads EVERY entry of all sections (1 read per entry; Firebase free limit is 50,000 reads per day for the whole team). Continue?"))ovLoad(true)},
+ gobk:()=>nav("set"),
+ ovclr:()=>{Object.assign(OF,{loc:"",cat:"",st:"",from:"",to:"",q:"",pre:"",len:3});render()},
+ pall:i=>{PALL[i]=!PALL[i];render()},
+ opr:()=>window.print(),
+ ovex:()=>{const rows=ovRows(),locs=visLocs().filter(l=>!OF.loc||OF.loc===l.id),qt=v=>`"${String(v??"").replace(/"/g,'""')}"`,out=[];
+  out.push(["Type","Serial starts with","Total","Resolved","Faulty","Pending","Fault %","Efficiency %",...locs.flatMap(l=>[l.menu+" - Total",l.menu+" - Faulty"])].map(qt).join(","));
+  for(const cat of ["battery","charger"]){const g=new Map();rows.filter(x=>x.cat===cat).forEach(x=>{if(!g.has(x.pf))g.set(x.pf,[]);g.get(x.pf).push(x)});
+   [...g].sort((a,b)=>b[1].length-a[1].length).forEach(([pf,a])=>{const t=agg(a);out.push([cat,pf,t.n,t.o,t.f,t.p,pct(t.f,t.n),pct(t.o,t.n),...locs.flatMap(l=>{const z=agg(a.filter(x=>x.loc===l.id));return [z.n,z.f]})].map(qt).join(","))})}
+  dl(["\ufeff"+out.join("\n")],"overall_serial_series_"+today()+".csv","text/csv");toast("Exported");log("Exported overall analytics CSV",rows.length+" entries")},
+ pd:i=>{const j=i.indexOf("|"),cat=i.slice(0,j),pf=i.slice(j+1),rows=ovRows().filter(x=>x.cat===cat&&x.pf===pf),T=agg(rows),m=$("#modal"),locs=visLocs().filter(l=>!OF.loc||OF.loc===l.id),
+   bad=rows.filter(x=>x.st==="f"),iss=group(rows.map(x=>x.p),p=>p.reportedIssue||"").slice(0,8);
+  m.innerHTML=`<div class="box" style="width:780px"><h2 style="color:var(--acc)">${CATL[cat]} · ${esc(pf)}</h2><p class="note">Serial numbers starting with <b>${esc(pf)}</b> (first ${OF.len} characters) · ${T.n} entries · current filters applied</p>
+  <div class="cards">${kpi("Total",T.n)}${kpi("Resolved",T.o,"g2")}${kpi("Faulty",T.f,"r2")}${kpi("Pending / Hold",T.p,"o2")}${kpi("Fault %",pct(T.f,T.n)+"%","r2")}${kpi("Efficiency",pct(T.o,T.n)+"%","g2")}</div>
+  <h3 class="sh">Location-wise</h3><div class="tw"><table><thead><tr><th>Location</th><th>Entries</th><th>Resolved</th><th>Faulty</th><th>Pending</th><th>Fault %</th></tr></thead><tbody>
+  ${locs.map(l=>{const z=agg(rows.filter(x=>x.loc===l.id));return `<tr><td><b>${esc(l.menu)}</b></td><td>${z.n}</td><td>${z.o}</td><td>${z.f}</td><td>${z.p}</td><td>${z.n?`<span class="pf ${fcls(z.f/z.n*100)}">${pct(z.f,z.n)}%</span>`:"—"}</td></tr>`}).join("")}</tbody></table></div>
+  <h3 class="sh">Top reported issues</h3><div class="tw"><table><thead><tr><th>Issue</th><th>Entries</th><th>Faulty</th></tr></thead><tbody>${iss.map(x=>`<tr><td class="w">${esc(x.k)}</td><td>${x.n}</td><td>${x.f}</td></tr>`).join("")||"<tr><td colspan=3>No data</td></tr>"}</tbody></table></div>
+  <h3 class="sh">Faulty serial numbers (${bad.length})</h3><div>${bad.slice(0,80).map(x=>`<span class="chip" style="padding:4px 12px">${esc(x.sr||"(no serial)")} <small style="color:var(--mut)">${esc(locName(x.loc))}</small></span>`).join("")||"<small style='color:var(--mut)'>No faulty entries</small>"}${bad.length>80?`<small style="color:var(--mut)"> …and ${bad.length-80} more (use Export CSV / Status filter)</small>`:""}</div>
+  <div class="row" style="margin-top:14px"><button class="gry" id="pkc">Close</button></div></div>`;
+  m.onchange=null;m.oninput=null;m.classList.remove("hide");$("#pkc").onclick=()=>m.classList.add("hide")}
+});
+function bkWarn(){if(!isOwner())return "";const t=cfg.meta?.lastBackup,d=t?Math.floor((Date.now()-new Date(t))/864e5):null;
+ return d===null||d>30?`<div class="alert">🛡 <b>Backup due.</b> ${d===null?"No full backup has been recorded yet.":"Last full backup was "+d+" days ago."} Download a Full Backup (JSON) at least once a month and keep a copy in Google Drive. <button class="gry" data-a="gobk" style="margin-left:8px">Go to Backup</button></div>`:""}
+async function markBackup(){const iso=new Date().toISOString();try{await setDoc(doc(db,"config","meta"),{lastBackup:iso,lastBackupBy:me.name},{merge:true});cfg.meta={...(cfg.meta||{}),lastBackup:iso}}catch(_){}}
+const dash=()=>bkWarn()+modeBar()+(dtab==="all"?ovDash():dashLoc());
+
+const V=$("#view");
+V.onclick=e=>{const b=e.target.closest("[data-a]");if(b&&H[b.dataset.a])H[b.dataset.a](b.dataset.i,b)};
+V.onchange=e=>{const t=e.target;
+ if(t.dataset.of){OF[t.dataset.of]=t.dataset.of==="len"?+t.value:t.value;render()}
+ else if(t.dataset.owin!==undefined){const v=+t.value;for(const k in BASE){WIN[k]=v;try{localStorage.setItem("win_"+k,v)}catch(_){}Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false,full:false});SHOW[k]=20}ovLoad(false)}
+ else if(t.dataset.win!==undefined){const k=curMod(),v=+t.value;WIN[k]=v;try{localStorage.setItem("win_"+k,v)}catch(_){}Object.assign(S[k],{rows:[],cur:null,more:false,loaded:false,full:false});SHOW[k]=20;render();loadMod(k,false,k===view?20:FETCH)}
+ else if(t.dataset.f){const f=FL[curMod()];f[t.dataset.f]=t.value;if(t.dataset.f==="col")f.val="";render()}
+ else if(t.dataset.dim){DIM[dm]=t.value;DALL[dm]=false;render()}
+ else if(t.dataset.c==="loc"){updateDoc(doc(db,"users",t.dataset.i),{location:t.value}).then(()=>{const u=users.find(x=>x.id===t.dataset.i);if(u){u.location=t.value;log("Changed location",u.name+" → "+(locMenu(t.value)||"none"))}}).catch(fail)}else if(t.dataset.c==="ro"){updateDoc(doc(db,"users",t.dataset.i),{role:t.value}).then(()=>{const u=users.find(x=>x.id===t.dataset.i);if(u){u.role=t.value;log("Changed role",u.name+" → "+t.value)}}).catch(fail)}};
+V.oninput=e=>{const t=e.target;if(t.dataset.of==="q"||t.dataset.of==="pre"){const key=t.dataset.of,p=t.selectionStart;OF[key]=t.value;render();const n=document.querySelector('[data-of="'+key+'"]');if(n){n.focus();try{n.setSelectionRange(p,p)}catch(_){}}return}
+ if(t.id==="fq"){FL[curMod()].q=t.value;SHOW[curMod()]=20;const p=t.selectionStart;render();const n=$("#fq");n.focus();n.setSelectionRange(p,p)}};
+</script></body></html>
