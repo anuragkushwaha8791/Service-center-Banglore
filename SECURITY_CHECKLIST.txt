@@ -1,0 +1,57 @@
+SERVICE CENTER CRM — SECURITY CHECKLIST (Firebase free / Spark plan)
+====================================================================
+
+Basic fact: this app runs in the browser, so anyone who has the file can read the
+Firebase API key inside it. That is normal for Firebase. The key is NOT a password.
+Your data is protected by (1) Firestore Rules, (2) login, (3) the key restrictions below.
+Rules and project settings live ONLY in your Google account, so nobody can change them
+by editing or sharing the code.
+
+A. Keep control of your Firebase project  (most important)
+   0. GitHub repository can be Public: the file contains no password. Never upload a service-account JSON / private key.
+   1. Firebase Console -> Project settings -> Users and permissions:
+      only YOUR Google account should be listed. Never add your friend here.
+   2. Google Cloud Console -> IAM: same, only you.
+   3. Never share a "service account" JSON / private key file. The app does not need one.
+   4. Publish firestore.rules (Firestore Database -> Rules -> paste -> Publish).
+
+B. Lock the API key to your website  (so a copied file on another site is useless)
+   Google Cloud Console -> APIs & Services -> Credentials -> open the "Browser key":
+   1. Application restrictions = Websites (HTTP referrers). Add only your own address,
+      for example   https://yourname.github.io/*   (and your custom domain if any).
+   2. API restrictions = Restrict key. Allow only: Identity Toolkit API,
+      Token Service API, Cloud Firestore API  (add "Firebase App Check API" if you use C).
+   3. Test the login once from your real website after saving.
+
+C. Firebase App Check  (optional, strongly recommended — blocks scripts / fake clients)
+   1. Firebase Console -> App Check -> Apps -> Web -> register with reCAPTCHA v3
+      (copy the SITE key).
+   2. Open index.html in any text editor, search for   appCheckSiteKey   (near the top) and paste the site key between the quotes.
+   3. Upload the new index.html, log in, and check App Check shows "Verified requests".
+   4. Only after that: App Check -> APIs -> Cloud Firestore -> Enforce, and
+      Authentication -> Enforce.
+   (If something goes wrong, un-enforce in the console; your data is not touched.)
+
+D. What each role can do (enforced by the Rules, not by the code)
+   - Owner (operations194@mooving.com): everything, incl. creating admins, backup, restore.
+   - Admin: manages users, settings, inventory and data. An admin CAN read and edit data
+     through the app — and therefore also through modified code. Give "Admin" only to
+     people you fully trust.
+   - For someone you do not fully trust, use role "User" and tick exactly what he needs in
+     Users -> Access (locations, sections, view/add/edit/delete/export, inventory, setup).
+   - An admin can NOT: change Firebase rules, create or promote admins, change the Owner,
+     edit or delete the Activity Log before it is 39 days old, edit or delete the
+     deleted-entries archive.
+
+E. Protection against deletion / damage
+   - Every delete first stores a word-for-word copy in "deleted_entries" (the Rules refuse
+     a delete without it). Owner: Admin Settings -> Deleted entries archive -> Restore.
+   - Activity Log is tamper-proof (server time, cannot be edited, cannot be removed early).
+   - Download a Full Backup (JSON) at least once a month (Admin Settings -> Backup) and keep
+     a copy in Google Drive. The app reminds you after 30 days.
+
+F. If you ever suspect a leak
+   1. Firebase Console -> Authentication -> Users: disable the account.
+   2. In the app: Users -> Disable.
+   3. Google Cloud Console -> Credentials: "Regenerate key" for the browser key, put the new
+      key in index.html (firebaseConfig.apiKey) and upload again.
